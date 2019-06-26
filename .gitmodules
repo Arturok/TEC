@@ -31,3 +31,9 @@
 [submodule "Lenguajes, Compiladores e Intérpretes/Linux-Kernel-Module"]
 	path = Lenguajes, Compiladores e Intérpretes/Linux-Kernel-Module
 	url = https://github.com/CE-3104-1-2016/Linux-Kernel-Module.git
+[submodule "Pencilduino"]
+	path = Pencilduino
+	url = https://github.com/JAMS-ITCR/Pencilduino.git
+[submodule "Lenguajes, Compiladores e Intérpretes/Pencilduino"]
+	path = Lenguajes, Compiladores e Intérpretes/Pencilduino
+	url = https://github.com/JAMS-ITCR/Pencilduino.git
