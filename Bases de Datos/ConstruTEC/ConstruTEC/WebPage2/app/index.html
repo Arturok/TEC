@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app = 'app'>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+    <title>CONSTRU-TEC</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="Scripts/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Scripts/css/style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-ar">
+                    <span class="sr-only">Display / Hide Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">CONSTRU-TEC</a>
+            </div>
+            <!-- Menu Begin -->
+            <div class="collapse navbar-collapse" id="navigation-ar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Productos <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" class="text-center">Construcción</a></li><li class="divider"></li>
+                            <li><a href="#" class="text-center">Electricidad</a></li><li class="divider"></li>
+                            <li><a href="#" class="text-center">Plomería</a></li><li class="divider"></li>
+                            <li><a href="#" class="text-center">Hogar</a></li><li class="divider"></li>
+                            <li><a href="#" class="text-center">Jardín</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/login">Iniciar Sesión</a></li>
+                    <li><a href="#/register">Registro</a></li>
+                    <li><a href="#/admin">Admin</a></li>
+                    <li><a href="#/architect">Arquitecto</a></li>
+                    <li><a href="#/client">Cliente</a></li>
+                    <li><a href="#/stages">Etapa</a></li>
+                    <li><a href="#/materials">Material</a></li>
+                    <li><a href="#/project">Proyecto</a></li>
+                    <li><a href="#/comment">Comentario</a></li>
+                    <li><a href="#/stagereg">Reg Etapa</a></li>
+                    <li><a href="#/request">Pedido</a></li>
+                    <li><a href="#/budget">Presupuesto</a></li>
+                </ul>
+                <form action="" class="navbar-form navbar-right" role="search">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Busqueda" name=""></div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--Here is the Jumbotron-->
+<section class="jumbotron">
+    <div class="container">
+        <h1 >CONSTRU-TEC</h1>
+        <p>Le Cotizamos sus Proyectos</p>
+    </div>
+</section>
+
+<!--CONTENIDO A CAMBIAR-->
+<div class="main container">
+    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+    <div ng-view></div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <p>CONSTRU-TEC-2016</p>
+            </div>
+            <div class="col-xs-6">
+                <ul class="list-inline text-right">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="Scripts/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="Scripts/js/bootstrap.min.js" type="text/javascript"></script>
+<!--<script src="Scripts/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="Scripts/js/jquery-1.11.0.min.js"></script>-->
+
+<!--<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="//code.angularjs.org/1.2.20/angular.js"></script>
+<script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
+<script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
+<script src="app.js"></script>
+
+<!-- Importing Services Controllers -->
+<script src="Services/Authentication.js"></script>
+<script src="Services/EtapaService.js"></script>
+<script src="Services/FlashService.js"></script>
+<script src="Services/MaterialService.js"></script>
+<script src="Services/ProjectService.js"></script>
+<script src="Services/UserService.js"></script>
+<script src="Services/WebConfig.js"></script>
+
+<!-- Importing Pages Controllers -->
+<script src="Home/HomeController.js"></script>
+<script src="Login/LoginController.js"></script>
+<script src="Register/RegisterController.js"></script>
+<script src="ClientHome/ClientHomeController.js"></script>
+<script src="ArchitectHome/ArchitectHomeController.js"></script>
+<script src="AssignMaterials/AssignMaterialsController.js"></script>
+<script src="AssignStages/AssignStagesController.js"></script>
+<script src="CommentStage/CommentStageController.js"></script>
+<script src="AdminHome/AdminHomeController.js"></script>
+<script src="Request/RequestController.js"></script>
+<script src="Budget/BudgetController.js"></script>
+</body>
+</html>

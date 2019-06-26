@@ -1,0 +1,43 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-9 col-sm-offset-2">
+            <a href="#/login" class="btn btn-link || pull-right">Salir</a>
+            <center><h2>Cree su Proyecto</h2></center>
+            <div class="col-md-6 col-md-offset-3">
+                <form name="form" ng-submit="vm.createProject()" role="form">
+                    <div class="form-group" ng-class="{ 'has-error': form.codigo.$dirty && form.codigo.$error.required }">
+                        <input type="number" name="codigo" id="codigo" class="form-control" placeholder="Código" ng-model="vm.codigo" required />
+                        <span ng-show="form.codigo.$dirty && form.codigo.$error.required" class="help-block">Código Requerido</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': form.nombre.$dirty && form.nombre.$error.required }">
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" ng-model="vm.nombre" required />
+                        <span ng-show="form.nombre.$dirty && form.nombre.$error.required" class="help-block">Nombre Requerido</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': form.direccion.$dirty && form.direccion.$error.required }">
+                        <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Dirección" ng-model="vm.direccion" required />
+                        <span ng-show="form.direccion.$dirty && form.direccion.$error.required" class="help-block">ID del Arquitecto Requerido</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': form.idarq.$dirty && form.idarq.$error.required }">
+                        <input type="number" name="idarq" id="idarq" class="form-control" placeholder="ID del Arquitecto" ng-model="vm.idarq" required />
+                        <span ng-show="form.idarq.$dirty && form.diridarq.$error.required" class="help-block">Direccion Requerida</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': form.idclient.$dirty && form.idclient.$error.required }">
+                        <input type="number" name="idclient" id="idclient" class="form-control" placeholder="idclient" ng-model="vm.idclient" required />
+                        <span ng-show="form.idclient.$dirty && form.idclient.$error.required" class="help-block">ID del Cliente Requerido</span>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Crear</button>
+                        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                    </div>
+                </form><br>
+
+            </div>
+        </div>
+    </div>
+</div>

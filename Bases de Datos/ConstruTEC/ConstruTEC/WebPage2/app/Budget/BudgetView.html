@@ -1,0 +1,39 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-9 col-sm-offset-2">
+            <a href="#/login" class="btn btn-link || pull-right">Salir</a>
+            <center><h2>Generación de Presupuesto</h2></center>
+            <div class="col-md-6 col-md-offset-3">
+                <form name="form" ng-submit="vm.loadStages()" role="form">
+                    <div class="form-group" ng-class="{ 'has-error': form.proyecto.$dirty && form.proyecto.$error.required }">
+                        <select title="Proyecto" name="Proyecto" id = "Proyecto" class="form-control" id="Proyecto" ng-model="vm.proyecto" required>
+                            <option value="" disabled selected hidden>Por favor Escoja un Proyecto</option>
+                            <option ng-repeat="proyecto in vm.AllProjects">{{proyecto.Nombre}}</option>
+                        </select>
+                        <span ng-show="form.proyecto.$dirty && form.proyecto.$error.required" class="help-block">Proyecto Requerido</span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit"  class="btn btn-primary">Enviar</button>
+                        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                    </div><br>
+                    <div class="form-group" ng-class="{ 'has-error': form.etapa.$dirty && form.etapa.$error.required }">
+                        <h5>Total del Proyecto:</h5>
+                        <ul>
+                            <li>{{vm.currentProject}}</li>
+                        </ul>
+                    </div>
+                </form><br>
+                <div class="form-group" ng-class="{ 'has-error': form.etapa.$dirty && form.etapa.$error.required }">
+                    <h5>Precio por Etapas</h5>
+                    <ul>
+                        <li ng-repeat="etapas in vm.AllStages">Etapa: {{etapas.Nombre}} - Precio: {{etapas.Costo}}</li>
+                    </ul>
+                </div><br>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="row">
+    <section class="posts col-md-9">
+        <div class="bread-crumb">
+            <ol class="breadcrumb">
+                <li><a href="#">Crear Cuenta</a></li>
+            </ol>
+        </div>
+    </section>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-sm-9 col-sm-offset-2">
+            <div class="col-md-6 col-md-offset-3">
+                <h2 class="text-center">Crear Cuenta</h2>
+                <form name="form" ng-submit="vm.register()" role="form">
+                    <div class="form-group" ng-class="{ 'has-error': form.rol.$dirty && form.rol.$error.required }">
+                        <select title="ROL" name="Roles" id = "Roles" onclick="toggle_visibility('Roles', 'engCode', 'codeSpan');" class="form-control" id="rol" ng-model="vm.user.Rol" required>
+                            <option value="" disabled selected hidden>Por favor escoja un Rol</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="arquitecto">Arquitecto</option>
+                        </select>
+
+                        <span ng-show="form.rol.$dirty && form.rol.$error.required" class="help-block">Rol requerido</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+                        <input type="text" name="engCode" id="engCode" class="form-control" placeholder="Código Arquitecto" ng-model="vm.user.engCode" required />
+                        <span id="codeSpan" ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">Código de Arquitecto requerido</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+                        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Nombre" ng-model="vm.user.Nombre" required />
+                        <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">Nombre requerido</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.flastName.$dirty && form.flastName.$error.required }">
+                        <input type="text" name="FlastName" id="FlastName" class="form-control" placeholder="Primer Apellido" ng-model="vm.user.Apellido1" required />
+                        <span ng-show="form.flastName.$dirty && form.flastName.$error.required" class="help-block">Primer Apellido requerido</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': form.slastName.$dirty && form.slastName.$error.required }">
+                        <input type="text" name="SlastName" id="SlastName" class="form-control" placeholder="Segundo Apellido" ng-model="vm.user.Apellido2" required />
+                        <span ng-show="form.slastName.$dirty && form.slastName.$error.required" class="help-block">Segunndo Apellido requerido</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.cedula.$dirty && form.cedula.$error.required }">
+                        <input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cédula" ng-model="vm.user.Cedula" required />
+                        <span ng-show="form.cedula.$dirty && form.cedula.$error.required" class="help-block">Cedula requerida</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.FechaNacimiento.$dirty && form.FechaNacimiento.$error.required }">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='date' class="form-control" id="FechaNacimiento" placeholder="Fecha de Nacimiento" ng-model="vm.user.FechaNacimiento" required />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+
+
+                        <span ng-show="form.FechaNacimiento.$dirty && form.FechaNacimiento.$error.required" class="help-block">Fecha de Nacimiento requerida</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.telefono.$dirty && form.telefono.$error.required }">
+                        <input type="text" name="telefono" id="" class="form-control" placeholder="Número de Teléfono" ng-model="vm.user.Telefono" required />
+                        <span ng-show="form.telefono.$dirty && form.telefono.$error.required" class="help-block">Telefono requerido</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.LugarResidencia.$dirty && form.LugarResidencia.$error.required }">
+                        <input type="text" name="LugarNacimiento" id="LugarResidencia" class="form-control" placeholder="Dirección" ng-model="vm.user.LugarResidencia" required />
+                        <span ng-show="form.LugarResidencia.$dirty && form.LugarResidencia.$error.required" class="help-block">Lugar de Residencia requerido</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Nombre de Usuario" ng-model="vm.user.Usuario" required />
+                        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Usuario requerido</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" ng-model="vm.user.Password" required />
+                        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Contraseña requerida</span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Register</button>
+                        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        <a href="#/login" class="btn btn-link || pull-right">Cancelar</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    <!--
+    function toggle_visibility(id1, id2, id3) {
+        var e = document.getElementById(id1);
+        var d = document.getElementById(id2);
+        var f = document.getElementById(id3);
+        if(e.value == 'arquitecto'){
+            d.style.display = 'block';
+            f.style.display = 'block';
+        }
+        else{
+            d.style.display = 'none';
+            f.style.display = 'none';
+        }
+    }
+    //-->
+</script>

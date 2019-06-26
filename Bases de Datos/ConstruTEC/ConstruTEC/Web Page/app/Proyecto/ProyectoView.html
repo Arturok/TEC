@@ -1,0 +1,33 @@
+<div class="row">
+    <section class="posts col-md-9">
+        <div class="bread-crumb">
+            <ol class="breadcrumb">
+                <li><a href="#">Registrar Proyecto</a></li>
+            </ol>
+        </div>
+    </section>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-sm-9 col-sm-offset-2">
+            <div class="col-md-6 col-md-offset-3">
+                <h2 class="text-center">Crear Proyecto</h2>
+                <form name="form" ng-submit="vm.register()" role="form">
+                    <div class="form-group" ng-class="{ 'has-error': form.Name.$dirty && form.Name.$error.required }">
+                        <input type="text" name="Name" id="Name" class="form-control" placeholder="Nombre" ng-model="vm.user.Nombre" required />
+                        <span ng-show="form.Name.$dirty && form.Name.$error.required" class="help-block">Nombre requerido</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.Direction.$dirty && form.Direction.$error.required }">
+                        <input type="text" name="Direction" id="Direction" class="form-control" placeholder="Direction" ng-model="vm.user.Direction" required />
+                        <span ng-show="form.Direction.$dirty && form.Direction.$error.required" class="help-block">Direccion requerida</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.precio.$dirty && form.precio.$error.required }">
+                        <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" ng-model="vm.user.precio" required />
+                        <span ng-show="form.precio.$dirty && form.precio.$error.required" class="help-block">Precio requerido</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

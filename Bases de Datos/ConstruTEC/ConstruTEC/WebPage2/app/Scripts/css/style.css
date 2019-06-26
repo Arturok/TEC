@@ -1,0 +1,70 @@
+/* --HEADER-- */
+.navbar {
+	margin-bottom: 0;
+}
+
+.jumbotron {
+	background: #D35400 ;
+	color: #fff;
+	padding: 20px 0;
+}
+.jumbotron h1 {
+	color: #ffffff;
+
+
+}
+
+
+/* --POSTS --*/
+.main {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.post {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #999;
+}
+.post .post-tittle a {
+	color: #333;
+}
+
+.post .thumb {
+	margin-right: 10px;
+	width: 40%;
+}
+
+.post .thumb img {
+	width: 100%;
+}
+
+.post .button-container {
+	width: 100%;
+}
+
+/* -- Media Query --*/
+@media screen and (max-width: 768px) {
+	.post .thumb {
+		width: 100%;
+		margin-bottom: 20px;
+		margin-right: 0;
+
+	}
+}
+
+/* -- LOGIN -- */
+.btn.btn-link {
+	color: #ffffff;
+
+}
+
+.btn.btn-primary {
+
+	background: #2980b9;
+	border-color:#1a5276;
+	color: #ffffff;
+
+}
+
+}

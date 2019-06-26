@@ -1,0 +1,22 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-9 col-sm-offset-2">
+            <a href="#/login" class="btn btn-link || pull-right">Salir</a>
+            <center><h2>Bienvenido</h2></center><br>
+            <div class="col-md-6 col-md-offset-3">
+                <h4>Etapas Disponibles:</h4>
+                <form name="form" role="form">
+                    <div class="form-group" ng-class="{ 'has-error': form.etapa.$dirty && form.etapa.$error.required }">
+                        <ul>
+                            <li ng-repeat="etapas in vm.Templates">{{etapas.Nombre}}</li>
+                        </ul>
+                    </div>
+                </form>
+
+
+                <h4>Otras Funciones:</h4>
+                <a href="#/stagereg" class="btn  btn-primary btn-link">Crear Etapas</a>
+            </div>
+        </div>
+    </div>
+</div>
