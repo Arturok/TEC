@@ -1,0 +1,15 @@
+module seleccionTiempo_tb();
+
+logic [3:0] bebida, ingrediente;
+logic [1:0] salida;
+
+seleccionTiempo dut(ingrediente, bebida, salida);
+
+initial begin
+
+ingrediente = 1; bebida = 1; #10;
+assert (salida === 1) else $error("agua y cafe debería ser 01");
+
+end
+
+endmodule

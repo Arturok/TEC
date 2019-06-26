@@ -1,0 +1,30 @@
+module tiempoIngrediente_tb();
+
+logic [3:0] bebida, ingrediente;
+logic clk, reset, pasoTiempo;
+
+tiempoIngrediente dut(ingrediente, bebida, clk, reset);
+
+initial begin
+	clk=0;
+   forever #1 clk = ~clk;
+	
+	//agua y espresso 2 segundos
+ingrediente = 1; bebida = 1; #5000;
+//assert (salida === 1) else $error("agua y espresso debería ser 01 (2s)");
+	
+	//agua y moccha 1 segundo
+	ingrediente = 1; bebida = 8; #5000;
+	
+	//cafe y espresso 3 segundos
+	ingrediente = 3; bebida = 1; #5000;
+	
+	//leche y espresso 0 segundos
+	ingrediente = 1; bebida = 8; #5000;
+	
+	//caso default
+	ingrediente = 2; bebida = 7; #5000;
+	
+	
+	end
+endmodule

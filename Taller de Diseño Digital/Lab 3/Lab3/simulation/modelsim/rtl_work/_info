@@ -1,0 +1,267 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/user/Desktop/Lab3/simulation/modelsim
+vadder_n
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1535728262
+!i10b 1
+!s100 U]i;Loo;jkf>jM;2Bm@Ib2
+IhLJ46;ZSMIHfjU4EWoSK>0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 adder_n_v_unit
+S1
+R0
+Z4 w1535720672
+8C:/Users/user/Desktop/Lab3/adder_n.v
+FC:/Users/user/Desktop/Lab3/adder_n.v
+L0 1
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1535728262.000000
+!s107 C:/Users/user/Desktop/Lab3/adder_n.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/adder_n.v|
+!i113 1
+Z7 o-sv -work work
+Z8 !s92 -sv -work work +incdir+C:/Users/user/Desktop/Lab3
+Z9 tCvgOpt 0
+valu_n
+R1
+R2
+!i10b 1
+!s100 QCIPmCbiA^4n8ACQ^OcQG2
+IbF^_i7[SOZ=L@l:WDf;<n3
+R3
+!s105 alu_n_sv_unit
+S1
+R0
+w1535726052
+8C:/Users/user/Desktop/Lab3/alu_n.sv
+FC:/Users/user/Desktop/Lab3/alu_n.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Desktop/Lab3/alu_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/alu_n.sv|
+!i113 1
+R7
+R8
+R9
+valu_n_tb
+R1
+R2
+!i10b 1
+!s100 g_;Bl1`TcFb`KE1ZAJWNE0
+IRGima1o:PTXO9<zmhhAlm0
+R3
+!s105 alu_n_tb_v_unit
+S1
+R0
+w1535720682
+8C:/Users/user/Desktop/Lab3/alu_n_tb.v
+FC:/Users/user/Desktop/Lab3/alu_n_tb.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Desktop/Lab3/alu_n_tb.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/alu_n_tb.v|
+!i113 1
+R7
+R8
+R9
+vALUcontrolMux16_n
+R1
+R2
+!i10b 1
+!s100 e`Q^kFY9iLlIEnl_@Fc7b2
+IU[D7amVA>P13P:;eE87V23
+R3
+!s105 ALUcontrolMux16_n_v_unit
+S1
+R0
+R4
+8C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+FC:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v|
+!i113 1
+R7
+R8
+R9
+n@a@l@ucontrol@mux16_n
+vandGate_n
+R1
+R2
+!i10b 1
+!s100 AO4j29BJhILlKYMTUGChe1
+IlGSn4;SeVj@hMnILG1>SQ0
+R3
+!s105 andGate_n_v_unit
+S1
+R0
+w1535720684
+8C:/Users/user/Desktop/Lab3/andGate_n.v
+FC:/Users/user/Desktop/Lab3/andGate_n.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Desktop/Lab3/andGate_n.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/andGate_n.v|
+!i113 1
+R7
+R8
+R9
+nand@gate_n
+varithShifter_n
+R1
+R2
+!i10b 1
+!s100 <K;Oa?7dZR>LYUL]cM2Lo0
+IdCBHWQIe<XXlDL>emDcmW2
+R3
+!s105 arithShifter_n_v_unit
+S1
+R0
+w1535728102
+8C:/Users/user/Desktop/Lab3/arithShifter_n.v
+FC:/Users/user/Desktop/Lab3/arithShifter_n.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Desktop/Lab3/arithShifter_n.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/arithShifter_n.v|
+!i113 1
+R7
+R8
+R9
+narith@shifter_n
+vleftShifter_n
+R1
+!s110 1535728261
+!i10b 1
+!s100 059BgN;_R;kYUSbf0BYD>1
+Ih@RjgVQH^EdO5D[GfC=Wc2
+R3
+!s105 leftShifter_n_v_unit
+S1
+R0
+w1535720688
+8C:/Users/user/Desktop/Lab3/leftShifter_n.v
+FC:/Users/user/Desktop/Lab3/leftShifter_n.v
+L0 1
+R5
+r1
+!s85 0
+31
+Z10 !s108 1535728261.000000
+!s107 C:/Users/user/Desktop/Lab3/leftShifter_n.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/leftShifter_n.v|
+!i113 1
+R7
+R8
+R9
+nleft@shifter_n
+vorGate_n
+R1
+R2
+!i10b 1
+!s100 PMDRF98B[T0k>D5JPg<[?0
+IGjidDkYBa2@6mOnJ`c`<92
+R3
+!s105 orGate_n_v_unit
+S1
+R0
+w1535720696
+8C:/Users/user/Desktop/Lab3/orGate_n.v
+FC:/Users/user/Desktop/Lab3/orGate_n.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Desktop/Lab3/orGate_n.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/orGate_n.v|
+!i113 1
+R7
+R8
+R9
+nor@gate_n
+vrightShifter_n
+R1
+R2
+!i10b 1
+!s100 IQ;FEjXnfm;`i=zKNN8UL2
+IAFcTd:hJ:m;iImVlY1DMX2
+R3
+!s105 rightShifter_n_v_unit
+S1
+R0
+w1535720698
+8C:/Users/user/Desktop/Lab3/rightShifter_n.v
+FC:/Users/user/Desktop/Lab3/rightShifter_n.v
+L0 1
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/user/Desktop/Lab3/rightShifter_n.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/rightShifter_n.v|
+!i113 1
+R7
+R8
+R9
+nright@shifter_n
+vxorGate_n
+R1
+R2
+!i10b 1
+!s100 S<g_]J=aVnH9YaiFoIF9H2
+IQ5V?ERZKTKI`hTE6IUjQ=2
+R3
+!s105 xorGate_n_v_unit
+S1
+R0
+w1535720702
+8C:/Users/user/Desktop/Lab3/xorGate_n.v
+FC:/Users/user/Desktop/Lab3/xorGate_n.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Desktop/Lab3/xorGate_n.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Desktop/Lab3|C:/Users/user/Desktop/Lab3/xorGate_n.v|
+!i113 1
+R7
+R8
+R9
+nxor@gate_n

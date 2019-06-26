@@ -1,0 +1,66 @@
+		;Cargo	la informacion en memoria
+		;Primero	se traen los datos de memoria
+INICIO	  			;Posicion inicial del bichito
+		MOV		R11,#0x00004000	;Posicion de memoria
+		ADD		R1, R1, #15
+		STR		R1,[R11, #100]		;Guarda la posicion del bichito
+		ADD		R1, R1, #75
+		STR		R1,[R11, #104]		;Guarda la posicion del bichito
+		MOV		R9, #75			;Datos de UP
+		MOV		R8, #72			;Datos de DOWN
+		STR		R5, [R11, #100]	;Guardo la informacion en memoria
+		MOV		R10, #75			;Ejemplo de teclado
+		ADD		R2, R2, #640		;Ejemplo de obstaculo
+		ADD		R3, R3,#640		;Ejemplo de obstaculo
+		ADD		R4, R4,#640		;Ejemplo de obstaculo
+		MOV		R5, #5			;Final de loop
+		ADD		R1, R1, #300		;Posicion del bichito
+		;Cargo	el registro de memoria cuando se da un interupcion
+		
+		
+INICIOS	ADD		R5,R5, #400			;Final de loop
+		ADD		R11,R11,#0x00004000	;Posicion de memoria
+		LDR		R1,[R11, #0]		;Posicion Bichito
+		LDR		R2,[R11, #4]
+		
+Codigo	SUBS		R2, R2, #2		;Verifica si el dato se encuentra al final obs 1
+		BEQ		O1
+		STR		R2,[R11,#4]
+		;SUBS	R3, R3, #2		;Verifica si el dato se encuentra al final obs 2
+		;BEQ		O2
+		;SUBS	R4, R4, #2		;Verifica si el dato se encuentra al final obs 3
+		;BEQ		O3
+		SUBS	R5, R5, #1		;Loop 400
+		BEQ		FIN
+		
+INTE		LDR		R10, [R11, #8]	;Carga la posicion del bichito de memoria
+		;SUBS	R10, R10 ,#0		;Se queda aqui si no llega ningun dato
+		BEQ		Codigo
+		SUBS		R10, R10, #72		;Verifica la tecla del teclado es la de arriba
+		BEQ		DOWM
+		SUBS		R10, R10, #3		;Verifica si la tecla que se preciona es la de abajo
+		BEQ		UP
+FINTE	STR		R10,[R11, #4]	;Guarda que ya ha finalizado la interrupcion
+		B		Codigo
+		
+		
+		
+		
+UP		SUBS		R1,R0,#3			;Le suma 3 a la posicion Y del bichito
+		STR		R0,[R11, #0]		;Guarda la posicion del bichito
+		B		FINTE
+		
+DOWM		ADD		R1,R0,#3			;Le suma 3 a la posicion Y del bichito
+		STR		R0,[R11, #0]		;Guarda la posicion del bichito
+		B		FINTE
+		
+O1		ADD		R2, R2, #640
+		B		Codigo
+		
+O2		ADD		R3, R3, #640
+		B		Codigo
+		
+O3		ADD		R4, R4, #640
+		B		Codigo
+		
+FIN		MOV		R11, #0

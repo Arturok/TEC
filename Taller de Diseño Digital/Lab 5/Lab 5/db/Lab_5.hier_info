@@ -1,0 +1,17 @@
+|controlPintado
+clk => state~1.DATAIN
+reset => state~3.DATAIN
+boton => Selector1.IN3
+boton => Selector2.IN3
+boton => Selector3.IN3
+boton => Selector0.IN3
+boton => Selector0.IN1
+boton => Selector1.IN1
+boton => Selector2.IN1
+boton => Selector3.IN1
+reg1 << reg1.DB_MAX_OUTPUT_PORT_TYPE
+reg2 << reg2.DB_MAX_OUTPUT_PORT_TYPE
+reg3 << reg3.DB_MAX_OUTPUT_PORT_TYPE
+reg4 << reg4.DB_MAX_OUTPUT_PORT_TYPE
+
+

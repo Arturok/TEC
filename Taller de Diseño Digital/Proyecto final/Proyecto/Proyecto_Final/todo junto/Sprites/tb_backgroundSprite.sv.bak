@@ -1,0 +1,11 @@
+module tb_backgroundSprite();
+
+
+logic [9:0] x,y;
+logic [7:0] R, G, B;
+logic [31:0] currY;
+
+backgroundSprite dut(x,y,currY,R,G,B);
+
+
+endmodule

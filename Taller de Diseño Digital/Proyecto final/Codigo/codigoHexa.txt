@@ -1,0 +1,31 @@
+00	e2 80 0e 19	 #Inicio ADD R5,R5, #400
+04	e2 8b b9 01	 #ADD R11,R11,#0x00004000
+08	e5 9b 10 00	 #LDR R1,[R11, #0]
+0C	e5 9b 20 04	 #LDR R2,[R11, #4]
+10	e2 52 20 02	 #Codigo SUBS R2, R2, #2
+14	0a 00 00 11	 #BEQ 0x0000004c Obstaculo
+18	e5 8b 20 04	 #STR R2,[R11,#4]
+1C	e2 55 50 01	 #SUBS R5, R5, #1
+20	0a 00 00 10	 #BEQ 0x00000048 FIN
+24	e5 9b a0 08	 #FINTE LDR R10, [R11, #8]
+28	e2 5a a0 00	 #SUBS R10, R10 ,#0
+2C	0a 00 00 05	 #Revisar el salto hacia atras BEQ 0x1C CODIGO
+30	e2 5a a0 48	 #SUBS R10, R10, #72
+34	0a 00 00 06	 #BEQ 0x20 DOWN
+38	e2 5a a0 03	 #SUBS R10, R10, #3
+3C	0a 00 00 01	 #BEQ 0xc UP
+40	e5 8b a0 04	 #FINTE STR R10,[R11, #4]
+44	ea 00 00 0b	 #B #0x34 Codigo
+48	e2 51 10 03	 #UP SUB R1,R1,#3
+4C	e5 8b 00 00	 #STR R0,[R11, #0]
+50	ea 00 00 09	 #B 0X2C FINTE
+54	e2 81 10 03	 #DOWN ADD R1,R1,#3
+58	e5 8b 00 00	 #STR R0,[R11, #0]
+5C	ea 00 00 0c	 #B 0X38 FINTE
+60	e2 82 2d 0a	 #Obstaculo 1 ADD R2, R2, #640
+64	ea 00 00 13	 #B 0x54 Codigo
+68	#FIN
+
+
+
+

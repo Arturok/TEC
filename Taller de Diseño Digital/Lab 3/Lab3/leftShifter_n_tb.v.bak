@@ -1,0 +1,31 @@
+module leftShifter_n_tb();
+
+logic [7:0] A, Y;
+logic [2:0] B; 
+
+// instantiate device under test
+leftShifter_n dut(A, B, Y);
+// apply inputs one at a time
+// checking results
+initial begin
+a = 0; b = 0; #10;
+assert (y === 0) else $error("left shift 0 failed");
+a = 1; b = 1; #10;
+assert (y === 2) else $error("1 << 1 == 2 failed.");
+a = 1; b = 2; #10;
+assert (y === 4) else $error("1 << 2 == 4 failed.");
+a = 1; b = 5; #10;
+assert (y === 32) else $error("1 << 5 == 32 failed.");
+a = 5; b = 2; #10;
+assert (y === 20) else $error("5 << 2 failed.");
+
+end
+endmodule
+failed.");
+failed.");
+failed.");
+failed.");
+failed.");
+failed.");
+failed.");
+failed.");

@@ -1,0 +1,49 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/user/Desktop/Lab2/simulation/modelsim
+Eseven_seg_decoder
+Z1 w1533740975
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8C:/Users/user/Desktop/Lab2/seven_seg_decoder.vhd
+Z5 FC:/Users/user/Desktop/Lab2/seven_seg_decoder.vhd
+l0
+L2
+VEWbjQ@@BbeIidzhOEWUj42
+!s100 CK6]<9Y4:IX`67[QQd9zn2
+Z6 OV;C;10.5b;63
+33
+Z7 !s110 1533741309
+!i10b 1
+Z8 !s108 1533741309.000000
+Z9 !s90 -reportprogress|300|-2008|-work|work|C:/Users/user/Desktop/Lab2/seven_seg_decoder.vhd|
+Z10 !s107 C:/Users/user/Desktop/Lab2/seven_seg_decoder.vhd|
+!i113 1
+Z11 o-2008 -work work
+Z12 tExplicit 1 CvgOpt 0
+Asynth
+R2
+R3
+DEx4 work 17 seven_seg_decoder 0 22 EWbjQ@@BbeIidzhOEWUj42
+l7
+L6
+Va8XZiV;Xh^WELc@@:>OH03
+!s100 m^^iZma>W3nYLUZjRTHUW1
+R6
+33
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12

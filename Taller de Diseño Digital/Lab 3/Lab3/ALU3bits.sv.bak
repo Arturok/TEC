@@ -1,0 +1,11 @@
+module ALU3bits(
+
+input logic [2:0] A,B,
+input logic [3:0] ctrl,
+output logic [2:0] Y,
+output logic Zero, Overflow, Negative, Carry,
+output logic [6:0] Osegmento
+);
+
+alu_n #(2) dut(A, B, ctrl, Y, Zero, Overflow, Negative, Carry);
+seven_seg_decoder u1 (.data(Y), .segments(Osegmento));

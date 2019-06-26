@@ -1,0 +1,294 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do armv4_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/helper_modules {C:/Users/user/Documents/ARMv4/helper_modules/mux2.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:36 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/helper_modules" C:/Users/user/Documents/ARMv4/helper_modules/mux2.sv 
+# -- Compiling module mux2
+# 
+# Top level modules:
+# 	mux2
+# End time: 09:00:36 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/helper_modules {C:/Users/user/Documents/ARMv4/helper_modules/flopr.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:36 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/helper_modules" C:/Users/user/Documents/ARMv4/helper_modules/flopr.sv 
+# -- Compiling module flopr
+# 
+# Top level modules:
+# 	flopr
+# End time: 09:00:36 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/helper_modules {C:/Users/user/Documents/ARMv4/helper_modules/flopenr.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:36 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/helper_modules" C:/Users/user/Documents/ARMv4/helper_modules/flopenr.sv 
+# -- Compiling module flopenr
+# 
+# Top level modules:
+# 	flopenr
+# End time: 09:00:36 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/helper_modules {C:/Users/user/Documents/ARMv4/helper_modules/extend.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:36 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/helper_modules" C:/Users/user/Documents/ARMv4/helper_modules/extend.sv 
+# -- Compiling module extend
+# 
+# Top level modules:
+# 	extend
+# End time: 09:00:36 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/helper_modules {C:/Users/user/Documents/ARMv4/helper_modules/adder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:36 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/helper_modules" C:/Users/user/Documents/ARMv4/helper_modules/adder.sv 
+# -- Compiling module adder
+# 
+# Top level modules:
+# 	adder
+# End time: 09:00:36 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/xorGate_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:36 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/xorGate_n.sv 
+# -- Compiling module xorGate_n
+# 
+# Top level modules:
+# 	xorGate_n
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/rightShifter_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/rightShifter_n.sv 
+# -- Compiling module rightShifter_n
+# 
+# Top level modules:
+# 	rightShifter_n
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/orGate_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/orGate_n.sv 
+# -- Compiling module orGate_n
+# 
+# Top level modules:
+# 	orGate_n
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/leftShifter_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/leftShifter_n.sv 
+# -- Compiling module leftShifter_n
+# 
+# Top level modules:
+# 	leftShifter_n
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/arithShifter_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/arithShifter_n.sv 
+# -- Compiling module arithShifter_n
+# 
+# Top level modules:
+# 	arithShifter_n
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/andGate_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/andGate_n.sv 
+# -- Compiling module andGate_n
+# 
+# Top level modules:
+# 	andGate_n
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/ALUcontrolMux16_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/ALUcontrolMux16_n.sv 
+# -- Compiling module ALUcontrolMux16_n
+# 
+# Top level modules:
+# 	ALUcontrolMux16_n
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/alu.sv 
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module {C:/Users/user/Documents/ARMv4/alu_module/adder_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4/alu_module" C:/Users/user/Documents/ARMv4/alu_module/adder_n.sv 
+# -- Compiling module adder_n
+# 
+# Top level modules:
+# 	adder_n
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/top.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/top.sv 
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/regfile.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/regfile.sv 
+# -- Compiling module regfile
+# 
+# Top level modules:
+# 	regfile
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/dmem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/dmem.sv 
+# -- Compiling module dmem
+# 
+# Top level modules:
+# 	dmem
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/decoder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/decoder.sv 
+# -- Compiling module decoder
+# 
+# Top level modules:
+# 	decoder
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/datapath.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/datapath.sv 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/controller.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/controller.sv 
+# -- Compiling module controller
+# 
+# Top level modules:
+# 	controller
+# End time: 09:00:37 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/condlogic.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:37 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/condlogic.sv 
+# -- Compiling module condlogic
+# -- Compiling module condcheck
+# 
+# Top level modules:
+# 	condlogic
+# End time: 09:00:38 on Oct 31,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/arm_testbench.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:38 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/arm_testbench.sv 
+# -- Compiling module arm_testbench
+# 
+# Top level modules:
+# 	arm_testbench
+# End time: 09:00:38 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/arm.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:38 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/arm.sv 
+# -- Compiling module arm
+# 
+# Top level modules:
+# 	arm
+# End time: 09:00:38 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Documents/ARMv4 {C:/Users/user/Documents/ARMv4/imem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:00:38 on Oct 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Documents/ARMv4" C:/Users/user/Documents/ARMv4/imem.sv 
+# -- Compiling module imem
+# 
+# Top level modules:
+# 	imem
+# End time: 09:00:38 on Oct 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.arm_testbench
+# vsim work.arm_testbench 
+# Start time: 09:00:45 on Oct 31,2018
+# Loading sv_std.std
+# Loading work.arm_testbench
+# Loading work.top
+# Loading work.arm
+# Loading work.controller
+# Loading work.decoder
+# Loading work.condlogic
+# Loading work.flopenr
+# Loading work.condcheck
+# Loading work.datapath
+# Loading work.mux2
+# Loading work.flopr
+# Loading work.adder
+# Loading work.regfile
+# Loading work.extend
+# Loading work.alu
+# Loading work.adder_n
+# Loading work.andGate_n
+# Loading work.orGate_n
+# Loading work.xorGate_n
+# Loading work.leftShifter_n
+# Loading work.rightShifter_n
+# Loading work.arithShifter_n
+# Loading work.ALUcontrolMux16_n
+# Loading work.imem
+# Loading work.dmem
+add wave -position end  sim:/arm_testbench/dut/clk
+add wave -position end  sim:/arm_testbench/dut/reset
+add wave -position end  sim:/arm_testbench/dut/PC
+add wave -position end  sim:/arm_testbench/dut/Instr
+add wave -position end  sim:/arm_testbench/dut/arm/ALUResult
+run
+run
+run
+# Simulation succeeded
+# End time: 09:25:47 on Oct 31,2018, Elapsed time: 0:25:02
+# Errors: 0, Warnings: 0

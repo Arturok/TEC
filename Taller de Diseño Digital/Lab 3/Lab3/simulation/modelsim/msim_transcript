@@ -1,0 +1,174 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do ALU_N_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/leftShifter_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:01 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/leftShifter_n.v 
+# -- Compiling module leftShifter_n
+# 
+# Top level modules:
+# 	leftShifter_n
+# End time: 09:11:01 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/rightShifter_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:01 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/rightShifter_n.v 
+# -- Compiling module rightShifter_n
+# 
+# Top level modules:
+# 	rightShifter_n
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/arithShifter_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:02 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/arithShifter_n.v 
+# -- Compiling module arithShifter_n
+# 
+# Top level modules:
+# 	arithShifter_n
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/adder_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:02 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/adder_n.v 
+# -- Compiling module adder_n
+# 
+# Top level modules:
+# 	adder_n
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/andGate_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:02 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/andGate_n.v 
+# -- Compiling module andGate_n
+# 
+# Top level modules:
+# 	andGate_n
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/orGate_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:02 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/orGate_n.v 
+# -- Compiling module orGate_n
+# 
+# Top level modules:
+# 	orGate_n
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/xorGate_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:02 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/xorGate_n.v 
+# -- Compiling module xorGate_n
+# 
+# Top level modules:
+# 	xorGate_n
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:02 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v 
+# -- Compiling module ALUcontrolMux16_n
+# 
+# Top level modules:
+# 	ALUcontrolMux16_n
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/alu_n_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:02 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/alu_n_tb.v 
+# -- Compiling module alu_n_tb
+# 
+# Top level modules:
+# 	alu_n_tb
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/user/Desktop/Lab3 {C:/Users/user/Desktop/Lab3/alu_n.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:11:02 on Aug 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/user/Desktop/Lab3" C:/Users/user/Desktop/Lab3/alu_n.sv 
+# -- Compiling module alu_n
+# 
+# Top level modules:
+# 	alu_n
+# End time: 09:11:02 on Aug 31,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.alu_n_tb
+# vsim work.alu_n_tb 
+# Start time: 09:11:07 on Aug 31,2018
+# Loading sv_std.std
+# Loading work.alu_n_tb
+# Loading work.alu_n
+# Loading work.adder_n
+# Loading work.andGate_n
+# Loading work.orGate_n
+# Loading work.xorGate_n
+# Loading work.leftShifter_n
+# Loading work.rightShifter_n
+# Loading work.arithShifter_n
+# Loading work.ALUcontrolMux16_n
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n_tb.v(8): [PCDPC] - Port size (4) does not match connection size (8) for port 'A'. The port definition is at: C:/Users/user/Desktop/Lab3/alu_n.sv(3).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut File: C:/Users/user/Desktop/Lab3/alu_n.sv
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n_tb.v(8): [PCDPC] - Port size (4) does not match connection size (8) for port 'B'. The port definition is at: C:/Users/user/Desktop/Lab3/alu_n.sv(3).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut File: C:/Users/user/Desktop/Lab3/alu_n.sv
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n_tb.v(8): [PCDPC] - Port size (4) does not match connection size (8) for port 'Y'. The port definition is at: C:/Users/user/Desktop/Lab3/alu_n.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut File: C:/Users/user/Desktop/Lab3/alu_n.sv
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'sum'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'substr'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'and_op'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'not_op'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'or_op'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'xor_op'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'leftShift_op'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'rightShift_op'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'arithShift_op'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+# ** Warning: (vsim-3015) C:/Users/user/Desktop/Lab3/alu_n.sv(33): [PCDPC] - Port size (8) does not match connection size (4) for port 'Y'. The port definition is at: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v(5).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_n_tb/dut/control File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v
+add wave -position end  sim:/alu_n_tb/A
+add wave -position end  sim:/alu_n_tb/B
+add wave -position end  sim:/alu_n_tb/Y
+add wave -position end  sim:/alu_n_tb/ctrl
+add wave -position end  sim:/alu_n_tb/Zero
+add wave -position end  sim:/alu_n_tb/Overflow
+add wave -position end  sim:/alu_n_tb/Negative
+add wave -position end  sim:/alu_n_tb/Carry
+run -all
+# ** Error: 1 XOR 0 Operation, Carry flag failed
+#    Time: 220 ps  Scope: alu_n_tb File: C:/Users/user/Desktop/Lab3/alu_n_tb.v Line: 199
+# ** Error: 'b0001 >>> 1 = 'b0000 failed.
+#    Time: 330 ps  Scope: alu_n_tb File: C:/Users/user/Desktop/Lab3/alu_n_tb.v Line: 288
+# ** Error: 'b0001 >>> 1 Operation, Zero flag failed
+#    Time: 330 ps  Scope: alu_n_tb File: C:/Users/user/Desktop/Lab3/alu_n_tb.v Line: 289
+# ** Error: 'b1001 >>> 1 = 'b1100 failed.
+#    Time: 340 ps  Scope: alu_n_tb File: C:/Users/user/Desktop/Lab3/alu_n_tb.v Line: 297
+# ** Error: 'b1101 >>> 1 = 'b1100 failed.
+#    Time: 350 ps  Scope: alu_n_tb File: C:/Users/user/Desktop/Lab3/alu_n_tb.v Line: 305
+# End time: 09:15:25 on Aug 31,2018, Elapsed time: 0:04:18
+# Errors: 5, Warnings: 13

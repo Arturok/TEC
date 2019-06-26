@@ -1,0 +1,16 @@
+module calculoVuelto #(N = 4)(	
+	input logic [N-1:0] cantDinero,
+	input logic [1:0] S,
+	output logic sufDinero,
+	output logic [N-1:0] vuelto);
+	
+	logic [N-1:0] selecBebida, salCalBebida, sVuelto;
+	logic Cout;
+	mux4 muxBebida(0011,0100,0101,0111,S,selecBebida);
+	assign sVuelto = cantDinero - selecBebida;
+	assign sufDinero = ~sVuelto[3];
+	mux2 muxVuelto(sVuelto,4'b0,~sVuelto[3], vuelto);
+	
+endmodule
+
+

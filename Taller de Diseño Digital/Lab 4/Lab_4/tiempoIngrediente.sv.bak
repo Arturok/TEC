@@ -1,0 +1,22 @@
+module tiempoIngrediente ( input logic [3:0] ingrediente,
+input logic [3:0] bebida,
+input logic clk, reset, 
+output logic tiempoPasado);
+
+logic [31:0] count;
+logic temp1s, temp2s, temp3s;
+logic [1:0] selTemp;
+
+cont_n #(32) clockdivider(clk, reset, count);
+
+assign  temp1s = count[23]; //periodo 1 segundo
+assign  temp1s = count[24]; //perido 2 segundos
+assign  temp1s = count[25]; //periodo 3 segundos
+
+
+seleccionTiempo tempSel(ingrediente, bebida, selTemp);
+
+mux4 #(1) clockSelect(temp1s, temp2s, temp3s, 0, selTemp, tiempoPasado);
+
+endmodule
+

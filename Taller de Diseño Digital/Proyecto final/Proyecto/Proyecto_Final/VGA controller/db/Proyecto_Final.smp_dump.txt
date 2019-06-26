@@ -1,0 +1,7 @@
+
+State Machine - |vga|controlPintado:pintor|state
+Name state.E3 state.E2 state.E1 state.E0 
+state.E0 0 0 0 0 
+state.E1 0 0 1 1 
+state.E2 0 1 0 1 
+state.E3 1 0 0 1 

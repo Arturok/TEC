@@ -1,0 +1,481 @@
+Analysis & Synthesis report for ALU_N
+Fri Aug 31 09:17:01 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Parameter Settings for User Entity Instance: alu_n:dut
+ 10. Parameter Settings for User Entity Instance: alu_n:dut|adder_n:sumador
+ 11. Parameter Settings for User Entity Instance: alu_n:dut|andGate_n:compAnd
+ 12. Parameter Settings for User Entity Instance: alu_n:dut|orGate_n:compOR
+ 13. Parameter Settings for User Entity Instance: alu_n:dut|xorGate_n:compXor
+ 14. Parameter Settings for User Entity Instance: alu_n:dut|leftShifter_n:ls
+ 15. Parameter Settings for User Entity Instance: alu_n:dut|rightShifter_n:rs
+ 16. Parameter Settings for User Entity Instance: alu_n:dut|arithShifter_n:as
+ 17. Parameter Settings for User Entity Instance: alu_n:dut|ALUcontrolMux16_n:control
+ 18. Port Connectivity Checks: "seven_seg_decoder:u1"
+ 19. Port Connectivity Checks: "alu_n:dut|ALUcontrolMux16_n:control"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+ 23. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Aug 31 09:17:01 2018       ;
+; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                   ; ALU_N                                       ;
+; Top-level Entity Name           ; ALU3bits                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 21                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; ALU3bits           ; ALU_N              ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
+; Verilog Show LMF Mapping Messages                                               ; Off                ;                    ;
+; Verilog Version                                                                 ; SystemVerilog_2005 ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
+; seven_seg_decoder.vhd            ; yes             ; User VHDL File               ; C:/Users/user/Desktop/Lab3/seven_seg_decoder.vhd ;         ;
+; alu_n.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/user/Desktop/Lab3/alu_n.sv              ;         ;
+; leftShifter_n.v                  ; yes             ; User Verilog HDL File        ; C:/Users/user/Desktop/Lab3/leftShifter_n.v       ;         ;
+; rightShifter_n.v                 ; yes             ; User Verilog HDL File        ; C:/Users/user/Desktop/Lab3/rightShifter_n.v      ;         ;
+; arithShifter_n.v                 ; yes             ; User Verilog HDL File        ; C:/Users/user/Desktop/Lab3/arithShifter_n.v      ;         ;
+; adder_n.v                        ; yes             ; User Verilog HDL File        ; C:/Users/user/Desktop/Lab3/adder_n.v             ;         ;
+; andGate_n.v                      ; yes             ; User Verilog HDL File        ; C:/Users/user/Desktop/Lab3/andGate_n.v           ;         ;
+; orGate_n.v                       ; yes             ; User Verilog HDL File        ; C:/Users/user/Desktop/Lab3/orGate_n.v            ;         ;
+; xorGate_n.v                      ; yes             ; User Verilog HDL File        ; C:/Users/user/Desktop/Lab3/xorGate_n.v           ;         ;
+; ALUcontrolMux16_n.v              ; yes             ; User Verilog HDL File        ; C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v   ;         ;
+; ALU3bits.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/user/Desktop/Lab3/ALU3bits.sv           ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimate of Logic utilization (ALMs needed) ; 18            ;
+;                                             ;               ;
+; Combinational ALUT usage for logic          ; 29            ;
+;     -- 7 input functions                    ; 5             ;
+;     -- 6 input functions                    ; 2             ;
+;     -- 5 input functions                    ; 13            ;
+;     -- 4 input functions                    ; 3             ;
+;     -- <=3 input functions                  ; 6             ;
+;                                             ;               ;
+; Dedicated logic registers                   ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 21            ;
+;                                             ;               ;
+; Total DSP Blocks                            ; 0             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; ctrl[3]~input ;
+; Maximum fan-out                             ; 13            ;
+; Total fan-out                               ; 173           ;
+; Average fan-out                             ; 2.44          ;
++---------------------------------------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
++-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name       ; Library Name ;
++-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+-------------------+--------------+
+; |ALU3bits                         ; 29 (0)              ; 0 (0)                     ; 0                 ; 0          ; 21   ; 0            ; |ALU3bits                                     ; ALU3bits          ; work         ;
+;    |alu_n:dut|                    ; 22 (7)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU3bits|alu_n:dut                           ; alu_n             ; work         ;
+;       |ALUcontrolMux16_n:control| ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU3bits|alu_n:dut|ALUcontrolMux16_n:control ; ALUcontrolMux16_n ; work         ;
+;       |adder_n:sumador|           ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU3bits|alu_n:dut|adder_n:sumador           ; adder_n           ; work         ;
+;       |arithShifter_n:as|         ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU3bits|alu_n:dut|arithShifter_n:as         ; arithShifter_n    ; work         ;
+;    |seven_seg_decoder:u1|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU3bits|seven_seg_decoder:u1                ; seven_seg_decoder ; work         ;
++-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; N              ; 3     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut|adder_n:sumador ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; N              ; 3     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut|andGate_n:compAnd ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; N              ; 3     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut|orGate_n:compOR ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; N              ; 3     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut|xorGate_n:compXor ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; N              ; 3     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut|leftShifter_n:ls ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 3     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut|rightShifter_n:rs ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; N              ; 3     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut|arithShifter_n:as ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; N              ; 3     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_n:dut|ALUcontrolMux16_n:control ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:u1"                                                                                         ;
++------+-------+------------------+--------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity         ; Details                                                                                                ;
++------+-------+------------------+--------------------------------------------------------------------------------------------------------+
+; data ; Input ; Critical Warning ; Can't connect array with 3 elements in array dimension 1 to port with 4 elements in the same dimension ;
++------+-------+------------------+--------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_n:dut|ALUcontrolMux16_n:control"                                                                                                                           ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                               ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; sum           ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "sum[7..3]" will be connected to GND.           ;
+; substr        ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "substr[7..3]" will be connected to GND.        ;
+; and_op        ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "and_op[7..3]" will be connected to GND.        ;
+; not_op        ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "not_op[7..3]" will be connected to GND.        ;
+; or_op         ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "or_op[7..3]" will be connected to GND.         ;
+; xor_op        ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "xor_op[7..3]" will be connected to GND.        ;
+; leftShift_op  ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "leftShift_op[7..3]" will be connected to GND.  ;
+; rightShift_op ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "rightShift_op[7..3]" will be connected to GND. ;
+; arithShift_op ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "arithShift_op[7..3]" will be connected to GND. ;
+; Y             ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (3 bits) it drives; bit(s) "Y[7..3]" have no fanouts                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 29                          ;
+;     extend            ; 5                           ;
+;         7 data inputs ; 5                           ;
+;     normal            ; 20                          ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 3                           ;
+;         5 data inputs ; 13                          ;
+;         6 data inputs ; 2                           ;
+;     shared            ; 4                           ;
+;         0 data inputs ; 1                           ;
+;         3 data inputs ; 3                           ;
+; boundary_port         ; 21                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.20                        ;
+; Average LUT depth     ; 3.65                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Fri Aug 31 09:16:50 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU_N -c ALU_N
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file seven_seg_decoder.vhd
+    Info (12022): Found design unit 1: seven_seg_decoder-synth File: C:/Users/user/Desktop/Lab3/seven_seg_decoder.vhd Line: 6
+    Info (12023): Found entity 1: seven_seg_decoder File: C:/Users/user/Desktop/Lab3/seven_seg_decoder.vhd Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file alu_n.sv
+    Info (12023): Found entity 1: alu_n File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file leftshifter_n.v
+    Info (12023): Found entity 1: leftShifter_n File: C:/Users/user/Desktop/Lab3/leftShifter_n.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file rightshifter_n.v
+    Info (12023): Found entity 1: rightShifter_n File: C:/Users/user/Desktop/Lab3/rightShifter_n.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file arithshifter_n.v
+    Info (12023): Found entity 1: arithShifter_n File: C:/Users/user/Desktop/Lab3/arithShifter_n.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file leftshifter_n_tb.v
+    Info (12023): Found entity 1: leftShifter_n_tb File: C:/Users/user/Desktop/Lab3/leftShifter_n_tb.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file rightshifter_n_tb.v
+    Info (12023): Found entity 1: rightShifter_n_tb File: C:/Users/user/Desktop/Lab3/rightShifter_n_tb.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file adder_n.v
+    Info (12023): Found entity 1: adder_n File: C:/Users/user/Desktop/Lab3/adder_n.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file andgate_n.v
+    Info (12023): Found entity 1: andGate_n File: C:/Users/user/Desktop/Lab3/andGate_n.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file orgate_n.v
+    Info (12023): Found entity 1: orGate_n File: C:/Users/user/Desktop/Lab3/orGate_n.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file xorgate_n.v
+    Info (12023): Found entity 1: xorGate_n File: C:/Users/user/Desktop/Lab3/xorGate_n.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alucontrolmux16_n.v
+    Info (12023): Found entity 1: ALUcontrolMux16_n File: C:/Users/user/Desktop/Lab3/ALUcontrolMux16_n.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_n_tb.v
+    Info (12023): Found entity 1: alu_n_tb File: C:/Users/user/Desktop/Lab3/alu_n_tb.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file n_and.sv
+    Info (12023): Found entity 1: n_and File: C:/Users/user/Desktop/Lab3/n_and.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu3bits.sv
+    Info (12023): Found entity 1: ALU3bits File: C:/Users/user/Desktop/Lab3/ALU3bits.sv Line: 1
+Info (12127): Elaborating entity "ALU3bits" for the top level hierarchy
+Info (12128): Elaborating entity "alu_n" for hierarchy "alu_n:dut" File: C:/Users/user/Desktop/Lab3/ALU3bits.sv Line: 11
+Info (12128): Elaborating entity "adder_n" for hierarchy "alu_n:dut|adder_n:sumador" File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 18
+Info (12128): Elaborating entity "andGate_n" for hierarchy "alu_n:dut|andGate_n:compAnd" File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 19
+Info (12128): Elaborating entity "orGate_n" for hierarchy "alu_n:dut|orGate_n:compOR" File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 20
+Info (12128): Elaborating entity "xorGate_n" for hierarchy "alu_n:dut|xorGate_n:compXor" File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 21
+Info (12128): Elaborating entity "leftShifter_n" for hierarchy "alu_n:dut|leftShifter_n:ls" File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 22
+Info (12128): Elaborating entity "rightShifter_n" for hierarchy "alu_n:dut|rightShifter_n:rs" File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 23
+Info (12128): Elaborating entity "arithShifter_n" for hierarchy "alu_n:dut|arithShifter_n:as" File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 24
+Info (12128): Elaborating entity "ALUcontrolMux16_n" for hierarchy "alu_n:dut|ALUcontrolMux16_n:control" File: C:/Users/user/Desktop/Lab3/alu_n.sv Line: 34
+Info (12128): Elaborating entity "seven_seg_decoder" for hierarchy "seven_seg_decoder:u1" File: C:/Users/user/Desktop/Lab3/ALU3bits.sv Line: 12
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/user/Desktop/Lab3/output_files/ALU_N.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 50 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 29 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4875 megabytes
+    Info: Processing ended: Fri Aug 31 09:17:01 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/user/Desktop/Lab3/output_files/ALU_N.map.smsg.
+
+

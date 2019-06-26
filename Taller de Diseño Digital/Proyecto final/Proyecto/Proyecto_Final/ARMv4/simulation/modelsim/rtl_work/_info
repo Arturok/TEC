@@ -1,0 +1,642 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/user/Documents/ARMv4/simulation/modelsim
+vadder
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1540998036
+!i10b 1
+!s100 lL[13bJ?nWX>MaML?k2iF3
+IUjQg2_O=e;_BDDY5nS6;l2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 adder_sv_unit
+S1
+R0
+Z4 w1540660950
+8C:/Users/user/Documents/ARMv4/helper_modules/adder.sv
+FC:/Users/user/Documents/ARMv4/helper_modules/adder.sv
+L0 1
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1540998036.000000
+!s107 C:/Users/user/Documents/ARMv4/helper_modules/adder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/helper_modules|C:/Users/user/Documents/ARMv4/helper_modules/adder.sv|
+!i113 1
+Z7 o-sv -work work
+Z8 !s92 -sv -work work +incdir+C:/Users/user/Documents/ARMv4/helper_modules
+Z9 tCvgOpt 0
+vadder_n
+R1
+Z10 !s110 1540998037
+!i10b 1
+!s100 U]i;Loo;jkf>jM;2Bm@Ib2
+IE?hEj=idi]ENKRzZPhV[?3
+R3
+!s105 adder_n_sv_unit
+S1
+R0
+Z11 w1540660946
+8C:/Users/user/Documents/ARMv4/alu_module/adder_n.sv
+FC:/Users/user/Documents/ARMv4/alu_module/adder_n.sv
+L0 1
+R5
+r1
+!s85 0
+31
+Z12 !s108 1540998037.000000
+!s107 C:/Users/user/Documents/ARMv4/alu_module/adder_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/adder_n.sv|
+!i113 1
+R7
+Z13 !s92 -sv -work work +incdir+C:/Users/user/Documents/ARMv4/alu_module
+R9
+valu
+R1
+R10
+!i10b 1
+!s100 ;O9d]_@e4HZHG2PifmF`:0
+IGI@edh=6=_>Kel[C`02K33
+R3
+!s105 alu_sv_unit
+S1
+R0
+Z14 w1540660948
+8C:/Users/user/Documents/ARMv4/alu_module/alu.sv
+FC:/Users/user/Documents/ARMv4/alu_module/alu.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/alu_module/alu.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/alu.sv|
+!i113 1
+R7
+R13
+R9
+vALUcontrolMux16_n
+R1
+R10
+!i10b 1
+!s100 [AX7OQFeoRgAkFC9J=E0e3
+IR7R`eMkVc:Eb@l5;neG4f3
+R3
+!s105 ALUcontrolMux16_n_sv_unit
+S1
+R0
+w1540993834
+8C:/Users/user/Documents/ARMv4/alu_module/ALUcontrolMux16_n.sv
+FC:/Users/user/Documents/ARMv4/alu_module/ALUcontrolMux16_n.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/alu_module/ALUcontrolMux16_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/ALUcontrolMux16_n.sv|
+!i113 1
+R7
+R13
+R9
+n@a@l@ucontrol@mux16_n
+vandGate_n
+R1
+R10
+!i10b 1
+!s100 AO4j29BJhILlKYMTUGChe1
+IS@4W`ln?WK_QPEX__On6:0
+R3
+!s105 andGate_n_sv_unit
+S1
+R0
+R14
+8C:/Users/user/Documents/ARMv4/alu_module/andGate_n.sv
+FC:/Users/user/Documents/ARMv4/alu_module/andGate_n.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/alu_module/andGate_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/andGate_n.sv|
+!i113 1
+R7
+R13
+R9
+nand@gate_n
+varithShifter_n
+R1
+R10
+!i10b 1
+!s100 fNG6bWi615bdNonNH^?Un3
+IYciEljzz6;lmVFVSB80FN3
+R3
+!s105 arithShifter_n_sv_unit
+S1
+R0
+R14
+8C:/Users/user/Documents/ARMv4/alu_module/arithShifter_n.sv
+FC:/Users/user/Documents/ARMv4/alu_module/arithShifter_n.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/alu_module/arithShifter_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/arithShifter_n.sv|
+!i113 1
+R7
+R13
+R9
+narith@shifter_n
+varm
+R1
+Z15 !s110 1540998038
+!i10b 1
+!s100 ODf;2LFcfH64E;1`AniaE0
+I]O>ZBfL]3WMK6Q`:>DQKj3
+R3
+!s105 arm_sv_unit
+S1
+R0
+Z16 w1540660944
+8C:/Users/user/Documents/ARMv4/arm.sv
+FC:/Users/user/Documents/ARMv4/arm.sv
+L0 1
+R5
+r1
+!s85 0
+31
+Z17 !s108 1540998038.000000
+!s107 C:/Users/user/Documents/ARMv4/arm.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/arm.sv|
+!i113 1
+R7
+Z18 !s92 -sv -work work +incdir+C:/Users/user/Documents/ARMv4
+R9
+varm_testbench
+R1
+R15
+!i10b 1
+!s100 bFTE14nA:7ng^GTLCM8VE2
+IU0hc@DdQYNdjBCmV<VFSL2
+R3
+!s105 arm_testbench_sv_unit
+S1
+R0
+R11
+8C:/Users/user/Documents/ARMv4/arm_testbench.sv
+FC:/Users/user/Documents/ARMv4/arm_testbench.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/user/Documents/ARMv4/arm_testbench.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/arm_testbench.sv|
+!i113 1
+R7
+R18
+R9
+vcondcheck
+R1
+R15
+!i10b 1
+!s100 gB?^9N2MlmcBT4[DReLFi2
+I^JIm]UKCUA2dT<dm5m?@U2
+R3
+Z19 !s105 condlogic_sv_unit
+S1
+R0
+R11
+Z20 8C:/Users/user/Documents/ARMv4/condlogic.sv
+Z21 FC:/Users/user/Documents/ARMv4/condlogic.sv
+L0 28
+R5
+r1
+!s85 0
+31
+R12
+Z22 !s107 C:/Users/user/Documents/ARMv4/condlogic.sv|
+Z23 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/condlogic.sv|
+!i113 1
+R7
+R18
+R9
+vcondlogic
+R1
+R10
+!i10b 1
+!s100 h]=Jmj:ceN[e]mRDhemH33
+I_SlOcZGOhFDok8nSK2]<40
+R3
+R19
+S1
+R0
+R11
+R20
+R21
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+R22
+R23
+!i113 1
+R7
+R18
+R9
+vcontroller
+R1
+R10
+!i10b 1
+!s100 WEai=W2;kXeckFinW;>;N0
+Inh[IfDdm1CG_O_6YX9YU?3
+R3
+!s105 controller_sv_unit
+S1
+R0
+w1540995162
+8C:/Users/user/Documents/ARMv4/controller.sv
+FC:/Users/user/Documents/ARMv4/controller.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/controller.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/controller.sv|
+!i113 1
+R7
+R18
+R9
+vdatapath
+R1
+R10
+!i10b 1
+!s100 aboU=T9XhogO`DG@0D9^M1
+IHZDIAVC>KNaN::Q=E`:m:3
+R3
+!s105 datapath_sv_unit
+S1
+R0
+w1540995378
+8C:/Users/user/Documents/ARMv4/datapath.sv
+FC:/Users/user/Documents/ARMv4/datapath.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/datapath.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/datapath.sv|
+!i113 1
+R7
+R18
+R9
+vdecoder
+R1
+R10
+!i10b 1
+!s100 4=Oj[j4cB[n@dODknT@C:3
+I_i:I1UQ8cSz`96aKLG[j72
+R3
+!s105 decoder_sv_unit
+S1
+R0
+R11
+8C:/Users/user/Documents/ARMv4/decoder.sv
+FC:/Users/user/Documents/ARMv4/decoder.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/decoder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/decoder.sv|
+!i113 1
+R7
+R18
+R9
+vdmem
+R1
+R10
+!i10b 1
+!s100 <F<I5]FDz@n`i1>?hY[:?3
+I?:G42GZ=B2TX9M^Lo<G062
+R3
+!s105 dmem_sv_unit
+S1
+R0
+w1540995196
+8C:/Users/user/Documents/ARMv4/dmem.sv
+FC:/Users/user/Documents/ARMv4/dmem.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/dmem.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/dmem.sv|
+!i113 1
+R7
+R18
+R9
+vextend
+R1
+R2
+!i10b 1
+!s100 L6G63D@gUJQ?D_;^5<egZ3
+IKTM]POm>bk_32i`_QfEoU0
+R3
+!s105 extend_sv_unit
+S1
+R0
+R4
+8C:/Users/user/Documents/ARMv4/helper_modules/extend.sv
+FC:/Users/user/Documents/ARMv4/helper_modules/extend.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Documents/ARMv4/helper_modules/extend.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/helper_modules|C:/Users/user/Documents/ARMv4/helper_modules/extend.sv|
+!i113 1
+R7
+R8
+R9
+vflopenr
+R1
+R2
+!i10b 1
+!s100 AgVHjB^`=EODf;?kBPgP=2
+ITiHF8z6@Aj2gZ]Y^Z2ZXK0
+R3
+!s105 flopenr_sv_unit
+S1
+R0
+R4
+8C:/Users/user/Documents/ARMv4/helper_modules/flopenr.sv
+FC:/Users/user/Documents/ARMv4/helper_modules/flopenr.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Documents/ARMv4/helper_modules/flopenr.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/helper_modules|C:/Users/user/Documents/ARMv4/helper_modules/flopenr.sv|
+!i113 1
+R7
+R8
+R9
+vflopr
+R1
+R2
+!i10b 1
+!s100 AOcehC1ZUkWdP]XlTQB<10
+IH^ATGYhEf;@YHCk6[Nbi]1
+R3
+!s105 flopr_sv_unit
+S1
+R0
+Z24 w1540660952
+8C:/Users/user/Documents/ARMv4/helper_modules/flopr.sv
+FC:/Users/user/Documents/ARMv4/helper_modules/flopr.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Documents/ARMv4/helper_modules/flopr.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/helper_modules|C:/Users/user/Documents/ARMv4/helper_modules/flopr.sv|
+!i113 1
+R7
+R8
+R9
+vimem
+R1
+R15
+!i10b 1
+!s100 =:_VUmgl@z<SGK]k[mGJM3
+Ij8N=iFCM6^85K^mDI^^851
+R3
+!s105 imem_sv_unit
+S1
+R0
+w1540994355
+8C:/Users/user/Documents/ARMv4/imem.sv
+FC:/Users/user/Documents/ARMv4/imem.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/user/Documents/ARMv4/imem.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/imem.sv|
+!i113 1
+R7
+R18
+R9
+vleftShifter_n
+R1
+R10
+!i10b 1
+!s100 059BgN;_R;kYUSbf0BYD>1
+IZmP7@h;k7deoW^5ZRLPL01
+R3
+!s105 leftShifter_n_sv_unit
+S1
+R0
+R14
+8C:/Users/user/Documents/ARMv4/alu_module/leftShifter_n.sv
+FC:/Users/user/Documents/ARMv4/alu_module/leftShifter_n.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/alu_module/leftShifter_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/leftShifter_n.sv|
+!i113 1
+R7
+R13
+R9
+nleft@shifter_n
+vmux2
+R1
+R2
+!i10b 1
+!s100 50m8M2]Wd26EmCiD8]hko1
+IG2^`ZPKga:m7JbA^<JOeB0
+R3
+!s105 mux2_sv_unit
+S1
+R0
+R24
+8C:/Users/user/Documents/ARMv4/helper_modules/mux2.sv
+FC:/Users/user/Documents/ARMv4/helper_modules/mux2.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Documents/ARMv4/helper_modules/mux2.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/helper_modules|C:/Users/user/Documents/ARMv4/helper_modules/mux2.sv|
+!i113 1
+R7
+R8
+R9
+vorGate_n
+R1
+R10
+!i10b 1
+!s100 ^[ZgVCZGJ?OO1;R1IChe82
+IGLhj=1oF35e;80@^<il7:1
+R3
+!s105 orGate_n_sv_unit
+S1
+R0
+R4
+8C:/Users/user/Documents/ARMv4/alu_module/orGate_n.sv
+FC:/Users/user/Documents/ARMv4/alu_module/orGate_n.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/alu_module/orGate_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/orGate_n.sv|
+!i113 1
+R7
+R13
+R9
+nor@gate_n
+vregfile
+R1
+R10
+!i10b 1
+!s100 XDMlm3:TBCEW8<:d=B74<1
+IOgCM:099?ZBI`fIGl[0mH0
+R3
+!s105 regfile_sv_unit
+S1
+R0
+R16
+8C:/Users/user/Documents/ARMv4/regfile.sv
+FC:/Users/user/Documents/ARMv4/regfile.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/regfile.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/regfile.sv|
+!i113 1
+R7
+R18
+R9
+vrightShifter_n
+R1
+R10
+!i10b 1
+!s100 IQ;FEjXnfm;`i=zKNN8UL2
+IgCiTa>ZTeFk:mQzlgZ1]K2
+R3
+!s105 rightShifter_n_sv_unit
+S1
+R0
+R14
+8C:/Users/user/Documents/ARMv4/alu_module/rightShifter_n.sv
+FC:/Users/user/Documents/ARMv4/alu_module/rightShifter_n.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/alu_module/rightShifter_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/rightShifter_n.sv|
+!i113 1
+R7
+R13
+R9
+nright@shifter_n
+vtop
+R1
+R10
+!i10b 1
+!s100 P1J0Q4PhE5>66NTm3M99z2
+ImVlhPTTP24Y0I_;]b5`7R2
+R3
+!s105 top_sv_unit
+S1
+R0
+R11
+8C:/Users/user/Documents/ARMv4/top.sv
+FC:/Users/user/Documents/ARMv4/top.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/user/Documents/ARMv4/top.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4|C:/Users/user/Documents/ARMv4/top.sv|
+!i113 1
+R7
+R18
+R9
+vxorGate_n
+R1
+R10
+!i10b 1
+!s100 VBaDMbGUNVI@JU_[@6JVY0
+IA][`m32?jS8JoSdBC:eKO3
+R3
+!s105 xorGate_n_sv_unit
+S1
+R0
+R14
+8C:/Users/user/Documents/ARMv4/alu_module/xorGate_n.sv
+FC:/Users/user/Documents/ARMv4/alu_module/xorGate_n.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/user/Documents/ARMv4/alu_module/xorGate_n.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/user/Documents/ARMv4/alu_module|C:/Users/user/Documents/ARMv4/alu_module/xorGate_n.sv|
+!i113 1
+R7
+R13
+R9
+nxor@gate_n

@@ -1,0 +1,12 @@
+module maquinaCafe(input logic [3:0] bebida,
+						input logic moneda100, moneda500, cancelar, reset,
+						output logic Agua, Cafe, Leche, Chocolate, Azucar); 
+						
+logic prepBebida, finBebida, sufDinero, mostrarVuelto;
+logic [3:0] ingredienteActual,cantDinero;
+l
+						
+register_n #(4) regBebida();
+register_n #(1) regTiempo();					
+						
+endmodule

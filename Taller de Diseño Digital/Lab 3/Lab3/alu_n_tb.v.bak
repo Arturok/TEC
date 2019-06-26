@@ -1,0 +1,39 @@
+module alu_n_tb();
+
+logic [7:0] A, B, Y;
+logic [3:0] ctrl;
+logic Zero, Overflow, Negative, Carry;
+
+// instantiate device under test
+alu_n dut(A, B, ctrl, Y, Zero, Overflow, Negative, Carry);
+// apply inputs one at a time
+// checking results
+initial begin
+//suma ctrl=0
+A = 0; B = 0; ctrl=0 #10;
+assert (Y === 0) else $error("0 + 0 = 0 failed");
+
+A = 2; B = 2; ctrl=0 #10;
+assert (Y === 4) else $error("2 + 2 = 4 failed.");
+
+//resta ctrl=1
+A = 2; B = 4; ctrl=1 #10;
+assert (Y === -2) else $error("2 - 4 = -2 failed.");
+assert (Negative === 1) else $error("-2 nagative flag failed.");
+
+A = 8; B = 4; ctrl=1 #10;
+assert (Y === 4) else $error("8 - 4= 4 failed.");
+assert (Negative === 0) else $error("4 nagative flag failed.");
+
+//and ctrl=2
+A = 1; B = 1; ctrl=2 #10;
+assert (Y === 1) else $error("1 AND 1 = 1 failed.");
+
+A = 4; B = 2; ctrl=2 #10;
+assert (Y === 0) else $error("1 AND 1 = 1 failed.");
+
+A = 5; B = 5; ctrl=2 #10;
+assert (Y === 5) else $error("5 AND 5 = 5 failed.");
+
+end
+endmodule
