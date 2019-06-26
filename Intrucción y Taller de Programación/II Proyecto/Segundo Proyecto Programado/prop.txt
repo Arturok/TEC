@@ -1,0 +1,25 @@
+Posicion             Descripcion                                                        Valor                      Derecho de Paso
+---------------------------------------------------------------------------------------------------------------------------------------
+1,                         SALIDA,                                                              0,                            0                                                             
+2                          Gran Hotel Costa Rica                                      0                             0
+3                          Río Celeste                                                         0                             0
+4                          Volcán Arenal                                                      0                             0
+5                          Aeropuerto Juan Santa María                           0                             0
+6                          Instituto Nacional de Seguros                           0                             0
+7                          FLORA                                                                 0                             0
+8                          Parque Nacional Braulio Carrillo                      0                             0
+9                          El Fortín                                                                0                             0
+10                        Volcán Irazú                                                         0                             0
+11                        Puerto Caldera                                                    0                             0
+12                       CARCEL                                                               0                             0
+13	          Hotel Intercontinental                                           0                             0
+14                       Instituto Costarrisence de Electricidad              0                             0
+15                       Isla del Coco                                                         0                             0
+16                       Aeropuerto Tobias Bolaños                                 0                             0
+17                       Parque Eólico Santa Ana                                    0                             0
+18                       FAUNA                                                                   0                             0
+19                       Playa Ballena                                                        0                             0
+20                       Puerto Moín                                                           0                             0
+21                       Cerro Chirripó                                                       0                             0
+22                       Iglesia de Barva                                                    0                             0
+23                       Estadio Nacional                                                  0                             0
