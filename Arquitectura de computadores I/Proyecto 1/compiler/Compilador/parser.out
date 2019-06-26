@@ -1,0 +1,2298 @@
+Created by PLY version 3.0 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    RPC
+    LPC
+    MINUS
+    BLT
+    BGT
+    BLE
+    BGE
+    LI
+
+Grammar
+
+Rule 1     S' -> program
+Rule 2     program -> block
+Rule 3     block -> inst block
+Rule 4     block -> empty
+Rule 5     inst -> ID DP
+Rule 6     inst -> NOP
+Rule 7     inst -> ADD REG COMMA REG COMMA REG
+Rule 8     inst -> AND REG COMMA REG COMMA REG
+Rule 9     inst -> NOR REG COMMA REG COMMA REG
+Rule 10    inst -> OR REG COMMA REG COMMA REG
+Rule 11    inst -> SLT REG COMMA REG COMMA REG
+Rule 12    inst -> SLL REG COMMA REG COMMA NUM NUMBER
+Rule 13    inst -> SRL REG COMMA REG COMMA NUM NUMBER
+Rule 14    inst -> SUB REG COMMA REG COMMA REG
+Rule 15    inst -> ADDI REG COMMA REG COMMA NUM NUMBER
+Rule 16    inst -> BEQ REG COMMA REG COMMA ID
+Rule 17    inst -> BNE REG COMMA REG COMMA ID
+Rule 18    inst -> LW REG COMMA REG COMMA NUM NUMBER
+Rule 19    inst -> SLTI REG COMMA REG COMMA NUM NUMBER
+Rule 20    inst -> SW REG COMMA REG COMMA NUM NUMBER
+Rule 21    inst -> JAL ID
+Rule 22    inst -> J ID
+Rule 23    inst -> MOVE REG COMMA REG
+Rule 24    inst -> MPP REG COMMA REG
+Rule 25    inst -> MPPI NUM NUMBER COMMA NUM NUMBER
+Rule 26    inst -> PPXL REG
+Rule 27    inst -> PTMU REG
+Rule 28    inst -> PTML REG
+Rule 29    inst -> PTMD REG
+Rule 30    inst -> PTMR REG
+Rule 31    inst -> PPXLC REG COMMA REG
+Rule 32    inst -> PMPXL REG COMMA REG
+Rule 33    inst -> CS REG COMMA REG COMMA NUM NUMBER
+Rule 34    inst -> SPNT REG COMMA REG COMMA NUM NUMBER
+Rule 35    inst -> MPNT REG COMMA REG COMMA NUM NUMBER
+Rule 36    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ADD                  : 6
+ADDI                 : 14
+AND                  : 7
+BEQ                  : 15
+BGE                  : 
+BGT                  : 
+BLE                  : 
+BLT                  : 
+BNE                  : 16
+COMMA                : 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 22 23 24 30 31 32 32 33 33 34 34
+CS                   : 32
+DP                   : 4
+ID                   : 4 15 16 20 21
+J                    : 21
+JAL                  : 20
+LI                   : 
+LPC                  : 
+LW                   : 17
+MINUS                : 
+MOVE                 : 22
+MPNT                 : 34
+MPP                  : 23
+MPPI                 : 24
+NOP                  : 5
+NOR                  : 8
+NUM                  : 11 12 14 17 18 19 24 24 32 33 34
+NUMBER               : 11 12 14 17 18 19 24 24 32 33 34
+OR                   : 9
+PMPXL                : 31
+PPXL                 : 25
+PPXLC                : 30
+PTMD                 : 28
+PTML                 : 27
+PTMR                 : 29
+PTMU                 : 26
+REG                  : 6 6 6 7 7 7 8 8 8 9 9 9 10 10 10 11 11 12 12 13 13 13 14 14 15 15 16 16 17 17 18 18 19 19 22 22 23 23 25 26 27 28 29 30 30 31 31 32 32 33 33 34 34
+RPC                  : 
+SLL                  : 11
+SLT                  : 10
+SLTI                 : 18
+SPNT                 : 33
+SRL                  : 12
+SUB                  : 13
+SW                   : 19
+error                : 
+
+Nonterminals, with rules where they appear
+
+block                : 1 2
+empty                : 3
+inst                 : 2
+program              : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . block
+    (2) block -> . inst block
+    (3) block -> . empty
+    (4) inst -> . ID DP
+    (5) inst -> . NOP
+    (6) inst -> . ADD REG COMMA REG COMMA REG
+    (7) inst -> . AND REG COMMA REG COMMA REG
+    (8) inst -> . NOR REG COMMA REG COMMA REG
+    (9) inst -> . OR REG COMMA REG COMMA REG
+    (10) inst -> . SLT REG COMMA REG COMMA REG
+    (11) inst -> . SLL REG COMMA REG COMMA NUM NUMBER
+    (12) inst -> . SRL REG COMMA REG COMMA NUM NUMBER
+    (13) inst -> . SUB REG COMMA REG COMMA REG
+    (14) inst -> . ADDI REG COMMA REG COMMA NUM NUMBER
+    (15) inst -> . BEQ REG COMMA REG COMMA ID
+    (16) inst -> . BNE REG COMMA REG COMMA ID
+    (17) inst -> . LW REG COMMA REG COMMA NUM NUMBER
+    (18) inst -> . SLTI REG COMMA REG COMMA NUM NUMBER
+    (19) inst -> . SW REG COMMA REG COMMA NUM NUMBER
+    (20) inst -> . JAL ID
+    (21) inst -> . J ID
+    (22) inst -> . MOVE REG COMMA REG
+    (23) inst -> . MPP REG COMMA REG
+    (24) inst -> . MPPI NUM NUMBER COMMA NUM NUMBER
+    (25) inst -> . PPXL REG
+    (26) inst -> . PTMU REG
+    (27) inst -> . PTML REG
+    (28) inst -> . PTMD REG
+    (29) inst -> . PTMR REG
+    (30) inst -> . PPXLC REG COMMA REG
+    (31) inst -> . PMPXL REG COMMA REG
+    (32) inst -> . CS REG COMMA REG COMMA NUM NUMBER
+    (33) inst -> . SPNT REG COMMA REG COMMA NUM NUMBER
+    (34) inst -> . MPNT REG COMMA REG COMMA NUM NUMBER
+    (35) empty -> .
+
+    ID              shift and go to state 5
+    NOP             shift and go to state 6
+    ADD             shift and go to state 7
+    AND             shift and go to state 8
+    NOR             shift and go to state 9
+    OR              shift and go to state 10
+    SLT             shift and go to state 11
+    SLL             shift and go to state 12
+    SRL             shift and go to state 13
+    SUB             shift and go to state 14
+    ADDI            shift and go to state 15
+    BEQ             shift and go to state 16
+    BNE             shift and go to state 17
+    LW              shift and go to state 18
+    SLTI            shift and go to state 19
+    SW              shift and go to state 20
+    JAL             shift and go to state 21
+    J               shift and go to state 22
+    MOVE            shift and go to state 23
+    MPP             shift and go to state 24
+    MPPI            shift and go to state 25
+    PPXL            shift and go to state 26
+    PTMU            shift and go to state 27
+    PTML            shift and go to state 28
+    PTMD            shift and go to state 29
+    PTMR            shift and go to state 30
+    PPXLC           shift and go to state 31
+    PMPXL           shift and go to state 32
+    CS              shift and go to state 33
+    SPNT            shift and go to state 34
+    MPNT            shift and go to state 35
+    $end            reduce using rule 35 (empty -> .)
+
+    program                        shift and go to state 1
+    block                          shift and go to state 2
+    inst                           shift and go to state 3
+    empty                          shift and go to state 4
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> block .
+
+    $end            reduce using rule 1 (program -> block .)
+
+
+state 3
+
+    (2) block -> inst . block
+    (2) block -> . inst block
+    (3) block -> . empty
+    (4) inst -> . ID DP
+    (5) inst -> . NOP
+    (6) inst -> . ADD REG COMMA REG COMMA REG
+    (7) inst -> . AND REG COMMA REG COMMA REG
+    (8) inst -> . NOR REG COMMA REG COMMA REG
+    (9) inst -> . OR REG COMMA REG COMMA REG
+    (10) inst -> . SLT REG COMMA REG COMMA REG
+    (11) inst -> . SLL REG COMMA REG COMMA NUM NUMBER
+    (12) inst -> . SRL REG COMMA REG COMMA NUM NUMBER
+    (13) inst -> . SUB REG COMMA REG COMMA REG
+    (14) inst -> . ADDI REG COMMA REG COMMA NUM NUMBER
+    (15) inst -> . BEQ REG COMMA REG COMMA ID
+    (16) inst -> . BNE REG COMMA REG COMMA ID
+    (17) inst -> . LW REG COMMA REG COMMA NUM NUMBER
+    (18) inst -> . SLTI REG COMMA REG COMMA NUM NUMBER
+    (19) inst -> . SW REG COMMA REG COMMA NUM NUMBER
+    (20) inst -> . JAL ID
+    (21) inst -> . J ID
+    (22) inst -> . MOVE REG COMMA REG
+    (23) inst -> . MPP REG COMMA REG
+    (24) inst -> . MPPI NUM NUMBER COMMA NUM NUMBER
+    (25) inst -> . PPXL REG
+    (26) inst -> . PTMU REG
+    (27) inst -> . PTML REG
+    (28) inst -> . PTMD REG
+    (29) inst -> . PTMR REG
+    (30) inst -> . PPXLC REG COMMA REG
+    (31) inst -> . PMPXL REG COMMA REG
+    (32) inst -> . CS REG COMMA REG COMMA NUM NUMBER
+    (33) inst -> . SPNT REG COMMA REG COMMA NUM NUMBER
+    (34) inst -> . MPNT REG COMMA REG COMMA NUM NUMBER
+    (35) empty -> .
+
+    ID              shift and go to state 5
+    NOP             shift and go to state 6
+    ADD             shift and go to state 7
+    AND             shift and go to state 8
+    NOR             shift and go to state 9
+    OR              shift and go to state 10
+    SLT             shift and go to state 11
+    SLL             shift and go to state 12
+    SRL             shift and go to state 13
+    SUB             shift and go to state 14
+    ADDI            shift and go to state 15
+    BEQ             shift and go to state 16
+    BNE             shift and go to state 17
+    LW              shift and go to state 18
+    SLTI            shift and go to state 19
+    SW              shift and go to state 20
+    JAL             shift and go to state 21
+    J               shift and go to state 22
+    MOVE            shift and go to state 23
+    MPP             shift and go to state 24
+    MPPI            shift and go to state 25
+    PPXL            shift and go to state 26
+    PTMU            shift and go to state 27
+    PTML            shift and go to state 28
+    PTMD            shift and go to state 29
+    PTMR            shift and go to state 30
+    PPXLC           shift and go to state 31
+    PMPXL           shift and go to state 32
+    CS              shift and go to state 33
+    SPNT            shift and go to state 34
+    MPNT            shift and go to state 35
+    $end            reduce using rule 35 (empty -> .)
+
+    inst                           shift and go to state 3
+    block                          shift and go to state 36
+    empty                          shift and go to state 4
+
+state 4
+
+    (3) block -> empty .
+
+    $end            reduce using rule 3 (block -> empty .)
+
+
+state 5
+
+    (4) inst -> ID . DP
+
+    DP              shift and go to state 37
+
+
+state 6
+
+    (5) inst -> NOP .
+
+    ID              reduce using rule 5 (inst -> NOP .)
+    NOP             reduce using rule 5 (inst -> NOP .)
+    ADD             reduce using rule 5 (inst -> NOP .)
+    AND             reduce using rule 5 (inst -> NOP .)
+    NOR             reduce using rule 5 (inst -> NOP .)
+    OR              reduce using rule 5 (inst -> NOP .)
+    SLT             reduce using rule 5 (inst -> NOP .)
+    SLL             reduce using rule 5 (inst -> NOP .)
+    SRL             reduce using rule 5 (inst -> NOP .)
+    SUB             reduce using rule 5 (inst -> NOP .)
+    ADDI            reduce using rule 5 (inst -> NOP .)
+    BEQ             reduce using rule 5 (inst -> NOP .)
+    BNE             reduce using rule 5 (inst -> NOP .)
+    LW              reduce using rule 5 (inst -> NOP .)
+    SLTI            reduce using rule 5 (inst -> NOP .)
+    SW              reduce using rule 5 (inst -> NOP .)
+    JAL             reduce using rule 5 (inst -> NOP .)
+    J               reduce using rule 5 (inst -> NOP .)
+    MOVE            reduce using rule 5 (inst -> NOP .)
+    MPP             reduce using rule 5 (inst -> NOP .)
+    MPPI            reduce using rule 5 (inst -> NOP .)
+    PPXL            reduce using rule 5 (inst -> NOP .)
+    PTMU            reduce using rule 5 (inst -> NOP .)
+    PTML            reduce using rule 5 (inst -> NOP .)
+    PTMD            reduce using rule 5 (inst -> NOP .)
+    PTMR            reduce using rule 5 (inst -> NOP .)
+    PPXLC           reduce using rule 5 (inst -> NOP .)
+    PMPXL           reduce using rule 5 (inst -> NOP .)
+    CS              reduce using rule 5 (inst -> NOP .)
+    SPNT            reduce using rule 5 (inst -> NOP .)
+    MPNT            reduce using rule 5 (inst -> NOP .)
+    $end            reduce using rule 5 (inst -> NOP .)
+
+
+state 7
+
+    (6) inst -> ADD . REG COMMA REG COMMA REG
+
+    REG             shift and go to state 38
+
+
+state 8
+
+    (7) inst -> AND . REG COMMA REG COMMA REG
+
+    REG             shift and go to state 39
+
+
+state 9
+
+    (8) inst -> NOR . REG COMMA REG COMMA REG
+
+    REG             shift and go to state 40
+
+
+state 10
+
+    (9) inst -> OR . REG COMMA REG COMMA REG
+
+    REG             shift and go to state 41
+
+
+state 11
+
+    (10) inst -> SLT . REG COMMA REG COMMA REG
+
+    REG             shift and go to state 42
+
+
+state 12
+
+    (11) inst -> SLL . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 43
+
+
+state 13
+
+    (12) inst -> SRL . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 44
+
+
+state 14
+
+    (13) inst -> SUB . REG COMMA REG COMMA REG
+
+    REG             shift and go to state 45
+
+
+state 15
+
+    (14) inst -> ADDI . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 46
+
+
+state 16
+
+    (15) inst -> BEQ . REG COMMA REG COMMA ID
+
+    REG             shift and go to state 47
+
+
+state 17
+
+    (16) inst -> BNE . REG COMMA REG COMMA ID
+
+    REG             shift and go to state 48
+
+
+state 18
+
+    (17) inst -> LW . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 49
+
+
+state 19
+
+    (18) inst -> SLTI . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 50
+
+
+state 20
+
+    (19) inst -> SW . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 51
+
+
+state 21
+
+    (20) inst -> JAL . ID
+
+    ID              shift and go to state 52
+
+
+state 22
+
+    (21) inst -> J . ID
+
+    ID              shift and go to state 53
+
+
+state 23
+
+    (22) inst -> MOVE . REG COMMA REG
+
+    REG             shift and go to state 54
+
+
+state 24
+
+    (23) inst -> MPP . REG COMMA REG
+
+    REG             shift and go to state 55
+
+
+state 25
+
+    (24) inst -> MPPI . NUM NUMBER COMMA NUM NUMBER
+
+    NUM             shift and go to state 56
+
+
+state 26
+
+    (25) inst -> PPXL . REG
+
+    REG             shift and go to state 57
+
+
+state 27
+
+    (26) inst -> PTMU . REG
+
+    REG             shift and go to state 58
+
+
+state 28
+
+    (27) inst -> PTML . REG
+
+    REG             shift and go to state 59
+
+
+state 29
+
+    (28) inst -> PTMD . REG
+
+    REG             shift and go to state 60
+
+
+state 30
+
+    (29) inst -> PTMR . REG
+
+    REG             shift and go to state 61
+
+
+state 31
+
+    (30) inst -> PPXLC . REG COMMA REG
+
+    REG             shift and go to state 62
+
+
+state 32
+
+    (31) inst -> PMPXL . REG COMMA REG
+
+    REG             shift and go to state 63
+
+
+state 33
+
+    (32) inst -> CS . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 64
+
+
+state 34
+
+    (33) inst -> SPNT . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 65
+
+
+state 35
+
+    (34) inst -> MPNT . REG COMMA REG COMMA NUM NUMBER
+
+    REG             shift and go to state 66
+
+
+state 36
+
+    (2) block -> inst block .
+
+    $end            reduce using rule 2 (block -> inst block .)
+
+
+state 37
+
+    (4) inst -> ID DP .
+
+    ID              reduce using rule 4 (inst -> ID DP .)
+    NOP             reduce using rule 4 (inst -> ID DP .)
+    ADD             reduce using rule 4 (inst -> ID DP .)
+    AND             reduce using rule 4 (inst -> ID DP .)
+    NOR             reduce using rule 4 (inst -> ID DP .)
+    OR              reduce using rule 4 (inst -> ID DP .)
+    SLT             reduce using rule 4 (inst -> ID DP .)
+    SLL             reduce using rule 4 (inst -> ID DP .)
+    SRL             reduce using rule 4 (inst -> ID DP .)
+    SUB             reduce using rule 4 (inst -> ID DP .)
+    ADDI            reduce using rule 4 (inst -> ID DP .)
+    BEQ             reduce using rule 4 (inst -> ID DP .)
+    BNE             reduce using rule 4 (inst -> ID DP .)
+    LW              reduce using rule 4 (inst -> ID DP .)
+    SLTI            reduce using rule 4 (inst -> ID DP .)
+    SW              reduce using rule 4 (inst -> ID DP .)
+    JAL             reduce using rule 4 (inst -> ID DP .)
+    J               reduce using rule 4 (inst -> ID DP .)
+    MOVE            reduce using rule 4 (inst -> ID DP .)
+    MPP             reduce using rule 4 (inst -> ID DP .)
+    MPPI            reduce using rule 4 (inst -> ID DP .)
+    PPXL            reduce using rule 4 (inst -> ID DP .)
+    PTMU            reduce using rule 4 (inst -> ID DP .)
+    PTML            reduce using rule 4 (inst -> ID DP .)
+    PTMD            reduce using rule 4 (inst -> ID DP .)
+    PTMR            reduce using rule 4 (inst -> ID DP .)
+    PPXLC           reduce using rule 4 (inst -> ID DP .)
+    PMPXL           reduce using rule 4 (inst -> ID DP .)
+    CS              reduce using rule 4 (inst -> ID DP .)
+    SPNT            reduce using rule 4 (inst -> ID DP .)
+    MPNT            reduce using rule 4 (inst -> ID DP .)
+    $end            reduce using rule 4 (inst -> ID DP .)
+
+
+state 38
+
+    (6) inst -> ADD REG . COMMA REG COMMA REG
+
+    COMMA           shift and go to state 67
+
+
+state 39
+
+    (7) inst -> AND REG . COMMA REG COMMA REG
+
+    COMMA           shift and go to state 68
+
+
+state 40
+
+    (8) inst -> NOR REG . COMMA REG COMMA REG
+
+    COMMA           shift and go to state 69
+
+
+state 41
+
+    (9) inst -> OR REG . COMMA REG COMMA REG
+
+    COMMA           shift and go to state 70
+
+
+state 42
+
+    (10) inst -> SLT REG . COMMA REG COMMA REG
+
+    COMMA           shift and go to state 71
+
+
+state 43
+
+    (11) inst -> SLL REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 72
+
+
+state 44
+
+    (12) inst -> SRL REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 73
+
+
+state 45
+
+    (13) inst -> SUB REG . COMMA REG COMMA REG
+
+    COMMA           shift and go to state 74
+
+
+state 46
+
+    (14) inst -> ADDI REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 75
+
+
+state 47
+
+    (15) inst -> BEQ REG . COMMA REG COMMA ID
+
+    COMMA           shift and go to state 76
+
+
+state 48
+
+    (16) inst -> BNE REG . COMMA REG COMMA ID
+
+    COMMA           shift and go to state 77
+
+
+state 49
+
+    (17) inst -> LW REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 78
+
+
+state 50
+
+    (18) inst -> SLTI REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 79
+
+
+state 51
+
+    (19) inst -> SW REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 80
+
+
+state 52
+
+    (20) inst -> JAL ID .
+
+    ID              reduce using rule 20 (inst -> JAL ID .)
+    NOP             reduce using rule 20 (inst -> JAL ID .)
+    ADD             reduce using rule 20 (inst -> JAL ID .)
+    AND             reduce using rule 20 (inst -> JAL ID .)
+    NOR             reduce using rule 20 (inst -> JAL ID .)
+    OR              reduce using rule 20 (inst -> JAL ID .)
+    SLT             reduce using rule 20 (inst -> JAL ID .)
+    SLL             reduce using rule 20 (inst -> JAL ID .)
+    SRL             reduce using rule 20 (inst -> JAL ID .)
+    SUB             reduce using rule 20 (inst -> JAL ID .)
+    ADDI            reduce using rule 20 (inst -> JAL ID .)
+    BEQ             reduce using rule 20 (inst -> JAL ID .)
+    BNE             reduce using rule 20 (inst -> JAL ID .)
+    LW              reduce using rule 20 (inst -> JAL ID .)
+    SLTI            reduce using rule 20 (inst -> JAL ID .)
+    SW              reduce using rule 20 (inst -> JAL ID .)
+    JAL             reduce using rule 20 (inst -> JAL ID .)
+    J               reduce using rule 20 (inst -> JAL ID .)
+    MOVE            reduce using rule 20 (inst -> JAL ID .)
+    MPP             reduce using rule 20 (inst -> JAL ID .)
+    MPPI            reduce using rule 20 (inst -> JAL ID .)
+    PPXL            reduce using rule 20 (inst -> JAL ID .)
+    PTMU            reduce using rule 20 (inst -> JAL ID .)
+    PTML            reduce using rule 20 (inst -> JAL ID .)
+    PTMD            reduce using rule 20 (inst -> JAL ID .)
+    PTMR            reduce using rule 20 (inst -> JAL ID .)
+    PPXLC           reduce using rule 20 (inst -> JAL ID .)
+    PMPXL           reduce using rule 20 (inst -> JAL ID .)
+    CS              reduce using rule 20 (inst -> JAL ID .)
+    SPNT            reduce using rule 20 (inst -> JAL ID .)
+    MPNT            reduce using rule 20 (inst -> JAL ID .)
+    $end            reduce using rule 20 (inst -> JAL ID .)
+
+
+state 53
+
+    (21) inst -> J ID .
+
+    ID              reduce using rule 21 (inst -> J ID .)
+    NOP             reduce using rule 21 (inst -> J ID .)
+    ADD             reduce using rule 21 (inst -> J ID .)
+    AND             reduce using rule 21 (inst -> J ID .)
+    NOR             reduce using rule 21 (inst -> J ID .)
+    OR              reduce using rule 21 (inst -> J ID .)
+    SLT             reduce using rule 21 (inst -> J ID .)
+    SLL             reduce using rule 21 (inst -> J ID .)
+    SRL             reduce using rule 21 (inst -> J ID .)
+    SUB             reduce using rule 21 (inst -> J ID .)
+    ADDI            reduce using rule 21 (inst -> J ID .)
+    BEQ             reduce using rule 21 (inst -> J ID .)
+    BNE             reduce using rule 21 (inst -> J ID .)
+    LW              reduce using rule 21 (inst -> J ID .)
+    SLTI            reduce using rule 21 (inst -> J ID .)
+    SW              reduce using rule 21 (inst -> J ID .)
+    JAL             reduce using rule 21 (inst -> J ID .)
+    J               reduce using rule 21 (inst -> J ID .)
+    MOVE            reduce using rule 21 (inst -> J ID .)
+    MPP             reduce using rule 21 (inst -> J ID .)
+    MPPI            reduce using rule 21 (inst -> J ID .)
+    PPXL            reduce using rule 21 (inst -> J ID .)
+    PTMU            reduce using rule 21 (inst -> J ID .)
+    PTML            reduce using rule 21 (inst -> J ID .)
+    PTMD            reduce using rule 21 (inst -> J ID .)
+    PTMR            reduce using rule 21 (inst -> J ID .)
+    PPXLC           reduce using rule 21 (inst -> J ID .)
+    PMPXL           reduce using rule 21 (inst -> J ID .)
+    CS              reduce using rule 21 (inst -> J ID .)
+    SPNT            reduce using rule 21 (inst -> J ID .)
+    MPNT            reduce using rule 21 (inst -> J ID .)
+    $end            reduce using rule 21 (inst -> J ID .)
+
+
+state 54
+
+    (22) inst -> MOVE REG . COMMA REG
+
+    COMMA           shift and go to state 81
+
+
+state 55
+
+    (23) inst -> MPP REG . COMMA REG
+
+    COMMA           shift and go to state 82
+
+
+state 56
+
+    (24) inst -> MPPI NUM . NUMBER COMMA NUM NUMBER
+
+    NUMBER          shift and go to state 83
+
+
+state 57
+
+    (25) inst -> PPXL REG .
+
+    ID              reduce using rule 25 (inst -> PPXL REG .)
+    NOP             reduce using rule 25 (inst -> PPXL REG .)
+    ADD             reduce using rule 25 (inst -> PPXL REG .)
+    AND             reduce using rule 25 (inst -> PPXL REG .)
+    NOR             reduce using rule 25 (inst -> PPXL REG .)
+    OR              reduce using rule 25 (inst -> PPXL REG .)
+    SLT             reduce using rule 25 (inst -> PPXL REG .)
+    SLL             reduce using rule 25 (inst -> PPXL REG .)
+    SRL             reduce using rule 25 (inst -> PPXL REG .)
+    SUB             reduce using rule 25 (inst -> PPXL REG .)
+    ADDI            reduce using rule 25 (inst -> PPXL REG .)
+    BEQ             reduce using rule 25 (inst -> PPXL REG .)
+    BNE             reduce using rule 25 (inst -> PPXL REG .)
+    LW              reduce using rule 25 (inst -> PPXL REG .)
+    SLTI            reduce using rule 25 (inst -> PPXL REG .)
+    SW              reduce using rule 25 (inst -> PPXL REG .)
+    JAL             reduce using rule 25 (inst -> PPXL REG .)
+    J               reduce using rule 25 (inst -> PPXL REG .)
+    MOVE            reduce using rule 25 (inst -> PPXL REG .)
+    MPP             reduce using rule 25 (inst -> PPXL REG .)
+    MPPI            reduce using rule 25 (inst -> PPXL REG .)
+    PPXL            reduce using rule 25 (inst -> PPXL REG .)
+    PTMU            reduce using rule 25 (inst -> PPXL REG .)
+    PTML            reduce using rule 25 (inst -> PPXL REG .)
+    PTMD            reduce using rule 25 (inst -> PPXL REG .)
+    PTMR            reduce using rule 25 (inst -> PPXL REG .)
+    PPXLC           reduce using rule 25 (inst -> PPXL REG .)
+    PMPXL           reduce using rule 25 (inst -> PPXL REG .)
+    CS              reduce using rule 25 (inst -> PPXL REG .)
+    SPNT            reduce using rule 25 (inst -> PPXL REG .)
+    MPNT            reduce using rule 25 (inst -> PPXL REG .)
+    $end            reduce using rule 25 (inst -> PPXL REG .)
+
+
+state 58
+
+    (26) inst -> PTMU REG .
+
+    ID              reduce using rule 26 (inst -> PTMU REG .)
+    NOP             reduce using rule 26 (inst -> PTMU REG .)
+    ADD             reduce using rule 26 (inst -> PTMU REG .)
+    AND             reduce using rule 26 (inst -> PTMU REG .)
+    NOR             reduce using rule 26 (inst -> PTMU REG .)
+    OR              reduce using rule 26 (inst -> PTMU REG .)
+    SLT             reduce using rule 26 (inst -> PTMU REG .)
+    SLL             reduce using rule 26 (inst -> PTMU REG .)
+    SRL             reduce using rule 26 (inst -> PTMU REG .)
+    SUB             reduce using rule 26 (inst -> PTMU REG .)
+    ADDI            reduce using rule 26 (inst -> PTMU REG .)
+    BEQ             reduce using rule 26 (inst -> PTMU REG .)
+    BNE             reduce using rule 26 (inst -> PTMU REG .)
+    LW              reduce using rule 26 (inst -> PTMU REG .)
+    SLTI            reduce using rule 26 (inst -> PTMU REG .)
+    SW              reduce using rule 26 (inst -> PTMU REG .)
+    JAL             reduce using rule 26 (inst -> PTMU REG .)
+    J               reduce using rule 26 (inst -> PTMU REG .)
+    MOVE            reduce using rule 26 (inst -> PTMU REG .)
+    MPP             reduce using rule 26 (inst -> PTMU REG .)
+    MPPI            reduce using rule 26 (inst -> PTMU REG .)
+    PPXL            reduce using rule 26 (inst -> PTMU REG .)
+    PTMU            reduce using rule 26 (inst -> PTMU REG .)
+    PTML            reduce using rule 26 (inst -> PTMU REG .)
+    PTMD            reduce using rule 26 (inst -> PTMU REG .)
+    PTMR            reduce using rule 26 (inst -> PTMU REG .)
+    PPXLC           reduce using rule 26 (inst -> PTMU REG .)
+    PMPXL           reduce using rule 26 (inst -> PTMU REG .)
+    CS              reduce using rule 26 (inst -> PTMU REG .)
+    SPNT            reduce using rule 26 (inst -> PTMU REG .)
+    MPNT            reduce using rule 26 (inst -> PTMU REG .)
+    $end            reduce using rule 26 (inst -> PTMU REG .)
+
+
+state 59
+
+    (27) inst -> PTML REG .
+
+    ID              reduce using rule 27 (inst -> PTML REG .)
+    NOP             reduce using rule 27 (inst -> PTML REG .)
+    ADD             reduce using rule 27 (inst -> PTML REG .)
+    AND             reduce using rule 27 (inst -> PTML REG .)
+    NOR             reduce using rule 27 (inst -> PTML REG .)
+    OR              reduce using rule 27 (inst -> PTML REG .)
+    SLT             reduce using rule 27 (inst -> PTML REG .)
+    SLL             reduce using rule 27 (inst -> PTML REG .)
+    SRL             reduce using rule 27 (inst -> PTML REG .)
+    SUB             reduce using rule 27 (inst -> PTML REG .)
+    ADDI            reduce using rule 27 (inst -> PTML REG .)
+    BEQ             reduce using rule 27 (inst -> PTML REG .)
+    BNE             reduce using rule 27 (inst -> PTML REG .)
+    LW              reduce using rule 27 (inst -> PTML REG .)
+    SLTI            reduce using rule 27 (inst -> PTML REG .)
+    SW              reduce using rule 27 (inst -> PTML REG .)
+    JAL             reduce using rule 27 (inst -> PTML REG .)
+    J               reduce using rule 27 (inst -> PTML REG .)
+    MOVE            reduce using rule 27 (inst -> PTML REG .)
+    MPP             reduce using rule 27 (inst -> PTML REG .)
+    MPPI            reduce using rule 27 (inst -> PTML REG .)
+    PPXL            reduce using rule 27 (inst -> PTML REG .)
+    PTMU            reduce using rule 27 (inst -> PTML REG .)
+    PTML            reduce using rule 27 (inst -> PTML REG .)
+    PTMD            reduce using rule 27 (inst -> PTML REG .)
+    PTMR            reduce using rule 27 (inst -> PTML REG .)
+    PPXLC           reduce using rule 27 (inst -> PTML REG .)
+    PMPXL           reduce using rule 27 (inst -> PTML REG .)
+    CS              reduce using rule 27 (inst -> PTML REG .)
+    SPNT            reduce using rule 27 (inst -> PTML REG .)
+    MPNT            reduce using rule 27 (inst -> PTML REG .)
+    $end            reduce using rule 27 (inst -> PTML REG .)
+
+
+state 60
+
+    (28) inst -> PTMD REG .
+
+    ID              reduce using rule 28 (inst -> PTMD REG .)
+    NOP             reduce using rule 28 (inst -> PTMD REG .)
+    ADD             reduce using rule 28 (inst -> PTMD REG .)
+    AND             reduce using rule 28 (inst -> PTMD REG .)
+    NOR             reduce using rule 28 (inst -> PTMD REG .)
+    OR              reduce using rule 28 (inst -> PTMD REG .)
+    SLT             reduce using rule 28 (inst -> PTMD REG .)
+    SLL             reduce using rule 28 (inst -> PTMD REG .)
+    SRL             reduce using rule 28 (inst -> PTMD REG .)
+    SUB             reduce using rule 28 (inst -> PTMD REG .)
+    ADDI            reduce using rule 28 (inst -> PTMD REG .)
+    BEQ             reduce using rule 28 (inst -> PTMD REG .)
+    BNE             reduce using rule 28 (inst -> PTMD REG .)
+    LW              reduce using rule 28 (inst -> PTMD REG .)
+    SLTI            reduce using rule 28 (inst -> PTMD REG .)
+    SW              reduce using rule 28 (inst -> PTMD REG .)
+    JAL             reduce using rule 28 (inst -> PTMD REG .)
+    J               reduce using rule 28 (inst -> PTMD REG .)
+    MOVE            reduce using rule 28 (inst -> PTMD REG .)
+    MPP             reduce using rule 28 (inst -> PTMD REG .)
+    MPPI            reduce using rule 28 (inst -> PTMD REG .)
+    PPXL            reduce using rule 28 (inst -> PTMD REG .)
+    PTMU            reduce using rule 28 (inst -> PTMD REG .)
+    PTML            reduce using rule 28 (inst -> PTMD REG .)
+    PTMD            reduce using rule 28 (inst -> PTMD REG .)
+    PTMR            reduce using rule 28 (inst -> PTMD REG .)
+    PPXLC           reduce using rule 28 (inst -> PTMD REG .)
+    PMPXL           reduce using rule 28 (inst -> PTMD REG .)
+    CS              reduce using rule 28 (inst -> PTMD REG .)
+    SPNT            reduce using rule 28 (inst -> PTMD REG .)
+    MPNT            reduce using rule 28 (inst -> PTMD REG .)
+    $end            reduce using rule 28 (inst -> PTMD REG .)
+
+
+state 61
+
+    (29) inst -> PTMR REG .
+
+    ID              reduce using rule 29 (inst -> PTMR REG .)
+    NOP             reduce using rule 29 (inst -> PTMR REG .)
+    ADD             reduce using rule 29 (inst -> PTMR REG .)
+    AND             reduce using rule 29 (inst -> PTMR REG .)
+    NOR             reduce using rule 29 (inst -> PTMR REG .)
+    OR              reduce using rule 29 (inst -> PTMR REG .)
+    SLT             reduce using rule 29 (inst -> PTMR REG .)
+    SLL             reduce using rule 29 (inst -> PTMR REG .)
+    SRL             reduce using rule 29 (inst -> PTMR REG .)
+    SUB             reduce using rule 29 (inst -> PTMR REG .)
+    ADDI            reduce using rule 29 (inst -> PTMR REG .)
+    BEQ             reduce using rule 29 (inst -> PTMR REG .)
+    BNE             reduce using rule 29 (inst -> PTMR REG .)
+    LW              reduce using rule 29 (inst -> PTMR REG .)
+    SLTI            reduce using rule 29 (inst -> PTMR REG .)
+    SW              reduce using rule 29 (inst -> PTMR REG .)
+    JAL             reduce using rule 29 (inst -> PTMR REG .)
+    J               reduce using rule 29 (inst -> PTMR REG .)
+    MOVE            reduce using rule 29 (inst -> PTMR REG .)
+    MPP             reduce using rule 29 (inst -> PTMR REG .)
+    MPPI            reduce using rule 29 (inst -> PTMR REG .)
+    PPXL            reduce using rule 29 (inst -> PTMR REG .)
+    PTMU            reduce using rule 29 (inst -> PTMR REG .)
+    PTML            reduce using rule 29 (inst -> PTMR REG .)
+    PTMD            reduce using rule 29 (inst -> PTMR REG .)
+    PTMR            reduce using rule 29 (inst -> PTMR REG .)
+    PPXLC           reduce using rule 29 (inst -> PTMR REG .)
+    PMPXL           reduce using rule 29 (inst -> PTMR REG .)
+    CS              reduce using rule 29 (inst -> PTMR REG .)
+    SPNT            reduce using rule 29 (inst -> PTMR REG .)
+    MPNT            reduce using rule 29 (inst -> PTMR REG .)
+    $end            reduce using rule 29 (inst -> PTMR REG .)
+
+
+state 62
+
+    (30) inst -> PPXLC REG . COMMA REG
+
+    COMMA           shift and go to state 84
+
+
+state 63
+
+    (31) inst -> PMPXL REG . COMMA REG
+
+    COMMA           shift and go to state 85
+
+
+state 64
+
+    (32) inst -> CS REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 86
+
+
+state 65
+
+    (33) inst -> SPNT REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 87
+
+
+state 66
+
+    (34) inst -> MPNT REG . COMMA REG COMMA NUM NUMBER
+
+    COMMA           shift and go to state 88
+
+
+state 67
+
+    (6) inst -> ADD REG COMMA . REG COMMA REG
+
+    REG             shift and go to state 89
+
+
+state 68
+
+    (7) inst -> AND REG COMMA . REG COMMA REG
+
+    REG             shift and go to state 90
+
+
+state 69
+
+    (8) inst -> NOR REG COMMA . REG COMMA REG
+
+    REG             shift and go to state 91
+
+
+state 70
+
+    (9) inst -> OR REG COMMA . REG COMMA REG
+
+    REG             shift and go to state 92
+
+
+state 71
+
+    (10) inst -> SLT REG COMMA . REG COMMA REG
+
+    REG             shift and go to state 93
+
+
+state 72
+
+    (11) inst -> SLL REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 94
+
+
+state 73
+
+    (12) inst -> SRL REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 95
+
+
+state 74
+
+    (13) inst -> SUB REG COMMA . REG COMMA REG
+
+    REG             shift and go to state 96
+
+
+state 75
+
+    (14) inst -> ADDI REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 97
+
+
+state 76
+
+    (15) inst -> BEQ REG COMMA . REG COMMA ID
+
+    REG             shift and go to state 98
+
+
+state 77
+
+    (16) inst -> BNE REG COMMA . REG COMMA ID
+
+    REG             shift and go to state 99
+
+
+state 78
+
+    (17) inst -> LW REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 100
+
+
+state 79
+
+    (18) inst -> SLTI REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 101
+
+
+state 80
+
+    (19) inst -> SW REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 102
+
+
+state 81
+
+    (22) inst -> MOVE REG COMMA . REG
+
+    REG             shift and go to state 103
+
+
+state 82
+
+    (23) inst -> MPP REG COMMA . REG
+
+    REG             shift and go to state 104
+
+
+state 83
+
+    (24) inst -> MPPI NUM NUMBER . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 105
+
+
+state 84
+
+    (30) inst -> PPXLC REG COMMA . REG
+
+    REG             shift and go to state 106
+
+
+state 85
+
+    (31) inst -> PMPXL REG COMMA . REG
+
+    REG             shift and go to state 107
+
+
+state 86
+
+    (32) inst -> CS REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 108
+
+
+state 87
+
+    (33) inst -> SPNT REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 109
+
+
+state 88
+
+    (34) inst -> MPNT REG COMMA . REG COMMA NUM NUMBER
+
+    REG             shift and go to state 110
+
+
+state 89
+
+    (6) inst -> ADD REG COMMA REG . COMMA REG
+
+    COMMA           shift and go to state 111
+
+
+state 90
+
+    (7) inst -> AND REG COMMA REG . COMMA REG
+
+    COMMA           shift and go to state 112
+
+
+state 91
+
+    (8) inst -> NOR REG COMMA REG . COMMA REG
+
+    COMMA           shift and go to state 113
+
+
+state 92
+
+    (9) inst -> OR REG COMMA REG . COMMA REG
+
+    COMMA           shift and go to state 114
+
+
+state 93
+
+    (10) inst -> SLT REG COMMA REG . COMMA REG
+
+    COMMA           shift and go to state 115
+
+
+state 94
+
+    (11) inst -> SLL REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 116
+
+
+state 95
+
+    (12) inst -> SRL REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 117
+
+
+state 96
+
+    (13) inst -> SUB REG COMMA REG . COMMA REG
+
+    COMMA           shift and go to state 118
+
+
+state 97
+
+    (14) inst -> ADDI REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 119
+
+
+state 98
+
+    (15) inst -> BEQ REG COMMA REG . COMMA ID
+
+    COMMA           shift and go to state 120
+
+
+state 99
+
+    (16) inst -> BNE REG COMMA REG . COMMA ID
+
+    COMMA           shift and go to state 121
+
+
+state 100
+
+    (17) inst -> LW REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 122
+
+
+state 101
+
+    (18) inst -> SLTI REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 123
+
+
+state 102
+
+    (19) inst -> SW REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 124
+
+
+state 103
+
+    (22) inst -> MOVE REG COMMA REG .
+
+    ID              reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    NOP             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    ADD             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    AND             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    NOR             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    OR              reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    SLT             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    SLL             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    SRL             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    SUB             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    ADDI            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    BEQ             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    BNE             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    LW              reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    SLTI            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    SW              reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    JAL             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    J               reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    MOVE            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    MPP             reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    MPPI            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    PPXL            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    PTMU            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    PTML            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    PTMD            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    PTMR            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    PPXLC           reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    PMPXL           reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    CS              reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    SPNT            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    MPNT            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+    $end            reduce using rule 22 (inst -> MOVE REG COMMA REG .)
+
+
+state 104
+
+    (23) inst -> MPP REG COMMA REG .
+
+    ID              reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    NOP             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    ADD             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    AND             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    NOR             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    OR              reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    SLT             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    SLL             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    SRL             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    SUB             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    ADDI            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    BEQ             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    BNE             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    LW              reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    SLTI            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    SW              reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    JAL             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    J               reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    MOVE            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    MPP             reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    MPPI            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    PPXL            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    PTMU            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    PTML            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    PTMD            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    PTMR            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    PPXLC           reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    PMPXL           reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    CS              reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    SPNT            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    MPNT            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+    $end            reduce using rule 23 (inst -> MPP REG COMMA REG .)
+
+
+state 105
+
+    (24) inst -> MPPI NUM NUMBER COMMA . NUM NUMBER
+
+    NUM             shift and go to state 125
+
+
+state 106
+
+    (30) inst -> PPXLC REG COMMA REG .
+
+    ID              reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    NOP             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    ADD             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    AND             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    NOR             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    OR              reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    SLT             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    SLL             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    SRL             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    SUB             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    ADDI            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    BEQ             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    BNE             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    LW              reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    SLTI            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    SW              reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    JAL             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    J               reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    MOVE            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    MPP             reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    MPPI            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    PPXL            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    PTMU            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    PTML            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    PTMD            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    PTMR            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    PPXLC           reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    PMPXL           reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    CS              reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    SPNT            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    MPNT            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+    $end            reduce using rule 30 (inst -> PPXLC REG COMMA REG .)
+
+
+state 107
+
+    (31) inst -> PMPXL REG COMMA REG .
+
+    ID              reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    NOP             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    ADD             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    AND             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    NOR             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    OR              reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    SLT             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    SLL             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    SRL             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    SUB             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    ADDI            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    BEQ             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    BNE             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    LW              reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    SLTI            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    SW              reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    JAL             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    J               reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    MOVE            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    MPP             reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    MPPI            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    PPXL            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    PTMU            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    PTML            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    PTMD            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    PTMR            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    PPXLC           reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    PMPXL           reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    CS              reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    SPNT            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    MPNT            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+    $end            reduce using rule 31 (inst -> PMPXL REG COMMA REG .)
+
+
+state 108
+
+    (32) inst -> CS REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 126
+
+
+state 109
+
+    (33) inst -> SPNT REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 127
+
+
+state 110
+
+    (34) inst -> MPNT REG COMMA REG . COMMA NUM NUMBER
+
+    COMMA           shift and go to state 128
+
+
+state 111
+
+    (6) inst -> ADD REG COMMA REG COMMA . REG
+
+    REG             shift and go to state 129
+
+
+state 112
+
+    (7) inst -> AND REG COMMA REG COMMA . REG
+
+    REG             shift and go to state 130
+
+
+state 113
+
+    (8) inst -> NOR REG COMMA REG COMMA . REG
+
+    REG             shift and go to state 131
+
+
+state 114
+
+    (9) inst -> OR REG COMMA REG COMMA . REG
+
+    REG             shift and go to state 132
+
+
+state 115
+
+    (10) inst -> SLT REG COMMA REG COMMA . REG
+
+    REG             shift and go to state 133
+
+
+state 116
+
+    (11) inst -> SLL REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 134
+
+
+state 117
+
+    (12) inst -> SRL REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 135
+
+
+state 118
+
+    (13) inst -> SUB REG COMMA REG COMMA . REG
+
+    REG             shift and go to state 136
+
+
+state 119
+
+    (14) inst -> ADDI REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 137
+
+
+state 120
+
+    (15) inst -> BEQ REG COMMA REG COMMA . ID
+
+    ID              shift and go to state 138
+
+
+state 121
+
+    (16) inst -> BNE REG COMMA REG COMMA . ID
+
+    ID              shift and go to state 139
+
+
+state 122
+
+    (17) inst -> LW REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 140
+
+
+state 123
+
+    (18) inst -> SLTI REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 141
+
+
+state 124
+
+    (19) inst -> SW REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 142
+
+
+state 125
+
+    (24) inst -> MPPI NUM NUMBER COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 143
+
+
+state 126
+
+    (32) inst -> CS REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 144
+
+
+state 127
+
+    (33) inst -> SPNT REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 145
+
+
+state 128
+
+    (34) inst -> MPNT REG COMMA REG COMMA . NUM NUMBER
+
+    NUM             shift and go to state 146
+
+
+state 129
+
+    (6) inst -> ADD REG COMMA REG COMMA REG .
+
+    ID              reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    NOP             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    ADD             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    AND             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    NOR             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    OR              reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    SLT             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    SLL             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    SRL             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    SUB             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    ADDI            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    BEQ             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    BNE             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    LW              reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    SLTI            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    SW              reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    JAL             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    J               reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    MOVE            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    MPP             reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    MPPI            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    PPXL            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    PTMU            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    PTML            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    PTMD            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    PTMR            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    PPXLC           reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    PMPXL           reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    CS              reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    SPNT            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    MPNT            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+    $end            reduce using rule 6 (inst -> ADD REG COMMA REG COMMA REG .)
+
+
+state 130
+
+    (7) inst -> AND REG COMMA REG COMMA REG .
+
+    ID              reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    NOP             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    ADD             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    AND             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    NOR             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    OR              reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    SLT             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    SLL             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    SRL             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    SUB             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    ADDI            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    BEQ             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    BNE             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    LW              reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    SLTI            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    SW              reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    JAL             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    J               reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    MOVE            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    MPP             reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    MPPI            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    PPXL            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    PTMU            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    PTML            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    PTMD            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    PTMR            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    PPXLC           reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    PMPXL           reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    CS              reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    SPNT            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    MPNT            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+    $end            reduce using rule 7 (inst -> AND REG COMMA REG COMMA REG .)
+
+
+state 131
+
+    (8) inst -> NOR REG COMMA REG COMMA REG .
+
+    ID              reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    NOP             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    ADD             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    AND             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    NOR             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    OR              reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    SLT             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    SLL             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    SRL             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    SUB             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    ADDI            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    BEQ             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    BNE             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    LW              reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    SLTI            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    SW              reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    JAL             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    J               reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    MOVE            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    MPP             reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    MPPI            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    PPXL            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    PTMU            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    PTML            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    PTMD            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    PTMR            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    PPXLC           reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    PMPXL           reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    CS              reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    SPNT            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    MPNT            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+    $end            reduce using rule 8 (inst -> NOR REG COMMA REG COMMA REG .)
+
+
+state 132
+
+    (9) inst -> OR REG COMMA REG COMMA REG .
+
+    ID              reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    NOP             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    ADD             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    AND             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    NOR             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    OR              reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    SLT             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    SLL             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    SRL             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    SUB             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    ADDI            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    BEQ             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    BNE             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    LW              reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    SLTI            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    SW              reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    JAL             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    J               reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    MOVE            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    MPP             reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    MPPI            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    PPXL            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    PTMU            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    PTML            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    PTMD            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    PTMR            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    PPXLC           reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    PMPXL           reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    CS              reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    SPNT            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    MPNT            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+    $end            reduce using rule 9 (inst -> OR REG COMMA REG COMMA REG .)
+
+
+state 133
+
+    (10) inst -> SLT REG COMMA REG COMMA REG .
+
+    ID              reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    NOP             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    ADD             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    AND             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    NOR             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    OR              reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    SLT             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    SLL             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    SRL             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    SUB             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    ADDI            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    BEQ             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    BNE             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    LW              reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    SLTI            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    SW              reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    JAL             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    J               reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    MOVE            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    MPP             reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    MPPI            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    PPXL            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    PTMU            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    PTML            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    PTMD            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    PTMR            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    PPXLC           reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    PMPXL           reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    CS              reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    SPNT            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    MPNT            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+    $end            reduce using rule 10 (inst -> SLT REG COMMA REG COMMA REG .)
+
+
+state 134
+
+    (11) inst -> SLL REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 147
+
+
+state 135
+
+    (12) inst -> SRL REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 148
+
+
+state 136
+
+    (13) inst -> SUB REG COMMA REG COMMA REG .
+
+    ID              reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    NOP             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    ADD             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    AND             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    NOR             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    OR              reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    SLT             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    SLL             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    SRL             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    SUB             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    ADDI            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    BEQ             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    BNE             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    LW              reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    SLTI            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    SW              reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    JAL             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    J               reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    MOVE            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    MPP             reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    MPPI            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    PPXL            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    PTMU            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    PTML            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    PTMD            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    PTMR            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    PPXLC           reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    PMPXL           reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    CS              reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    SPNT            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    MPNT            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+    $end            reduce using rule 13 (inst -> SUB REG COMMA REG COMMA REG .)
+
+
+state 137
+
+    (14) inst -> ADDI REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 149
+
+
+state 138
+
+    (15) inst -> BEQ REG COMMA REG COMMA ID .
+
+    ID              reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    NOP             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    ADD             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    AND             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    NOR             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    OR              reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    SLT             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    SLL             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    SRL             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    SUB             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    ADDI            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    BEQ             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    BNE             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    LW              reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    SLTI            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    SW              reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    JAL             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    J               reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    MOVE            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    MPP             reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    MPPI            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    PPXL            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    PTMU            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    PTML            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    PTMD            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    PTMR            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    PPXLC           reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    PMPXL           reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    CS              reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    SPNT            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    MPNT            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+    $end            reduce using rule 15 (inst -> BEQ REG COMMA REG COMMA ID .)
+
+
+state 139
+
+    (16) inst -> BNE REG COMMA REG COMMA ID .
+
+    ID              reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    NOP             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    ADD             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    AND             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    NOR             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    OR              reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    SLT             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    SLL             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    SRL             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    SUB             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    ADDI            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    BEQ             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    BNE             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    LW              reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    SLTI            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    SW              reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    JAL             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    J               reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    MOVE            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    MPP             reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    MPPI            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    PPXL            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    PTMU            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    PTML            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    PTMD            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    PTMR            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    PPXLC           reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    PMPXL           reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    CS              reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    SPNT            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    MPNT            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+    $end            reduce using rule 16 (inst -> BNE REG COMMA REG COMMA ID .)
+
+
+state 140
+
+    (17) inst -> LW REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 150
+
+
+state 141
+
+    (18) inst -> SLTI REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 151
+
+
+state 142
+
+    (19) inst -> SW REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 152
+
+
+state 143
+
+    (24) inst -> MPPI NUM NUMBER COMMA NUM NUMBER .
+
+    ID              reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    NOP             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    ADD             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    AND             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    NOR             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    OR              reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    SLT             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    SLL             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    SRL             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    SUB             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    ADDI            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    BEQ             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    BNE             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    LW              reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    SLTI            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    SW              reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    JAL             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    J               reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    MOVE            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    MPP             reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    MPPI            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    PPXL            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    PTMU            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    PTML            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    PTMD            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    PTMR            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    CS              reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    SPNT            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    MPNT            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+    $end            reduce using rule 24 (inst -> MPPI NUM NUMBER COMMA NUM NUMBER .)
+
+
+state 144
+
+    (32) inst -> CS REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 153
+
+
+state 145
+
+    (33) inst -> SPNT REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 154
+
+
+state 146
+
+    (34) inst -> MPNT REG COMMA REG COMMA NUM . NUMBER
+
+    NUMBER          shift and go to state 155
+
+
+state 147
+
+    (11) inst -> SLL REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 11 (inst -> SLL REG COMMA REG COMMA NUM NUMBER .)
+
+
+state 148
+
+    (12) inst -> SRL REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 12 (inst -> SRL REG COMMA REG COMMA NUM NUMBER .)
+
+
+state 149
+
+    (14) inst -> ADDI REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 14 (inst -> ADDI REG COMMA REG COMMA NUM NUMBER .)
+
+
+state 150
+
+    (17) inst -> LW REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 17 (inst -> LW REG COMMA REG COMMA NUM NUMBER .)
+
+
+state 151
+
+    (18) inst -> SLTI REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 18 (inst -> SLTI REG COMMA REG COMMA NUM NUMBER .)
+
+
+state 152
+
+    (19) inst -> SW REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 19 (inst -> SW REG COMMA REG COMMA NUM NUMBER .)
+
+
+state 153
+
+    (32) inst -> CS REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 32 (inst -> CS REG COMMA REG COMMA NUM NUMBER .)
+
+
+state 154
+
+    (33) inst -> SPNT REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 33 (inst -> SPNT REG COMMA REG COMMA NUM NUMBER .)
+
+
+state 155
+
+    (34) inst -> MPNT REG COMMA REG COMMA NUM NUMBER .
+
+    ID              reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    NOP             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    ADD             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    AND             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    NOR             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    OR              reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    SLT             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    SLL             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    SRL             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    SUB             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    ADDI            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    BEQ             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    BNE             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    LW              reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    SLTI            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    SW              reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    JAL             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    J               reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    MOVE            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    MPP             reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    MPPI            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    PPXL            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    PTMU            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    PTML            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    PTMD            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    PTMR            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    PPXLC           reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    PMPXL           reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    CS              reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    SPNT            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    MPNT            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+    $end            reduce using rule 34 (inst -> MPNT REG COMMA REG COMMA NUM NUMBER .)
+
