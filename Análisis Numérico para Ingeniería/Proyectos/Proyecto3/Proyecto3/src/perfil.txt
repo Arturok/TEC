@@ -1,0 +1,5 @@
+top = 100
+top = 56
+right = 100
+bottom = 10
+left = 25

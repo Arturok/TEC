@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arturo/Escritorio/Proyecto3.2/Proyecto3/Proyecto3/src/main.cpp
+iostream
+-
+boost/math/tools/polynomial.hpp
+-
+boost/program_options/options_description.hpp
+-
+boost/program_options/parsers.hpp
+-
+boost/program_options/variables_map.hpp
+-
+boost/lexical_cast.hpp
+-
+stdlib.h
+-
+vector
+-
+string
+-
+fstream
+-
+

@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_68877/fast"
+/usr/bin/make -f CMakeFiles/cmTC_68877.dir/build.make CMakeFiles/cmTC_68877.dir/build
+make[1]: se entra en el directorio '/home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_68877.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_68877.dir/CheckSymbolExists.cxx.o -c /home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_68877
+/home/arturo/clion-2018.1.2/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_68877.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_68877.dir/CheckSymbolExists.cxx.o  -o cmTC_68877 
+CMakeFiles/cmTC_68877.dir/CheckSymbolExists.cxx.o: En la función `main':
+CheckSymbolExists.cxx:(.text+0x16): referencia a `pthread_create' sin definir
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_68877.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_68877'
+make[1]: *** [cmTC_68877] Error 1
+make[1]: se sale del directorio '/home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_68877/fast'
+make: *** [cmTC_68877/fast] Error 2
+
+File /home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_05c77/fast"
+/usr/bin/make -f CMakeFiles/cmTC_05c77.dir/build.make CMakeFiles/cmTC_05c77.dir/build
+make[1]: se entra en el directorio '/home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_05c77.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_05c77.dir/CheckFunctionExists.cxx.o -c /home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_05c77
+/home/arturo/clion-2018.1.2/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05c77.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_05c77.dir/CheckFunctionExists.cxx.o  -o cmTC_05c77 -lpthreads 
+/usr/bin/ld: no se puede encontrar -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_05c77.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_05c77'
+make[1]: *** [cmTC_05c77] Error 1
+make[1]: se sale del directorio '/home/arturo/Escritorio/Tarea6.2/Tarea6.2/Tarea6.2/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_05c77/fast'
+make: *** [cmTC_05c77/fast] Error 2
+
+

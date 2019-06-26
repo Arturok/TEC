@@ -1,0 +1,139 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Allocator.hpp
+boost/align/aligned_allocator.hpp
+-
+HasType.hpp
+../include/HasType.hpp
+
+../include/AnpiConfig.hpp
+
+../include/Exception.hpp
+exception
+-
+
+../include/HasType.hpp
+
+../include/Intrinsics.hpp
+cstdint
+-
+intrin.h
+-
+x86intrin.h
+-
+arm_neon.h
+-
+mmintrin.h
+-
+altivec.h
+-
+spe.h
+-
+
+../include/LUDoolittle.hpp
+cmath
+-
+limits
+-
+functional
+-
+algorithm
+-
+math.h
+-
+iostream
+-
+cstdlib
+-
+Exception.hpp
+../include/Exception.hpp
+Matrix.hpp
+../include/Matrix.hpp
+
+../include/Matrix.hpp
+cstddef
+-
+cstring
+-
+cassert
+-
+memory
+-
+cstdlib
+../include/cstdlib
+iostream
+-
+initializer_list
+-
+AnpiConfig.hpp
+-
+Allocator.hpp
+-
+typeinfo
+-
+Exception.hpp
+../include/Exception.hpp
+Matrix.tpp
+../include/Matrix.tpp
+
+../include/Matrix.tpp
+bits/MatrixArithmetic.hpp
+../include/bits/MatrixArithmetic.hpp
+
+<<<<<<< HEAD
+=======
+../include/QR.hpp
+cmath
+-
+limits
+-
+functional
+-
+algorithm
+-
+math.h
+-
+iostream
+-
+cstdlib
+-
+vector
+-
+Exception.hpp
+../include/Exception.hpp
+Matrix.hpp
+../include/Matrix.hpp
+
+>>>>>>> 6111d80c7969f45554f64d8002dcdc85e12bceea
+../include/bits/MatrixArithmetic.hpp
+Intrinsics.hpp
+../include/bits/Intrinsics.hpp
+type_traits
+-
+iostream
+-
+
+<<<<<<< HEAD
+/home/arturo/Escritorio/Proyecto 2 Limpio/Proyecto2/Proyecto 2/src/main.cpp
+=======
+/home/santii/anpi/Proyecto2/Proyecto2/Proyecto 2/src/main.cpp
+>>>>>>> 6111d80c7969f45554f64d8002dcdc85e12bceea
+cstdlib
+-
+iostream
+-
+LUDoolittle.hpp
+<<<<<<< HEAD
+/home/arturo/Escritorio/Proyecto 2 Limpio/Proyecto2/Proyecto 2/src/LUDoolittle.hpp
+=======
+/home/santii/anpi/Proyecto2/Proyecto2/Proyecto 2/src/LUDoolittle.hpp
+QR.hpp
+/home/santii/anpi/Proyecto2/Proyecto2/Proyecto 2/src/QR.hpp
+>>>>>>> 6111d80c7969f45554f64d8002dcdc85e12bceea
+

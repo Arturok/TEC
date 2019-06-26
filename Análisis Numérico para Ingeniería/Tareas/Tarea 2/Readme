@@ -1,0 +1,43 @@
+Introducción
+Este proyecto es la primera tarea del Curso Análisis Numérico para Ingeniería, tocando temas como errores verdaderos y aproximados, además de precisión simple y doble. 
+
+
+
+Instalación
+Antes de ejecutar los programas se deben preparar algunas cosas:
+(Esta guía está preparada para sistemas basados en Debian)
+A) Instalación de Octave:
+	sudo apt-get update
+	sudo apt-get install octave
+
+B) Compilador de C++
+	sudo apt-get update
+	sudo apt-get install g++
+
+C) Algunas otras bibliotecas necesarias
+	sudo apt-get update
+	sudo apt-get install build-essential
+
+Ejecución
+	Problema 1
+		1) Desde terminal abra la carpeta "Tarea1/Primero"
+		2) Ejecute el programa utilizando $ octave Primero.m
+		3) Digite un número entero entre 1 y 15 (precisión para el Formato long) equivalente ala cantidad de cifras significativas.
+		4) Digite un valor real equivalente al exponente.
+
+	Problema 2
+		1) Desde terminal abra la carpeta "Tarea1/Segundo"
+		2) Ejecute el comando $ make
+		3) Ejecute el programa usando:
+			i) $ ./run Para ejecutar con los valores predeterminados
+			ii) $ ./run n x Para ejecutar con valores específicos.
+				n: cantidad de veces a sumar el valor
+				x: valor a sumar
+
+	Problema 3
+		1) Desde terminal abra la carpeta "Tarea1/Tercero"
+		2) Ejecute el comando $ make
+		3) Ejecute el programa usando:
+			i) $ ./run Para ejecutar con los valores predeterminados
+			ii) $ ./run a b c Para ejecutar con valores específicos
+				a, b, c: valores de la ecuación cuadrática ax^2 + bx + c = 0
