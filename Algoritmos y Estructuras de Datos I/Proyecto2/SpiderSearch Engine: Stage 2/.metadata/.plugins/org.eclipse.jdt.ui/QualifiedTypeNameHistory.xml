@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="Parseo.TikaParser"/>
+<fullyQualifiedTypeName name="java.lang.StrictMath"/>
+<fullyQualifiedTypeName name="Estructuras.Letra"/>
+<fullyQualifiedTypeName name="Estructuras.Palabra"/>
+<fullyQualifiedTypeName name="org.apache.poi.ddf.EscherColorRef.SysIndexSource"/>
+<fullyQualifiedTypeName name="org.apache.xmlbeans.impl.xb.xsdschema.Public"/>
+<fullyQualifiedTypeName name="Estructuras.NodoArbolAVL"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+</qualifiedTypeNameHistroy>

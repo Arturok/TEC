@@ -1,0 +1,6 @@
+<spider>
+	<maxthreads>3</maxthreads>
+	<recursivity>4</recursivity>
+	<reindex>5</reindex>
+
+</spider>
