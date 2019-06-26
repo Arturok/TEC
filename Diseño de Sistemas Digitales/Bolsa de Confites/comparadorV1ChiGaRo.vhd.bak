@@ -1,0 +1,16 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+entity comparador is
+Port (i_A : in  STD_LOGIC_VECTOR (31 downto 0); --Dato entrada de 32b
+		i_B : in  STD_LOGIC_VECTOR (31 downto 0); --Dato entrada de 32b
+		i_r : out STD_LOGIC); --Dato salida de 1b --1:Iguales, 0:Diferentes
+end comparador;
+
+architecture Behavioral of comparador is
+	
+	begin
+		i_r <= '1' when (i_A=i_B)else '0';
+
+end Behavioral;
