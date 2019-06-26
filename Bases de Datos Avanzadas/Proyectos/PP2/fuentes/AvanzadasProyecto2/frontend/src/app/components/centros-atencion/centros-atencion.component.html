@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-body border border-secondary">
+            <form #centroAtencionForm="ngForm" (ngSubmit)="addcentroAtencion(centroAtencionForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion._id">
+                <div class="form-group">
+                  <input class="form-control border-primary" type="text" name="nombre" #name="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion.nombre" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                  <input class="form-control border-primary" type="text" name="ubicacion" #name="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion.ubicacion" placeholder="Ubicación">
+                </div>
+                <div class="form-group">
+                  <input class="form-control border-primary" type="number" name="capacidad" #name="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion.capacidad" placeholder="Capacidad">
+                </div>
+                <div class="form-group">
+                  <input class="form-control border-primary" type="text" name="tipo" #name="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion.tipo" placeholder="Tipo">
+                </div>
+                <div class="card-action">
+                  <button type="submit" class="btn btn-info btn-block">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-light">
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th>Capacidad</th>
+            <th>Tipo</th>
+            <th>Operations</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let centroAtencion of centroAtencionService.centrosAtencion">
+              <td>{{ centroAtencion.nombre }}</td>
+              <td>{{ centroAtencion.ubicacion }}</td>
+              <td>{{ centroAtencion.capacidad }}</td>
+              <td>{{ centroAtencion.tipo }}</td>
+              <td>
+                <a (click)="editcentroAtencion(centroAtencion)">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deletecentroAtencion(centroAtencion._id, centroAtencionForm)">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

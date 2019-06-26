@@ -1,0 +1,204 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ingresar Película</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a href="/" class="navbar-brand col-sm-3 col-md-2 mr-0">Home</a>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/IngresarPelicula">
+                      <span data-feather="film"></span>
+                      Ingresar Película
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/IngresarProductora">
+                      <span data-feather="tablet"></span>
+                      Igresar Compañía
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/PeliculaNombre">
+                      <span data-feather="video"></span>
+                      Película por Nombre
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="/PeliculasFranquicia">
+                        <span data-feather="award"></span>
+                        Películas por Franquicia
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/PeliculasRango">
+                      <span data-feather="calendar"></span>
+                      Películas por años
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/PeliculasProductora">
+                      <span data-feather="play-circle"></span>
+                      Películas por Productora
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/EstadisticasProductora">
+                      <span data-feather="sliders"></span>
+                      Estadísticas Productora
+                    </a>
+                  </li>
+                </ul>
+          </div>
+        </nav>
+
+        <!-- Ingresar Pelicula -->
+        <main id="main-principal" role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 principal">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom ">
+                  <h1 class="h1">Igresar Película</h1>
+                </div>
+                <form action="/addPelicula" method="POST">
+                  <div class="row principal">
+                    <div class="col-md-12 mb-3">
+                      <label for="nombre">Nombre de la película</label>
+                      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="" required>
+                      <div class="invalid-feedback">
+                        Digite un nombre válido
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="row principal">
+                    <div class="col-md-4 mb-3">
+                      <label for="genero">Género</label>
+                      <input type="text" class="form-control" name="genero" id="genero" placeholder="Género" value="" required>
+                      <div class="invalid-feedback">
+                        Debe especificar el género
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="director">Nombre del director</label>
+                      <input type="text" class="form-control" name="director" id="director" placeholder="Nombre del Director" value="" required>
+                      <div class="invalid-feedback">
+                        Debe especificar el nombre del director
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="franquicia"> Nombre de la Franquicia </label>
+                      <input type="text" class="form-control" name="franquicia" id="franquicia" placeholder="Nombre de la Franquicia (Si aplica)" value="">
+                    </div>
+                  </div>
+      
+                  <div class="row principal">
+                    <div class="col-md-4 mb-3">
+                      <label for="pais">País</label>
+                      <input type="text" class="form-control" name="pais" id="pais" placeholder="País de producción" value="" required>
+                      <div class="invalid-feedback">
+                        Debe especificar el país
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="ano">Año de estreno</label>
+                      <input type="number" class="form-control" name="ano" id="ano" placeholder="XXXX" value="" required>
+                      <div class="invalid-feedback">
+                        Debe especificar el año de estreno
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="duracion"> Duración (minutos) </label>
+                      <input type="number" class="form-control" name="duracion" id="duracion" placeholder="XXXX" value="">
+                      <div class="invalid-feedback">
+                        Debe especificar la duración
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="row principal">
+                    <div class="col-md-4 mb-3">
+                      <label for="productora">Compañía Productora</label>
+                      <input type="text" class="form-control" name="productora" id="productora" placeholder="Compañía Productora" value="" required>
+                      <div class="invalid-feedback">
+                        Debe especificar la Compañía Productora
+                      </div>
+                    </div>
+                    <div class="col-md-8 mb-10">
+                        <label for="actores">Actores</label>
+                        <textarea type="text" class="form-control" name="actores" id="actores" placeholder="Actores" value="" required></textarea>
+                        <div class="invalid-feedback">
+                          Debe especificar actores para esta película
+                        </div>
+                      </div>
+                  </div>
+      
+                  <hr class="mb-4">
+      
+                  <button id="btn-agregarPelicula" class="btn btn-primary btn-lg btn-block mb-5" type="submit">Agregar Película</button>
+                </form>
+              </main>
+
+
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+
+    <!-- scripts para forms 
+    <script src="./scripts/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>-->
+
+ 
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+  </body>
+</html>

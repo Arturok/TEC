@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="py-5 text-center">
+    <h1 class="display-1">Health-TEC</h1>
+    <p class="lead">Aca el usuario definira los datos que quiere que nuestra empresa tenga acerca de el, asegurese de
+      que estos datos
+      esten correctamente escritos y que sean los correctos.
+    </p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="text-center">
+        <h3 class="mb-3">Registrarse</h3>
+      </div>
+      <hr class="mb-4">
+      <form #registerForm="ngForm" (ngSubmit)="addRegister(registerForm)" class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" #name="ngModel" [(ngModel)]="registerService.selectedRegister.nombre"
+              placeholder="Nombre Completo" value="" required>
+            <div class="invalid-feedback">
+              Por favor ingrese un Nombre.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="cedula">Identificacion</label>
+            <input type="number" class="form-control" id="cedula" name="cedula" #name="ngModel" [(ngModel)]="registerService.selectedRegister.cedula"
+              placeholder="123456789" required>
+            <div class="invalid-feedback">
+              Por favor ingrese una Identificacion.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="correo">Correo<span class="text-muted"></span></label>
+            <input type="email" class="form-control" id="correo" name="correo" #name="ngModel" [(ngModel)]="registerService.selectedRegister.correo"
+              placeholder="ejemplo@ejemplo.com" required>
+            <div class="invalid-feedback">
+              Por favor ingrese un correo valido.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="contrasena">Contraseña<span class="text-muted"></span></label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" #name="ngModel" [(ngModel)]="registerService.selectedRegister.contrasena"
+              placeholder="Contraseña" required>
+            <div class="invalid-feedback">
+              Por favor ingrese una contraseña.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" name="fechaNacimiento"
+              #name="ngModel" [(ngModel)]="registerService.selectedRegister.fechaNacimiento" placeholder="dd/mm/aaaa"
+              required>
+            <div class="invalid-feedback">
+              Por favor ingrese una fecha de nacimiento.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="tipoSangre">Tipo de Sangre<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="tipoSangre" name="tipoSangre" #name="ngModel" [(ngModel)]="registerService.selectedRegister.tipoSangre"
+              placeholder="X" required>
+            <div class="invalid-feedback">
+              Por favor ingrese un tipo de Sangre.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="nacionalidad">Nacionalidad<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" #name="ngModel" [(ngModel)]="registerService.selectedRegister.nacionalidad"
+              placeholder="Nacionalidad" required>
+            <div class="invalid-feedback">
+              Por favor ingrese su nacionalidad.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="residencia">Residencia<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="residencia" name="residencia" #name="ngModel" [(ngModel)]="registerService.selectedRegister.residencia"
+              placeholder="Residencia" required>
+            <div class="invalid-feedback">
+              Por favor ingrese su nacionalidad.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="telefonos">Teléfono(s)<span class="text-muted"></span></label>
+            <textarea type="text" class="form-control" id="telefonos" name="telefonos" #name="ngModel" [(ngModel)]="registerService.selectedRegister.telefonos"
+              placeholder="88888888" required>88888888</textarea>
+            <!--<input type="text" class="form-control" id="telefonos" name="telefonos" placeholder="88888888" required>  -->
+            <div class="invalid-feedback">
+              Por favor ingrese al menos un número de teléfono.
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Registrar</button>
+      </form>
+    </div>
+  </div>

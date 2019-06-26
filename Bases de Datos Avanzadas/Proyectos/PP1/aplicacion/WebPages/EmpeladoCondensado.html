@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Empleado</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../WebPages/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../Webpages/css/dashboard.css" rel="stylesheet">
+
+    <!-- date picker -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Nombre de Empleado</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Cerrar sesión</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a id="principal-sel" class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Principal
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="retirar-paq-sel"class="nav-link" href="#">
+                  <span data-feather="shopping-bag"></span>
+                  Retirar paquete
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="din-rec-sel" class="nav-link" href="#">
+                  <span data-feather="dollar-sign"></span>
+                  Dinero recaudado
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="paq-mes-sel" class="nav-link" href="#">
+                  <span data-feather="calendar"></span>
+                  Paquetes por mes
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="prom-sel" class="nav-link" href="#">
+                  <span data-feather="trending-up"></span>
+                  Monto Promedio
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="mont-paq-sel" class="nav-link" href="#">
+                  <span data-feather="circle"></span>
+                  Monto de paquete por tipo
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="mont-suc-sel" class="nav-link" href="#">
+                  <span data-feather="dollar-sign"></span>
+                  Monto por sucursal
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="mont-suc-paq-sel" class="nav-link" href="#">
+                  <span data-feather="dollar-sign"></span>
+                  Monto por sucursal por paquete
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="mej-cli-sel" class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  Mejores clientes
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Opción de agregar paquetes clase: principal-->
+        <main id="main-principal" role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 principal">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom ">
+            <h1 class="h1">Principal</h1>
+          </div>
+
+          <h2>Agregar un paquete</h2>
+          <form class="needs-validation" novalidate>
+            <div class="row principal">
+
+              <div class="col-md-4 mb-3 ">
+                <label  for="sucursal">Sucursal</label>
+                <select class="custom-select d-block w-100" id="sucursal" required>
+                  <option value="">Escoja una sucursal...</option>
+                  <option>Cartago</option>
+                  <option>San José</option>
+                </select>
+                <div class="invalid-feedback">
+                  Seleccione una sucursal
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="cedula">Cédula del cliente</label>
+                <input type="text" class="form-control" id="Cedula" placeholder="x-xxxx-xxxx" value="" required>
+                <div class="invalid-feedback">
+                  Un numero de cédula válido
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="email">Email </label>
+                <input type="email" class="form-control" id="Email" placeholder="you@example.com" value="" required>
+                <div class="invalid-feedback">
+                  Un correo válido
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="descripcion">Descripción del paquete</label>
+                <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+              </div>
+            </div>
+
+            <div class="row principal">
+              <div class="col-md-4 mb-3">
+                <label for="pesoPaq">Peso del paquete</label>
+                <input type="number" class="form-control" id="pesoPaq" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Debe especificar el peso
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="valorPaq">Valor del paquete</label>
+                <input type="number" class="form-control" id="valorPaq" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Debe especificar el valor del paquete
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="montoPaq">Monto a pagar </label>
+                <input type="number" class="form-control" id="montoPaq" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Debe especificar un monto a pagar
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="tipoPaq">Tipo de paquete</label>
+                <select class="custom-select d-block w-100" id="tipoPaq" required>
+                  <option value="">Escoja un tipo...</option>
+                  <option>Tipo 1</option>
+                  <option>Tipo 2</option>
+                </select>
+                <div class="invalid-feedback">
+                  Seleccione un tipo de paquete
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="catPaq">Categoría del paquete</label>
+                <select class="custom-select d-block w-100" id="catPaq" required>
+                  <option value="">Escoja una categoría...</option>
+                  <option>Categoría 1</option>
+                  <option>Categoría 2</option>
+                </select>
+                <div class="invalid-feedback">
+                  Seleccione una categoría de paquete
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label  for="datepicker">Fecha de recepción</label>
+                <input  id="datepicker" width="137%" required/>
+                <!-- Date picker script -->
+                <script>
+                    $('#datepicker').datepicker({
+                        uiLibrary: 'bootstrap4'
+                    });
+                </script>
+                <div class="invalid-feedback">
+                  Debe especificar una fecha de recepción
+                </div>
+              </div>
+            </div>
+
+            <hr class="mb-4">
+
+            <button id="btn-agregarPaq" class="btn btn-primary btn-lg btn-block mb-5" type="submit">Agregar paquete</button>
+          </form>
+        </main>
+        <!-- fin de la parte principal -->
+
+        <!-- Opción para retirar un paquete de la tienda clase: retiro-->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 retiro"  hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" >
+            <h1 class="h2">Retirar paquete</h1>
+          </div>
+
+          <h2>Proceso de retiro</h2>
+
+          <div class="mb-3">
+            <div class="card">
+              <div class="card-header bg-primary text-white h4">
+                Buscar paquete
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Información del cliente</h5>
+                <form class="needs-validation" novalidate>
+                  <div class="container-fluid">
+                      <div class="mb-3">
+                        <label for="cedula">Cédula del cliente</label>
+                        <input type="text" class="form-control" id="Cedula" placeholder="x-xxxx-xxxx" value="" required>
+                        <div class="invalid-feedback">
+                          Debe especificar un numero de cédula
+                        </div>
+                      </div>
+                  </div>
+                  <button id="buscar-paqs" onclick="showListPaq" type="submit" class="btn btn-primary">Buscar paquetes del cliente</button>
+                </form>
+              </div>
+              <ul id="lista-paq-cli" class="list-group list-group-flush retiro" hidden>
+                <button id="paq-desc-btn" type="button" class="list-group-item list-group-item-action">ID paquete 1</button>
+                <button type="button" class="list-group-item list-group-item-action">ID paquete 2</button>
+              </ul>
+            </div>
+          </div>
+
+          <div id="inf-paq" class="mb-3" hidden>
+            <div class="card">
+              <div class="card-header bg-primary text-white h4">
+                Información del paquete
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Id del paquete</li>
+                <li class="list-group-item">Sucursal</li>
+                <li class="list-group-item">Fecha de recepción</li>
+                <li class="list-group-item">Categoría de paquete</li>
+                <li class="list-group-item">Tipo de paquete</li>
+                <li class="list-group-item">Descripción</li>
+                <li class="list-group-item">Peso del paquete</li>
+                <li class="list-group-item">Valor del paquete</li>
+                <li class="list-group-item">Monto</li>
+              </ul>
+              <div class="card-body">
+                <h5 class="card-title">Retirar</h5>
+                <div class="container">
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <label class="principal" for="datepicker2">Seleccionar fecha de retiro</label>
+                      <input class="principal" id="datepicker2" width="300px" />
+                      <script>
+                          $('#datepicker2').datepicker({
+                              uiLibrary: 'bootstrap4'
+                          });
+                      </script>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="#" class="btn btn-primary">Retirar paquete</a>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- fin de la opción de retirar un paquete -->
+
+        <!-- Dinero recaudado -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 dinero-rec" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dinero recaudado</h1>
+          </div>
+
+          <div class="mb-3 row">
+            <div class="col-md-4 mb-3">
+              <label for="sucursal">Sucursal</label>
+              <select class="custom-select d-block w-100" id="sucursal" required>
+                <option value="">Escoja una sucursal...</option>
+                <option>Cartago</option>
+                <option>San José</option>
+              </select>
+              <div class="invalid-feedback">
+                Seleccione una sucursal
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label  for="datepicker3">Fecha de consulta</label>
+              <input  id="datepicker3" width="100%" required/>
+              <script>
+                  $('#datepicker3').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+          </div>
+          <button id="btn-con-dinrec" class="btn btn-primary btn-lg btn-block principal mb-3" type="submit">Consultar ganancias</button>
+
+          <div class="card">
+            <div class="card-header bg-primary text-white h4">
+              Dinero recaudado
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">56 mil colones</h5>
+            </div>
+          </div>
+        </main>
+        <!-- Fin de dinero recaudado -->
+
+        <!-- Lista de paquetes por usuario por rango de fechas -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 paq-mes" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Paquetes por mes</h1>
+          </div>
+
+          <h4 class="h4"> Seleccionar rango de fechas de consulta </h4>
+
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label  for="datepicker4">Fecha de consulta</label>
+              <input  id="datepicker4" width="100%" required/>
+              <script>
+                  $('#datepicker4').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+
+            <div class="col-md-4 offset-4 mb-3">
+              <label  for="datepicker5">Fecha de consulta</label>
+              <input  id="datepicker5" width="100%" required/>
+
+              <script>
+                  $('#datepicker5').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block principal mb-3">Consultar</button>
+
+          <div class="row">
+            <div class="col-12">
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header h4 " id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Nombre de usuario 1
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Paquete 1</li>
+                      <li class="list-group-item">Paquete 2</li>
+                      <li class="list-group-item">Paquete 3</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header h4 " id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Nombre de usuario 2
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Paquete 1</li>
+                      <li class="list-group-item">Paquete 2</li>
+                      <li class="list-group-item">Paquete 3</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header h4 " id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Nombre de usuario 3
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Paquete 1</li>
+                      <li class="list-group-item">Paquete 2</li>
+                      <li class="list-group-item">Paquete 3</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- Fin de lista de paquetes por usuario por rango de fechas -->
+
+        <!-- Lista del promedio pagado por usuario por paquetes -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 usr-prod" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Monto promedio para tipo de paquete</h1>
+          </div>
+          <h4 class="h4"> Seleccionar rango de fechas de consulta </h4>
+
+          <div class="row mb-3">
+
+            <div class="col-md-4">
+              <label  for="datepicker6">Fecha de consulta</label>
+              <input  id="datepicker6" width="100%" required/>
+              <script>
+                  $('#datepicker6').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+
+            <div class="col-md-4 offset-4 mb-3">
+              <label  for="datepicker7">Fecha de consulta</label>
+              <input  id="datepicker7" width="100%" required/>
+
+              <script>
+                  $('#datepicker7').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block principal mb-3">Consultar</button>
+
+          <div class="row">
+            <div class="col-12">
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header h4 " id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Nombre de usuario 1
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Monto promedio</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header h4 " id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Nombre de usuario 2
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Monto promedio</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header h4 " id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Nombre de usuario 3
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Monto promedio</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- Fin lista del promedio pagado por usuario por paquetes -->
+
+        <!-- total recaudado -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 suc-centr-recau" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h1">Sucursal Central</h1>
+          </div>
+
+          <h2>Monto recaudado por sucursal</h2>
+
+          <h2>Seleccionar rango de fechas</h2>
+
+          <div class="row mb-3">
+
+            <div class="col-md-4">
+              <label  for="sucursal">Sucursal</label>
+              <select class="custom-select d-block w-100" id="sucursal" required>
+                <option value="">Escoja una sucursal...</option>
+                <option>Cartago</option>
+                <option>San José</option>
+              </select>
+              <div class="invalid-feedback">
+                Seleccione una sucursal
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label  for="datepicker8">Fecha de consulta</label>
+              <input  id="datepicker8" width="100%" required/>
+              <script>
+                  $('#datepicker8').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label  for="datepicker9">Fecha de consulta</label>
+              <input  id="datepicker9" width="100%" required/>
+
+              <script>
+                  $('#datepicker9').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block principal mb-3">Consultar</button>
+
+          <div class="card">
+            <div class="card-header bg-primary text-white h4">
+              Monto recaudado
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Se recaudó</h5>
+              <p>15 $</p>
+            </div>
+          </div>
+        </main>
+        <!-- fin de total recaudado -->
+
+        <!-- recaudado por paquetes  -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 suc-centr-recau-paq" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h1">Sucursal Central</h1>
+          </div>
+
+          <h2>Monto recaudado por sucursal por tipo de paquete</h2>
+
+          <h4>Seleccionar tipo de paquete y sucursal</h4>
+
+          <div class="row mb-3">
+
+            <div class="col-md-4 mb-3">
+              <label for="tipoPaq">Tipo de paquete</label>
+              <select class="custom-select d-block w-100" id="tipoPaq" required>
+                <option value="">Escoja un tipo...</option>
+                <option>Tipo 1</option>
+                <option>Tipo 2</option>
+              </select>
+              <div class="invalid-feedback">
+                Seleccione un tipo de paquete
+              </div>
+            </div>
+
+            <div class="col-md-4 offset-4">
+              <label  for="sucursal">Sucursal</label>
+              <select class="custom-select d-block w-100" id="sucursal" required>
+                <option value="">Escoja una sucursal...</option>
+                <option>Cartago</option>
+                <option>San José</option>
+              </select>
+              <div class="invalid-feedback">
+                Seleccione una sucursal
+              </div>
+            </div>
+
+          </div>
+
+          <h4>Seleccionar rango de fechas</h4>
+
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label  for="datepicker10">Fecha de consulta</label>
+              <input  id="datepicker10" width="100%" required/>
+              <script>
+                  $('#datepicker10').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+
+            <div class="col-md-4 offset-4">
+              <label  for="datepicker11">Fecha de consulta</label>
+              <input  id="datepicker11" width="100%" required/>
+
+              <script>
+                  $('#datepicker11').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block principal mb-3">Consultar</button>
+
+          <div class="card mb-5">
+            <div class="card-header bg-primary text-white h4">
+              Monto recaudado
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Se recaudó</h5>
+              <p>15 $</p>
+            </div>
+          </div>
+        </main>
+        <!-- fin de reacudados por paquetes  -->
+
+        <!-- Mejores clientes -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 suc-centr-mej-cli" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h1">Sucursal Central</h1>
+          </div>
+
+          <h2>Mejores clientes</h2>
+
+          <h4>Seleccionar rango de fechas</h2>
+
+          <div class="row mb-3">
+
+            <div class="col-md-4">
+              <label  for="datepicker12">Fecha de consulta</label>
+              <input  id="datepicker12" width="100%" required/>
+              <script>
+                  $('#datepicker12').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+
+            <div class="col-md-4 offset-4">
+              <label  for="datepicker13">Fecha de consulta</label>
+              <input  id="datepicker13" width="100%" required/>
+
+              <script>
+                  $('#datepicker13').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+              <div class="invalid-feedback principal">
+                Debe especificar una fecha
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block principal mb-3">Consultar</button>
+
+          <div class="card">
+            <div class="card-header bg-primary text-white h4">
+              Mejores clientes
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Mejor cliente 1</li>
+              <li class="list-group-item">Mejor cliente 2</li>
+              <li class="list-group-item">Mejor cliente 3</li>
+            </ul>
+          </div>
+        </main>
+        <!-- fin de mejores clientes -->
+
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script>window.jQuery || document.write('<script src="../Webpages/scripts/jquery-slim.min.js"><\/script>')</script>
+    <script src="../WebPages/scripts/popper.min.js"></script>
+    <script src="../Webpages/scripts/bootstrap.min.js"></script>
+
+    <!-- scripts para forms -->
+    <script src="../Webpages/scripts/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+
+    <script>
+      $(document).ready(function(){
+
+        $("#principal-sel").click(function (){
+          $(".principal").attr("hidden", false);
+          $(".retiro").attr("hidden", true);
+          $(".dinero-rec").attr("hidden", true);
+          $(".paq-mes").attr("hidden", true);
+          $(".usr-prod").attr("hidden", true);
+          $(".suc-centr-recau").attr("hidden", true);
+          $(".suc-centr-recau-paq").attr("hidden", true);
+          $(".suc-centr-mej-cli").attr("hidden", true);
+        });
+
+        $("#retirar-paq-sel").click(function (){
+          $(".principal").attr("hidden", true);
+          $(".retiro").attr("hidden", false);
+          $(".dinero-rec").attr("hidden", true);
+          $(".paq-mes").attr("hidden", true);
+          $(".usr-prod").attr("hidden", true);
+          $(".suc-centr-recau").attr("hidden", true);
+          $(".suc-centr-recau-paq").attr("hidden", true);
+          $(".suc-centr-mej-cli").attr("hidden", true);
+        });
+
+        $("#din-rec-sel").click(function (){
+          $(".principal").attr("hidden", true);
+          $(".retiro").attr("hidden", true);
+          $(".dinero-rec").attr("hidden", false);
+          $(".paq-mes").attr("hidden", true);
+          $(".usr-prod").attr("hidden", true);
+          $(".suc-centr-recau").attr("hidden", true);
+          $(".suc-centr-recau-paq").attr("hidden", true);
+          $(".suc-centr-mej-cli").attr("hidden", true);
+        });
+
+        $("#paq-mes-sel").click(function (){
+          $(".principal").attr("hidden", true);
+          $(".retiro").attr("hidden", true);
+          $(".dinero-rec").attr("hidden", true);
+          $(".paq-mes").attr("hidden", false);
+          $(".usr-prod").attr("hidden", true);
+          $(".suc-centr-recau").attr("hidden", true);
+          $(".suc-centr-recau-paq").attr("hidden", true);
+          $(".suc-centr-mej-cli").attr("hidden", true);
+        });
+
+        $("#prom-sel").click(function (){
+          $(".principal").attr("hidden", true);
+          $(".retiro").attr("hidden", true);
+          $(".dinero-rec").attr("hidden", true);
+          $(".paq-mes").attr("hidden", true);
+          $(".usr-prod").attr("hidden", false);
+          $(".suc-centr-recau").attr("hidden", true);
+          $(".suc-centr-recau-paq").attr("hidden", true);
+          $(".suc-centr-mej-cli").attr("hidden", true);
+        });
+
+        // $("#mont-paq-sel").click(function (){
+        //   $(".retiro").attr("hidden", false);
+        //   $(".principal").attr("hidden", true);
+        // });
+
+        $("#mont-suc-sel").click(function (){
+          $(".principal").attr("hidden", true);
+          $(".retiro").attr("hidden", true);
+          $(".dinero-rec").attr("hidden", true);
+          $(".paq-mes").attr("hidden", true);
+          $(".usr-prod").attr("hidden", true);
+          $(".suc-centr-recau").attr("hidden", false);
+          $(".suc-centr-recau-paq").attr("hidden", true);
+          $(".suc-centr-mej-cli").attr("hidden", true);
+        });
+
+        $("#mont-suc-paq-sel").click(function (){
+          $(".principal").attr("hidden", true);
+          $(".retiro").attr("hidden", true);
+          $(".dinero-rec").attr("hidden", true);
+          $(".paq-mes").attr("hidden", true);
+          $(".usr-prod").attr("hidden", true);
+          $(".suc-centr-recau").attr("hidden", true);
+          $(".suc-centr-recau-paq").attr("hidden", false);
+          $(".suc-centr-mej-cli").attr("hidden", true);
+        });
+
+        $("#mej-cli-sel").click(function (){
+          $(".principal").attr("hidden", true);
+          $(".retiro").attr("hidden", true);
+          $(".dinero-rec").attr("hidden", true);
+          $(".paq-mes").attr("hidden", true);
+          $(".usr-prod").attr("hidden", true);
+          $(".suc-centr-recau").attr("hidden", true);
+          $(".suc-centr-recau-paq").attr("hidden", true);
+          $(".suc-centr-mej-cli").attr("hidden", false);
+        });
+
+        $("#buscar-paqs").click(function(){
+          $("#lista-paq-cli").attr("hidden", false);
+        });
+
+        $("#paq-desc-btn").click(function(){
+          $("#inf-paq").attr("hidden", false);
+        });
+
+        $().click();
+
+      });
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+  </body>
+</html>

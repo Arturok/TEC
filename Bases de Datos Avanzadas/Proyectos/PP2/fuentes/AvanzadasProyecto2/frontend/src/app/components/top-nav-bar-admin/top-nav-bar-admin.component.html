@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info mb-4">
+  <a class="navbar-brand" href="#">Admin TECHealth</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="CentrosAtencion">Centros de Atencion</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="Funcionarios">Funcionarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="Tratamientos">Tratamientos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="Enfermedades">Enfermedades</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle my-4 h6" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Consultas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="TratamientosAsig">Tratamientos asignados</a>
+          <a class="dropdown-item" routerLink="RangoEnfermedades">Rango de diagnósticos/enfermedades</a>
+          <a class="dropdown-item" routerLink="EnfermedadesDiag">Enfermedades más diagnosticadas</a>
+          <a class="dropdown-item" routerLink="CantidadCitas">Cantidad citas registradas</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

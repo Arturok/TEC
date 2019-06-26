@@ -1,0 +1,14 @@
+Bases de Datos Avanzados
+Segundo semestre, 2018
+Estudiantes:
+	-Andrés Brais Chaves
+	 201228344
+	-Arturo Chinchilla Sánchez
+	 201300934	
+	-Esteban Herrera Vargas
+	 2015012410
+	-Ronny Quesada Arias
+	 2015061978
+Proyecto Programado #3
+22-11-2018
+Estatus de la entrega: Muy buena

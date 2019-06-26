@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>Inicio de Sesion</title>
+
+   
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center">
+        <h1 class="display-1 py-5">CourierTEC</h1>
+      </div>
+
+      <form class="form-signin" #loginForm="ngForm" (ngSubmit)="Login(tipoUsuario,loginForm)">
+
+        <div class="text-center mb-4">
+          <h1 class="h3 mb-5 font-weight-normal">Iniciar Sesión</h1>
+        </div>
+
+        <div class="form-label-group">
+          <input type="email" id="inputEmail" class="form-control" #usuario="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.usuario" name="usuario" placeholder="Correo electrónico" required autofocus>
+          <label for="inputEmail">Correo Electrónico</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="inputPassword" #password="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.password" name="password" class="form-control" placeholder="Contraseña" required>
+          <label for="inputPassword">Contraseña</label>
+        </div>
+
+        <div class="form mb-3">
+          <label>Tipo de Usuario</label>
+          <select class="custom-select d-block w-100"  [(ngModel)]="tipoUsuario" [ngModelOptions]="{standalone: true}" id="tipousuario" required>
+            <option>Funcionario</option>
+            <option>Paciente</option>
+            
+          </select>
+          <div class="invalid-feedback">
+            Por favor seleccione una Provincia.
+          </div>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mt-5"  type="submit">Iniciar Sesión</button>
+
+        <div class="text-center mt-5">
+          <a routerLink="/Register" class="font-weight-normal">Registrar</a>
+        </div>
+
+      </form>
+
+    </div>
+  </body>
+</html>

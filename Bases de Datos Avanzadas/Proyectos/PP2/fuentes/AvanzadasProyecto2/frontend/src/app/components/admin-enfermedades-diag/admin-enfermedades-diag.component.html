@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <th>Nombre de la Enfermedad</th>
+        <th>Cantidad de veces diagnosticada</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let adminEnfermedadDiag of adminEnfermedadesDiag">
+          <td>{{ adminEnfermedadDiag._id }}</td>
+          <td>{{ adminEnfermedadDiag.cantidadDiag }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

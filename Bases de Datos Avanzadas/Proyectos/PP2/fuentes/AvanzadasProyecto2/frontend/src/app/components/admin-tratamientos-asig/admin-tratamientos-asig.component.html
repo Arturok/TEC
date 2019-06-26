@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Tipo</th>
+          <th>Cantidad</th>
+          <th>Promedio</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tratamientoAsig of tratamientosAsig">
+            <td>{{ tratamientoAsig._id }}</td>
+            <td>{{ tratamientoAsig.cantidad }}</td>
+            <td>{{ tratamientoAsig.promedio}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

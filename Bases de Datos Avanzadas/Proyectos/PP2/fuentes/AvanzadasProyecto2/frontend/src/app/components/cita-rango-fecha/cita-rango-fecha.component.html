@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+      <form class="form-inline" (ngSubmit)="getCitaRango(primerFecha,segundaFecha)">
+          <div class="form-group">
+            <label for="primerFecha">Primer fecha</label>
+            <input type="date"  [(ngModel)]="primerFecha" [ngModelOptions]="{standalone: true}" id="primerFecha" placeholder="Primer fecha">
+          </div>
+          <div class="form-group">
+              <label for="segundaFecha">Segunda fecha</label>
+              <input type="date" [(ngModel)]="segundaFecha" [ngModelOptions]="{standalone: true}" id="segundaFecha" placeholder="Segunda fecha">
+            </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-info btn-block">Consultar</button>
+          </div>
+      </form>
+    </div>
+    <div class="row">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Especialidad</th>
+          <th>fechaH</th>
+          <th>Observacion</th>
+          <th>Estado</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citaService.citas">
+            <td>{{ cita.especialidad }}</td>
+            <td>{{ cita.fechaH }}</td>
+            <td>{{ cita.observacion }}</td>
+            <td>{{ cita.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

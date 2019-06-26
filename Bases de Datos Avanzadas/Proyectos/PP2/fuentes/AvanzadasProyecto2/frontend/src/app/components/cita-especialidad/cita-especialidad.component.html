@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <form class="form-inline" (ngSubmit)="getCitaEspecialidad(Especialidad)">
+        <div class="form-group">
+          <label for="Especialidad">Especialidad</label>
+          <input type="text" class="form-control" [(ngModel)]="Especialidad" [ngModelOptions]="{standalone: true}" id="Especialidad" placeholder="Especialidad">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-info btn-block">Consultar</button>
+        </div>
+    </form>
+  </div>
+  <div class="row">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <th>Especialidad</th>
+        <th>fechaH</th>
+        <th>Observacion</th>
+        <th>Estado</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citaService.citas">
+          <td>{{ cita.especialidad }}</td>
+          <td>{{ cita.fechaH }}</td>
+          <td>{{ cita.observacion }}</td>
+          <td>{{ cita.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

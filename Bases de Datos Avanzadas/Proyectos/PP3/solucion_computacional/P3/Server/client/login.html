@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="Login">
+  <head>
+    <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login</title>
+
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular-resource/angular-resource.js"></script>
+        <script src="js/login.js"></script>
+        <script src="js/lb-services.js"></script>
+        <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="css/floating-labels.css" rel="stylesheet">
+  </head>
+
+  <body ng-controller="LoginController">
+
+    <div class="container">
+      <div class="text-center">
+        <h1 class="display-1 py-5">TRIPTEC</h1>
+      </div>
+
+      <form class="form-signin">
+
+        <div class="text-center mb-4">
+          <h1 class="h3 mb-5 font-weight-normal">Login</h1>
+        </div>
+
+        <div class="form-label-group">
+          <input type="email" id="inputEmail" class="form-control" ng-model="email" placeholder="Email" required autofocus>
+          <label for="inputEmail">Email</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="inputPassword" class="form-control" ng-model="password" placeholder="password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+        <div class="form-label-group">
+            <select id="selectTipoCliente" class="form-control"  ng-model="Tipo"  required>  
+                    <option value="" selected disabled hidden>Chose here...</option>
+                <option >Client</option>
+                <option >Employee</option>
+            </select>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mt-5" ng-click="ingresar(email,password)" type="submit">Login</button>
+        
+        <div class="text-center mt-5">
+          <a href="http://localhost:3000/Register.html" class="font-weight-normal">Register</a>
+        </div>
+
+      </form>
+
+    </div>
+  </body>
+</html>

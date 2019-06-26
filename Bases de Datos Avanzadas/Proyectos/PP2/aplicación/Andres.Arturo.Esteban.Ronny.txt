@@ -1,0 +1,3981 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AdminComponent } from './admin.component';
+
+describe('AdminComponent', () => {
+  let component: AdminComponent;
+  let fixture: ComponentFixture<AdminComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ AdminComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AdminComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
+})
+export class AdminComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AdminRangoEnfermedadesComponent } from './admin-rango-enfermedades.component';
+
+describe('AdminRangoEnfermedadesComponent', () => {
+  let component: AdminRangoEnfermedadesComponent;
+  let fixture: ComponentFixture<AdminRangoEnfermedadesComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ AdminRangoEnfermedadesComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AdminRangoEnfermedadesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+
+
+@Component({
+  selector: 'app-admin-rango-enfermedades',
+  templateUrl: './admin-rango-enfermedades.component.html',
+  styleUrls: ['./admin-rango-enfermedades.component.css']
+})
+export class AdminRangoEnfermedadesComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  
+
+}
+<div class="container">
+  <div class="row">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Tipo</th>
+          <th>Cantidad</th>
+          <th>Promedio</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tratamientoAsig of tratamientosAsig">
+            <td>{{ tratamientoAsig._id }}</td>
+            <td>{{ tratamientoAsig.cantidad }}</td>
+            <td>{{ tratamientoAsig.promedio}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AdminTratamientosAsigComponent } from './admin-tratamientos-asig.component';
+
+describe('AdminTratamientosAsigComponent', () => {
+  let component: AdminTratamientosAsigComponent;
+  let fixture: ComponentFixture<AdminTratamientosAsigComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ AdminTratamientosAsigComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AdminTratamientosAsigComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { TratamientoService } from '../../services/tratamiento.service'
+import { TratamientosAsig } from '../../models/tratamientos-asig';
+
+@Component({
+  selector: 'app-admin-tratamientos-asig',
+  templateUrl: './admin-tratamientos-asig.component.html',
+  styleUrls: ['./admin-tratamientos-asig.component.css']
+})
+export class AdminTratamientosAsigComponent implements OnInit {
+
+  tratamientosAsig: TratamientosAsig[];
+  constructor(private tratamientoService: TratamientoService) { }
+
+  ngOnInit() {
+    this.getTratamientosAsig()
+  }
+
+  getTratamientosAsig() {
+    this.tratamientoService.getTratamientosAsig()
+      .subscribe(res => {
+        this.tratamientosAsig = res as TratamientosAsig[];
+      });
+  }
+}
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-body border border-secondary">
+            <form #centroAtencionForm="ngForm" (ngSubmit)="addcentroAtencion(centroAtencionForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion._id">
+                <div class="form-group">
+                  <input class="form-control border-primary" type="text" name="nombre" #name="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion.nombre" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                  <input class="form-control border-primary" type="text" name="ubicacion" #name="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion.ubicacion" placeholder="Ubicación">
+                </div>
+                <div class="form-group">
+                  <input class="form-control border-primary" type="number" name="capacidad" #name="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion.capacidad" placeholder="Capacidad">
+                </div>
+                <div class="form-group">
+                  <input class="form-control border-primary" type="text" name="tipo" #name="ngModel" [(ngModel)]="centroAtencionService.selectedcentroAtencion.tipo" placeholder="Tipo">
+                </div>
+                <div class="card-action">
+                  <button type="submit" class="btn btn-info btn-block">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-light">
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th>Capacidad</th>
+            <th>Tipo</th>
+            <th>Operations</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let centroAtencion of centroAtencionService.centrosAtencion">
+              <td>{{ centroAtencion.nombre }}</td>
+              <td>{{ centroAtencion.ubicacion }}</td>
+              <td>{{ centroAtencion.capacidad }}</td>
+              <td>{{ centroAtencion.tipo }}</td>
+              <td>
+                <a (click)="editcentroAtencion(centroAtencion)">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deletecentroAtencion(centroAtencion._id, centroAtencionForm)">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CentrosAtencionComponent } from './centros-atencion.component';
+
+describe('CentrosAtencionComponent', () => {
+  let component: CentrosAtencionComponent;
+  let fixture: ComponentFixture<CentrosAtencionComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CentrosAtencionComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CentrosAtencionComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { CentroAtencionService } from '../../services/centro-atencion.service'
+import { NgForm } from '@angular/forms';
+import { CentroAtencion } from '../../models/centro-atencion';
+declare var M: any;
+
+@Component({
+  selector: 'app-centros-atencion',
+  templateUrl: './centros-atencion.component.html',
+  styleUrls: ['./centros-atencion.component.css'],
+  providers: [ CentroAtencionService ]
+})
+export class CentrosAtencionComponent implements OnInit {
+
+  constructor(private centroAtencionService: CentroAtencionService) { }
+
+
+  ngOnInit() {
+    this.getcentrosAtencion();
+  }
+
+  addcentroAtencion(form?: NgForm) {
+    console.log(form.value);
+    if(form.value._id) {
+      this.centroAtencionService.putcentroAtencion(form.value)
+        .subscribe(res => {
+          this.resetForm(form);
+          this.getcentrosAtencion();
+          M.toast({html: 'Updated Successfully'});
+        });
+    } else {
+      this.centroAtencionService.postcentroAtencion(form.value)
+      .subscribe(res => {
+        this.getcentrosAtencion();
+        this.resetForm(form);
+        M.toast({html: 'Save successfully'});
+      });
+    }
+    
+  }
+
+  getcentrosAtencion() {
+    this.centroAtencionService.getcentrosAtencion()
+      .subscribe(res => {
+        this.centroAtencionService.centrosAtencion = res as CentroAtencion[];
+        console.log(this.centroAtencionService.centrosAtencion);
+      });
+  }
+
+  editcentroAtencion(centroMedico: CentroAtencion) {
+    this.centroAtencionService.selectedcentroAtencion = centroMedico;
+  }
+
+  deletecentroAtencion(_id: string, form: NgForm) {
+    if(confirm('Are you sure you want to delete it?')) {
+      this.centroAtencionService.deletecentroAtencion(_id)
+        .subscribe(res => {
+          this.getcentrosAtencion();
+          this.resetForm(form);
+          M.toast({html: 'Deleted Succesfully'});
+        });
+    }
+  }
+
+  resetForm(form?: NgForm) {
+    if (form) {
+      form.reset();
+      this.centroAtencionService.selectedcentroAtencion = new CentroAtencion();
+    }
+  }
+
+}
+
+
+<div class="container">
+  <div class="row">
+    <form class="form-inline" (ngSubmit)="getCitaEspecialidad(Especialidad)">
+        <div class="form-group">
+          <label for="Especialidad">Especialidad</label>
+          <input type="text" class="form-control" [(ngModel)]="Especialidad" [ngModelOptions]="{standalone: true}" id="Especialidad" placeholder="Especialidad">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-info btn-block">Consultar</button>
+        </div>
+    </form>
+  </div>
+  <div class="row">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <th>Especialidad</th>
+        <th>fechaH</th>
+        <th>Observacion</th>
+        <th>Estado</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citaService.citas">
+          <td>{{ cita.especialidad }}</td>
+          <td>{{ cita.fechaH }}</td>
+          <td>{{ cita.observacion }}</td>
+          <td>{{ cita.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CitaEspecialidadComponent } from './cita-especialidad.component';
+
+describe('CitaEspecialidadComponent', () => {
+  let component: CitaEspecialidadComponent;
+  let fixture: ComponentFixture<CitaEspecialidadComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CitaEspecialidadComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CitaEspecialidadComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { PacienteCitaService } from '../../services/paciente-cita.service'
+import { NgForm } from '@angular/forms';
+import { Cita } from '../../models/cita';
+import { CookieService } from 'ngx-cookie-service';
+
+@Component({
+  selector: 'app-cita-especialidad',
+  templateUrl: './cita-especialidad.component.html',
+  styleUrls: ['./cita-especialidad.component.css'],
+  providers: [ PacienteCitaService ]
+})
+export class CitaEspecialidadComponent implements OnInit {
+
+  constructor(private citaService: PacienteCitaService, private cookieService: CookieService) { }
+
+  ngOnInit() {
+  }
+
+  getCitaEspecialidad(especialidad: string) {
+    this.citaService.getCitaEspecialidad(this.cookieService.get('_id'),especialidad)
+      .subscribe(res => {
+        this.citaService.citas = res as Cita[];
+      });
+
+  }
+}
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="getCitaEstado(Estado)">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Estado</label>
+            </div>
+            <select class="custom-select" [(ngModel)]="Estado" [ngModelOptions]="{standalone: true}" id="Estado">
+              <option selected>Registrada</option>
+              <option>Cancelada por paciente</option>
+              <option>Cancelada por centro médico</option>
+              <option>Asignada</option>
+              <option>Realizada</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <button type="submit" class="btn btn-info btn-block">Consultar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+      <table class="table table-bordered table-hover">
+          <thead class="thead-light">
+            <th>Especialidad</th>
+            <th>fechaH</th>
+            <th>Observacion</th>
+            <th>Estado</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cita of citaService.citas">
+              <td>{{ cita.especialidad }}</td>
+              <td>{{ cita.fechaH }}</td>
+              <td>{{ cita.observacion }}</td>
+              <td>{{ cita.estado }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+  </div>
+</div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CitaEstadoComponent } from './cita-estado.component';
+
+describe('CitaEstadoComponent', () => {
+  let component: CitaEstadoComponent;
+  let fixture: ComponentFixture<CitaEstadoComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CitaEstadoComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CitaEstadoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { PacienteCitaService } from '../../services/paciente-cita.service'
+import { NgForm } from '@angular/forms';
+import { Cita } from '../../models/cita';
+import { CookieService } from 'ngx-cookie-service';
+
+
+@Component({
+  selector: 'app-cita-estado',
+  templateUrl: './cita-estado.component.html',
+  styleUrls: ['./cita-estado.component.css'],
+  providers: [ PacienteCitaService ]
+})
+export class CitaEstadoComponent implements OnInit {
+  constructor(private citaService: PacienteCitaService, private cookieService: CookieService) { }
+
+  ngOnInit() {
+    
+    
+  }
+
+  getCitaEstado(estado: string) {
+    this.citaService.getCitaEstado(this.cookieService.get('_id'),estado)
+      .subscribe(res => {
+        this.citaService.citas = res as Cita[];
+      });
+
+  }
+
+
+}
+<div class="container">
+    <div class="row">
+      <form class="form-inline" (ngSubmit)="getCitaRango(primerFecha,segundaFecha)">
+          <div class="form-group">
+            <label for="primerFecha">Primer fecha</label>
+            <input type="date"  [(ngModel)]="primerFecha" [ngModelOptions]="{standalone: true}" id="primerFecha" placeholder="Primer fecha">
+          </div>
+          <div class="form-group">
+              <label for="segundaFecha">Segunda fecha</label>
+              <input type="date" [(ngModel)]="segundaFecha" [ngModelOptions]="{standalone: true}" id="segundaFecha" placeholder="Segunda fecha">
+            </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-info btn-block">Consultar</button>
+          </div>
+      </form>
+    </div>
+    <div class="row">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Especialidad</th>
+          <th>fechaH</th>
+          <th>Observacion</th>
+          <th>Estado</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citaService.citas">
+            <td>{{ cita.especialidad }}</td>
+            <td>{{ cita.fechaH }}</td>
+            <td>{{ cita.observacion }}</td>
+            <td>{{ cita.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CitaRangoFechaComponent } from './cita-rango-fecha.component';
+
+describe('CitaRangoFechaComponent', () => {
+  let component: CitaRangoFechaComponent;
+  let fixture: ComponentFixture<CitaRangoFechaComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CitaRangoFechaComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CitaRangoFechaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { PacienteCitaService } from '../../services/paciente-cita.service'
+import { NgForm } from '@angular/forms';
+import { Cita } from '../../models/cita';
+import { CookieService } from 'ngx-cookie-service';
+
+@Component({
+  selector: 'app-cita-rango-fecha',
+  templateUrl: './cita-rango-fecha.component.html',
+  styleUrls: ['./cita-rango-fecha.component.css'],
+  providers: [ PacienteCitaService ]
+})
+export class CitaRangoFechaComponent implements OnInit {
+
+  constructor(private citaService: PacienteCitaService, private cookieService: CookieService) { }
+
+  ngOnInit() {
+  }
+
+  getCitaRango(primerFecha: string, segundaFecha: string) {
+    this.citaService.getCitaRango(this.cookieService.get('_id'),primerFecha, segundaFecha)
+      .subscribe(res => {
+        this.citaService.citas = res as Cita[];
+      });
+
+  }
+
+}
+<main id="main-principal" role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 principal">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom ">
+  <h1 class="h1">Atender Paciente</h1>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body border border-secondary align-items-center">
+            <form #doctorAtenderPacienteForm="ngForm" (ngSubmit)="addDoctorAtenderPaciente(doctorAtenderPacienteForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente._id">
+                <div class="form-group">
+                  <input class="form-control border-primary" type="number" name="cedulaPaciente" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.cedulaPaciente" placeholder="Cedula del paciente">
+                </div>
+                <div class="form-group">
+                    <input class="form-control border-primary" type="text" name="idCita" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.idCita" placeholder="Id de la cita">
+                  </div>
+                  <div class="form-group">
+                      <input class="form-control border-primary" type="text" name="nombreDiagnostico" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.nombreDiagnostico" placeholder="Nombre del diagnostico">
+                    </div>
+                <div class="form-group">
+                  <input class="form-control border-primary" type="text" name="nivelDiagnostico" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.nivelDiagnostico" placeholder="Nivel del diagnostico">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control border-primary" type="text" name="observaciones" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.observaciones" placeholder="Observaciones" cols="80"></textarea>
+                </div>
+                <div class="form-group">
+                  <input class="form-control border-primary" type="text" name="nombreTratamiento" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.nombreTratamiento" placeholder="Nombre del tratamiento">
+                </div>
+                <div class="form-group">
+                    <input class="form-control border-primary" type="text" name="dosisTratamiento" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.dosisTratamiento" placeholder="Dosis del tratamiento">
+                  </div>
+                  <div class="form-group">
+                      <input class="form-control border-primary" type="number" name="cantidadDias" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.cantidadDias" placeholder="Cantidad de dias">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control border-primary" type="text" name="efectosSecundarios" #name="ngModel" [(ngModel)]="doctorAtenderPacienteService.selectedDoctorAtenderPaciente.efectosSecundarios" placeholder="Efectos secundarios" cols="80"></textarea>
+                      </div>
+                      
+                <div class="card-action">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block mb-5">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-light">
+            <th>Cedula del paciente</th>
+            <th>Nombre del diagnostico</th>
+            <th>Nivel del diagnostico</th>
+            <th>Nombre del tratamiento</th>
+            <th>Dosis</th>
+            <th>Cantidad de dias</th>
+            <th>Operations</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doctorAtenderPaciente of doctorAtenderPacienteService.doctorAtenderPacientes">
+              <td>{{ doctorAtenderPaciente.cedulaPaciente }}</td>
+              <td>{{ doctorAtenderPaciente.nombreDiagnostico }}</td>
+              <td>{{ doctorAtenderPaciente.nivelDiagnostico }}</td>
+              <td>{{ doctorAtenderPaciente.nombreTratamiento }}</td>
+              <td>{{ doctorAtenderPaciente.dosisTratamiento }}</td>
+              <td>{{ doctorAtenderPaciente.cantidadDias }}</td>
+              <td>
+                <a (click)="editDoctorAtenderPaciente(doctorAtenderPaciente)">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteDoctorAtenderPaciente(doctorAtenderPaciente._id, doctorAtenderPacienteForm)">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+</main>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DoctorAtenderPacienteComponent } from './doctor-atender-paciente.component';
+
+describe('DoctorAtenderPacienteComponent', () => {
+  let component: DoctorAtenderPacienteComponent;
+  let fixture: ComponentFixture<DoctorAtenderPacienteComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ DoctorAtenderPacienteComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DoctorAtenderPacienteComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { DoctorAtenderPacienteService } from '../../services/doctor-atender-paciente.service'
+import { NgForm } from '@angular/forms';
+import { DoctorAtenderPaciente } from '../../models/doctor-atender-paciente';
+import { CookieService } from 'ngx-cookie-service';
+
+declare var M: any;
+
+@Component({
+  selector: 'app-doctor-atender-paciente',
+  templateUrl: './doctor-atender-paciente.component.html',
+  styleUrls: ['./doctor-atender-paciente.component.css']
+})
+export class DoctorAtenderPacienteComponent implements OnInit {
+
+  constructor(private doctorAtenderPacienteService: DoctorAtenderPacienteService, private cookieService: CookieService) { }
+
+  ngOnInit() {
+    this.getDoctorAtenderPacientes();
+  }
+
+  addDoctorAtenderPaciente(form?: NgForm) {
+    console.log(form.value);
+    if(form.value._id) {
+      this.doctorAtenderPacienteService.putDoctorAtenderPaciente(form.value)
+        .subscribe(res => {
+          this.resetForm(form);
+          this.getDoctorAtenderPacientes();
+          M.toast({html: 'Updated Successfully'});
+        });
+    } else {
+      console.log(this.cookieService.get('cedulaDoctor'));
+      this.doctorAtenderPacienteService.postDoctorAtenderPaciente(form.value,this.cookieService.get('cedulaDoctor'))
+      .subscribe(res => {
+        this.getDoctorAtenderPacientes();
+        this.resetForm(form);
+        M.toast({html: 'Save successfully'});
+      });
+    }
+    
+  }
+
+  getDoctorAtenderPacientes() {
+    this.doctorAtenderPacienteService.getDoctorAtenderPacientes(this.cookieService.get('cedulaDoctor'))
+      .subscribe(res => {
+        this.doctorAtenderPacienteService.doctorAtenderPacientes = res as DoctorAtenderPaciente[];
+        console.log(this.doctorAtenderPacienteService.doctorAtenderPacientes);
+      });
+  }
+
+
+
+  editDoctorAtenderPaciente(doctorAtenderPaciente: DoctorAtenderPaciente) {
+    this.doctorAtenderPacienteService.selectedDoctorAtenderPaciente = doctorAtenderPaciente;
+  }
+
+  deleteDoctorAtenderPaciente(_id: string, form: NgForm) {
+    if(confirm('Are you sure you want to delete it?')) {
+      this.doctorAtenderPacienteService.deleteDoctorAtenderPaciente(_id)
+        .subscribe(res => {
+          this.getDoctorAtenderPacientes();
+          this.resetForm(form);
+          M.toast({html: 'Deleted Succesfully'});
+        });
+    }
+  }
+
+  resetForm(form?: NgForm) {
+    if (form) {
+      form.reset();
+      this.doctorAtenderPacienteService.selectedDoctorAtenderPaciente = new DoctorAtenderPaciente();
+    }
+  }
+
+}
+<main id="main-principal" role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 principal">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom ">
+    <h1 class="h1">Citas Paciente</h1>
+  </div>
+  <div class="container">
+      <div class="row">
+        <form class="form-inline" (ngSubmit)="getCitas(idPaciente)">
+            <div class="form-group">
+              <label for="idPaciente">Cedula Paciente</label>
+              <input type="text" class="form-control" [(ngModel)]="idPaciente" [ngModelOptions]="{standalone: true}" id="idPaciente" placeholder="Ejemplo: 30333333">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-info btn-block">Consultar</button>
+            </div>
+        </form>
+      </div>
+      <div class="row">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-light">
+            <th>Especialidad</th>
+            <th>fechaH</th>
+            <th>Observacion</th>
+            <th>Estado</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cita of citaService.citas">
+              <td>{{ cita.especialidad }}</td>
+              <td>{{ cita.fechaH }}</td>
+              <td>{{ cita.observacion }}</td>
+              <td>{{ cita.estado }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</main>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DoctorCitasComponent } from './doctor-citas.component';
+
+describe('DoctorCitasComponent', () => {
+  let component: DoctorCitasComponent;
+  let fixture: ComponentFixture<DoctorCitasComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ DoctorCitasComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DoctorCitasComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { PacienteCitaService } from '../../services/paciente-cita.service'
+import { NgForm } from '@angular/forms';
+import { Cita } from '../../models/cita';
+import { CookieService } from 'ngx-cookie-service';
+
+
+@Component({
+  selector: 'app-doctor-citas',
+  templateUrl: './doctor-citas.component.html',
+  styleUrls: ['./doctor-citas.component.css'],
+  providers: [ PacienteCitaService ]
+})
+export class DoctorCitasComponent implements OnInit {
+
+  constructor(private citaService: PacienteCitaService) { }
+
+  ngOnInit() {
+  }
+
+  getCitas(idPaciente:string) {
+    this.citaService.getCitas(idPaciente)
+    .subscribe(res => {
+      this.citaService.citas = res as Cita[];
+    });
+  }
+}
+<div class="container">
+    <div class="row">
+      <form class="form-inline" (ngSubmit)="getCitaEspecialidad(idPaciente, Especialidad)">
+          <div class="form-group">
+              <label for="idPaciente">Cedula Paciente</label>
+              <input type="text" class="form-control" [(ngModel)]="idPaciente" [ngModelOptions]="{standalone: true}" id="idPaciente" placeholder="Ejemplo: 30333333">
+          </div> 
+          <div class="form-group">
+            <label for="Especialidad">Especialidad</label>
+            <input type="text" class="form-control" [(ngModel)]="Especialidad" [ngModelOptions]="{standalone: true}" id="Especialidad" placeholder="Especialidad">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-info btn-block">Consultar</button>
+          </div>
+      </form>
+    </div>
+    <div class="row">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Especialidad</th>
+          <th>fechaH</th>
+          <th>Observacion</th>
+          <th>Estado</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citaService.citas">
+            <td>{{ cita.especialidad }}</td>
+            <td>{{ cita.fechaH }}</td>
+            <td>{{ cita.observacion }}</td>
+            <td>{{ cita.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DoctorCitasEspecialidadComponent } from './doctor-citas-especialidad.component';
+
+describe('DoctorCitasEspecialidadComponent', () => {
+  let component: DoctorCitasEspecialidadComponent;
+  let fixture: ComponentFixture<DoctorCitasEspecialidadComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ DoctorCitasEspecialidadComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DoctorCitasEspecialidadComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { PacienteCitaService } from '../../services/paciente-cita.service'
+import { NgForm } from '@angular/forms';
+import { Cita } from '../../models/cita';
+
+@Component({
+  selector: 'app-doctor-citas-especialidad',
+  templateUrl: './doctor-citas-especialidad.component.html',
+  styleUrls: ['./doctor-citas-especialidad.component.css'],
+  providers: [ PacienteCitaService ]
+})
+export class DoctorCitasEspecialidadComponent implements OnInit {
+
+  constructor(private citaService: PacienteCitaService) { }
+
+  ngOnInit() {
+  }
+  
+  getCitaEspecialidad(idPaciente: string, especialidad: string) {
+    this.citaService.getCitaEspecialidad(idPaciente, especialidad)
+      .subscribe(res => {
+        this.citaService.citas = res as Cita[];
+      });
+
+  }
+}
+<div class="container">
+    <div class="row">
+      <form (ngSubmit)="getCitaEstado(idPaciente, Estado)">
+        <div class="form-row">
+          <div class="form-group col-md-9">
+            <div class="input-group mb-3">
+              <div class="form-group">
+                  <label for="idPaciente">Cedula Paciente</label>
+                  <input type="text" class="form-control" [(ngModel)]="idPaciente" [ngModelOptions]="{standalone: true}" id="idPaciente" placeholder="Ejemplo: 30333333">
+              </div> 
+              <div class="form-group">
+                <label for="inputGroupSelect01">Estado</label>
+                <select class="custom-select" [(ngModel)]="Estado" [ngModelOptions]="{standalone: true}" id="Estado" aria-placeholder="Seleccione un estado">
+                    <option selected>Registrada</option>
+                    <option>Cancelada por paciente</option>
+                    <option>Cancelada por centro médico</option>
+                    <option>Asignada</option>
+                    <option>Realizada</option>
+                  </select>
+              </div>
+              
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <button type="submit" class="btn btn-info btn-block">Consultar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+              <th>Especialidad</th>
+              <th>fechaH</th>
+              <th>Observacion</th>
+              <th>Estado</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cita of citaService.citas">
+                <td>{{ cita.especialidad }}</td>
+                <td>{{ cita.fechaH }}</td>
+                <td>{{ cita.observacion }}</td>
+                <td>{{ cita.estado }}</td>
+              </tr>
+            </tbody>
+          </table>
+  
+  
+  
+    </div>
+  </div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DoctorCitasEstadoComponent } from './doctor-citas-estado.component';
+
+describe('DoctorCitasEstadoComponent', () => {
+  let component: DoctorCitasEstadoComponent;
+  let fixture: ComponentFixture<DoctorCitasEstadoComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ DoctorCitasEstadoComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DoctorCitasEstadoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { PacienteCitaService } from '../../services/paciente-cita.service'
+import { NgForm } from '@angular/forms';
+import { Cita } from '../../models/cita';
+
+@Component({
+  selector: 'app-doctor-citas-estado',
+  templateUrl: './doctor-citas-estado.component.html',
+  styleUrls: ['./doctor-citas-estado.component.css'],
+  providers: [ PacienteCitaService ]
+})
+export class DoctorCitasEstadoComponent implements OnInit {
+
+  constructor(private citaService: PacienteCitaService) { }
+
+  ngOnInit() {
+  }
+  getCitaEstado(idPaciente: string, estado: string) {
+    this.citaService.getCitaEstado(idPaciente ,estado)
+      .subscribe(res => {
+        this.citaService.citas = res as Cita[];
+      });
+
+  }
+
+}
+<main id="main-principal" role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 principal">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom ">
+      <h1 class="h1">Citas Paciente</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <form class="form-inline" (ngSubmit)="getCitaRango(idPaciente,primerFecha,segundaFecha)">
+                <div class="form-group">
+                    <label for="idPaciente">Cedula Paciente</label>
+                    <input type="text" class="form-control" [(ngModel)]="idPaciente" [ngModelOptions]="{standalone: true}" id="idPaciente" placeholder="Ejemplo: 30333333">
+                </div>  
+                <div class="form-group">
+                  <label for="primerFecha">Primer fecha</label>
+                  <input type="date"  [(ngModel)]="primerFecha" [ngModelOptions]="{standalone: true}" id="primerFecha" placeholder="Primer fecha">
+                </div>
+                <div class="form-group">
+                    <label for="segundaFecha">Segunda fecha</label>
+                    <input type="date" [(ngModel)]="segundaFecha" [ngModelOptions]="{standalone: true}" id="segundaFecha" placeholder="Segunda fecha">
+                  </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-info btn-block">Consultar</button>
+                </div>
+            </form>
+          </div>
+        <div class="row">
+          <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+              <th>Especialidad</th>
+              <th>fechaH</th>
+              <th>Observacion</th>
+              <th>Estado</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cita of citaService.citas">
+                <td>{{ cita.especialidad }}</td>
+                <td>{{ cita.fechaH }}</td>
+                <td>{{ cita.observacion }}</td>
+                <td>{{ cita.estado }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </main>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DoctorCitasRangoFechaComponent } from './doctor-citas-rango-fecha.component';
+
+describe('DoctorCitasRangoFechaComponent', () => {
+  let component: DoctorCitasRangoFechaComponent;
+  let fixture: ComponentFixture<DoctorCitasRangoFechaComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ DoctorCitasRangoFechaComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DoctorCitasRangoFechaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { PacienteCitaService } from '../../services/paciente-cita.service'
+import { NgForm } from '@angular/forms';
+import { Cita } from '../../models/cita';
+
+
+@Component({
+  selector: 'app-doctor-citas-rango-fecha',
+  templateUrl: './doctor-citas-rango-fecha.component.html',
+  styleUrls: ['./doctor-citas-rango-fecha.component.css'],
+  providers: [ PacienteCitaService ]
+})
+export class DoctorCitasRangoFechaComponent implements OnInit {
+
+  constructor(private citaService: PacienteCitaService) { }
+
+  ngOnInit() {
+  }
+  getCitaRango(idPaciente: string, primerFecha: string, segundaFecha: string) {
+    this.citaService.getCitaRango(idPaciente, primerFecha, segundaFecha)
+      .subscribe(res => {
+        this.citaService.citas = res as Cita[];
+      });
+  }
+}
+<main id="main-principal" role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 principal">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom ">
+      <h1 class="h1">Información del Paciente</h1>
+    </div>
+
+  <div class="container">
+      <div class="row">
+        <form class="form-inline" (ngSubmit)="getInfoPaciente(cedulaPaciente)">
+            <div class="form-group">
+              <label for="cedulaPaciente">Cedula del paciente</label>
+              <input type="text" class="form-control" [(ngModel)]="cedulaPaciente" [ngModelOptions]="{standalone: true}" id="cedulaPaciente" placeholder="Ejemplo: 303330333">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">Consultar</button>
+            </div>
+        </form>
+      </div>
+      <div class="row">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-light">
+            <th>Nombre</th>
+            <th>Fecha de nacimiento</th>
+            <th>Tipo de sangre</th>
+            <th>Nacionalidad</th>
+            <th>Residencia</th>
+            <th>Telefonos</th>
+            <th>Correo</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let paciente of registerService.registers">
+              <td>{{ paciente.nombre }}</td>
+              <td>{{ paciente.fechaNacimiento }}</td>
+              <td>{{ paciente.tipoSangre }}</td>
+              <td>{{ paciente.nacionalidad }}</td>
+              <td>{{ paciente.residencia }}</td>
+              <td>{{ paciente.telefonos }}</td>
+              <td>{{ paciente.correo }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</main>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DoctorInfoPacienteComponent } from './doctor-info-paciente.component';
+
+describe('DoctorInfoPacienteComponent', () => {
+  let component: DoctorInfoPacienteComponent;
+  let fixture: ComponentFixture<DoctorInfoPacienteComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ DoctorInfoPacienteComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DoctorInfoPacienteComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { RegisterService } from '../../services/register.service'
+import { Register } from '../../models/register';
+import { CookieService } from 'ngx-cookie-service';
+
+@Component({
+  selector: 'app-doctor-info-paciente',
+  templateUrl: './doctor-info-paciente.component.html',
+  styleUrls: ['./doctor-info-paciente.component.css']
+})
+export class DoctorInfoPacienteComponent implements OnInit {
+
+  constructor(private registerService: RegisterService, private cookieService: CookieService) { }
+
+  ngOnInit() {
+  }
+
+  getInfoPaciente(cedulaPaciente: string) {
+    this.registerService.getInfoPaciente(cedulaPaciente)
+      .subscribe(res => {
+        this.registerService.registers = res as Register[];
+      });
+
+  }
+
+}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body border border-secondary">
+          <form #enfermedadForm="ngForm" (ngSubmit)="addEnfermedad(enfermedadForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="enfermedadService.selectedEnfermedad._id">
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="nombre" #name="ngModel" [(ngModel)]="enfermedadService.selectedEnfermedad.nombre" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="descripcion" #name="ngModel" [(ngModel)]="enfermedadService.selectedEnfermedad.descripcion" placeholder="Descripcion">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="sintomas" #name="ngModel" [(ngModel)]="enfermedadService.selectedEnfermedad.sintomas" placeholder="Sintomas">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="tratamientos" #name="ngModel" [(ngModel)]="enfermedadService.selectedEnfermedad.tratamientos" placeholder="Tratamientos">
+              </div>
+              <div class="card-action">
+                <button type="submit" class="btn btn-info btn-block">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Sintomas</th>
+          <th>Tratamientos</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let enfermedad of enfermedadService.enfermedades">
+            <td>{{ enfermedad.nombre }}</td>
+            <td>{{ enfermedad.descripcion }}</td>
+            <td>{{ enfermedad.sintomas }}</td>
+            <td>{{ enfermedad.tratamientos }}</td>
+            <td>
+              <a (click)="editEnfermedad(enfermedad)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteEnfermedad(enfermedad._id, enfermedadForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { EnfermedadesComponent } from './enfermedades.component';
+
+describe('EnfermedadesComponent', () => {
+  let component: EnfermedadesComponent;
+  let fixture: ComponentFixture<EnfermedadesComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ EnfermedadesComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(EnfermedadesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { EnfermedadService } from '../../services/enfermedad.service'
+import { NgForm } from '@angular/forms';
+import { Enfermedad } from '../../models/enfermedad';
+declare var M: any;
+
+@Component({
+  selector: 'app-enfermedades',
+  templateUrl: './enfermedades.component.html',
+  styleUrls: ['./enfermedades.component.css'],
+  providers: [ EnfermedadService ]
+})
+export class EnfermedadesComponent implements OnInit {
+
+  constructor(private enfermedadService: EnfermedadService) { }
+
+
+  ngOnInit() {
+    this.getEnfermedades();
+  }
+
+  addEnfermedad(form?: NgForm) {
+    console.log(form.value);
+    if(form.value._id) {
+      this.enfermedadService.putEnfermedad(form.value)
+        .subscribe(res => {
+          this.resetForm(form);
+          this.getEnfermedades();
+          M.toast({html: 'Updated Successfully'});
+        });
+    } else {
+      this.enfermedadService.postEnfermedad(form.value)
+      .subscribe(res => {
+        this.getEnfermedades();
+        this.resetForm(form);
+        M.toast({html: 'Save successfully'});
+      });
+    }
+    
+  }
+
+  getEnfermedades() {
+    this.enfermedadService.getEnfermedades()
+      .subscribe(res => {
+        this.enfermedadService.enfermedades = res as Enfermedad[];
+      });
+  }
+
+  editEnfermedad(Enfermedad: Enfermedad) {
+    this.enfermedadService.selectedEnfermedad = Enfermedad;
+  }
+
+  deleteEnfermedad(_id: string, form: NgForm) {
+    if(confirm('Are you sure you want to delete it?')) {
+      this.enfermedadService.deleteEnfermedad(_id)
+        .subscribe(res => {
+          this.getEnfermedades();
+          this.resetForm(form);
+          M.toast({html: 'Deleted Succesfully'});
+        });
+    }
+  }
+
+  resetForm(form?: NgForm) {
+    if (form) {
+      form.reset();
+      this.enfermedadService.selectedEnfermedad = new Enfermedad();
+    }
+  }
+
+}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body border border-secondary">
+          <form #funcionarioForm="ngForm" (ngSubmit)="addFuncionario(funcionarioForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario._id">
+              <div class="form-group">
+                <input class="form-control border-primary" type="number" name="cedula" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.cedula" placeholder="Cedula">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="nombre" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.nombre" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="tipo" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.tipo" placeholder="Tipo">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="date" name="fechaIngreso" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.fechaIngreso" placeholder="Fecha de ingreso">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="area" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.area" placeholder="Area">
+              </div>
+              <div class="card-action">
+                <button type="submit" class="btn btn-info btn-block">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Cedula</th>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>FechaIngreso</th>
+          <th>Area</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let funcionario of funcionarioService.funcionarios">
+            <td>{{ funcionario.cedula }}</td>
+            <td>{{ funcionario.nombre }}</td>
+            <td>{{ funcionario.tipo }}</td>
+            <td>{{ funcionario.fechaIngreso | date }}</td>
+            <td>{{ funcionario.area }}</td>
+            <td>
+              <a (click)="editFuncionario(funcionario)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteFuncionario(funcionario._id, funcionarioForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { FuncionariosComponent } from './funcionarios.component';
+
+describe('FuncionariosComponent', () => {
+  let component: FuncionariosComponent;
+  let fixture: ComponentFixture<FuncionariosComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ FuncionariosComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(FuncionariosComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { FuncionarioService } from '../../services/funcionario.service'
+import { NgForm } from '@angular/forms';
+import { Funcionario } from '../../models/funcionario';
+
+declare var M: any;
+
+@Component({
+  selector: 'app-funcionarios',
+  templateUrl: './funcionarios.component.html',
+  styleUrls: ['./funcionarios.component.css'],
+  providers: [ FuncionarioService ]
+})
+export class FuncionariosComponent implements OnInit {
+
+  constructor(private funcionarioService: FuncionarioService) { }
+
+
+  ngOnInit() {
+    this.getFuncionarios();
+  }
+
+  addFuncionario(form?: NgForm) {
+    console.log(form.value);
+    if(form.value._id) {
+      this.funcionarioService.putFuncionario(form.value)
+        .subscribe(res => {
+          this.resetForm(form);
+          this.getFuncionarios();
+          M.toast({html: 'Updated Successfully'});
+        });
+    } else {
+      this.funcionarioService.postFuncionario(form.value)
+      .subscribe(res => {
+        this.getFuncionarios();
+        this.resetForm(form);
+        M.toast({html: 'Save successfully'});
+      });
+    }
+    
+  }
+
+  getFuncionarios() {
+    this.funcionarioService.getFuncionarios()
+      .subscribe(res => {
+        this.funcionarioService.funcionarios = res as Funcionario[];
+      });
+  }
+
+  editFuncionario(funcionario: Funcionario) {
+    this.funcionarioService.selectedFuncionario = funcionario;
+  }
+
+  deleteFuncionario(_id: string, form: NgForm) {
+    if(confirm('Are you sure you want to delete it?')) {
+      this.funcionarioService.deleteFuncionario(_id)
+        .subscribe(res => {
+          this.getFuncionarios();
+          this.resetForm(form);
+          M.toast({html: 'Deleted Succesfully'});
+        });
+    }
+  }
+
+  resetForm(form?: NgForm) {
+    if (form) {
+      form.reset();
+      this.funcionarioService.selectedFuncionario = new Funcionario();
+    }
+  }
+
+}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>Inicio de Sesion</title>
+
+   
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center">
+        <h1 class="display-1 py-5">Health TEC</h1>
+      </div>
+
+      <form class="form-signin" #loginForm="ngForm" (ngSubmit)="Login(tipoUsuario,loginForm)">
+
+        <div class="text-center mb-4">
+          <h1 class="h3 mb-5 font-weight-normal">Iniciar Sesión</h1>
+        </div>
+
+        <div class="form-label-group">
+          <input type="email" id="inputEmail" class="form-control" #usuario="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.usuario" name="usuario" placeholder="Correo electrónico" required autofocus>
+          <label for="inputEmail">Correo Electrónico</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="inputPassword" #password="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.password" name="password" class="form-control" placeholder="Contraseña" required>
+          <label for="inputPassword">Contraseña</label>
+        </div>
+
+        <div class="form mb-3">
+          <label>Tipo de Usuario</label>
+          <select class="custom-select d-block w-100"  [(ngModel)]="tipoUsuario" [ngModelOptions]="{standalone: true}" id="tipousuario" required>
+            <option>Funcionario</option>
+            <option>Paciente</option>
+            
+          </select>
+          <div class="invalid-feedback">
+            Por favor seleccione una Provincia.
+          </div>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mt-5"  type="submit">Iniciar Sesión</button>
+
+        <div class="text-center mt-5">
+          <a routerLink="/Register" class="font-weight-normal">Registrar</a>
+        </div>
+
+      </form>
+
+    </div>
+  </body>
+</html>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { LoginComponent } from './login.component';
+
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LoginComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { FuncionarioService } from '../../services/funcionario.service'
+import { NgForm } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+import { Funcionario } from 'src/app/models/funcionario';
+import { Register } from 'src/app/models/register';
+import { RegisterService } from '../../services/register.service';
+import { Router } from '@angular/router';
+
+declare var M: any;
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+
+
+
+
+  constructor(private funcionarioService: FuncionarioService, private cookieService: CookieService, private router: Router ,
+    private registerService: RegisterService) { }
+
+  ngOnInit() {
+
+  }
+
+  Login(tipo: string, form?: NgForm) {
+
+    //console.log(form.value);
+    if (tipo == "Funcionario") {
+      this.funcionarioService.getUsuarioPassword(form.value.usuario, form.value.password).
+        subscribe(res => {
+          //console.log(res);
+          if (res) {
+
+            console.log("Si es el usuario");
+            if (confirm("Su usuario y contraseña son correctos :)")) {
+              this.funcionarioService.getFuncionario(form.value.usuario).
+                subscribe(res => {
+
+                  console.log(res);
+                  var funcionario: Funcionario;
+                  funcionario = res as Funcionario;
+                  this.cookieService.set('_id', funcionario._id);
+                  this.cookieService.set('nombre', funcionario.nombre as string);
+                  this.cookieService.set('cedulaDoctor', funcionario.cedula.toString());
+                  this.cookieService.set('tipo', funcionario.tipo as string);
+
+                  this.cookieService.set('area', funcionario.area as string);
+                  this.cookieService.set('usuario', funcionario.usuario as string);
+                  this.cookieService.set('password', funcionario.password as string);
+                  this.funcionarioService.setisLogged(true);
+                  if (funcionario.tipo == "Administrador") {
+                    this.router.navigate(['Admin/Funcionarios']);
+                  } else if (funcionario.tipo == "Secretaria") {
+                    this.router.navigate(['Secretaria']);
+                  } else if (funcionario.tipo == "Doctor") {
+                    this.router.navigate(['Doctor/AtenderPaciente']);
+                  }
+
+                })
+            }
+          } else {
+            console.log("No es el usuario");
+            confirm("Su contraseña o usuario no es correcto");
+          }
+        });
+    } else if (tipo == "Paciente") {
+      this.registerService.getPacientePassword(form.value.usuario, form.value.password).
+        subscribe(res => {
+          //console.log(res);
+          if (res) {
+
+            console.log("Si es el usuario");
+            if (confirm("Su usuario y contraseña son correctos :)")) {
+              this.registerService.getPaciente(form.value.usuario).
+                subscribe(res => {
+
+                  console.log(res);
+                  var paciente: Register;
+                  paciente = res as Register;
+                  this.cookieService.set('_id', paciente._id);
+                  this.cookieService.set('nombre', paciente.nombre as string);
+                  this.cookieService.set('cedula', paciente.cedula.toString());
+                  this.cookieService.set('tipoSangre', paciente.tipoSangre as string);
+
+                  this.cookieService.set('nacionalidad', paciente.nacionalidad as string);
+                  this.cookieService.set('residencia', paciente.residencia as string);
+                  this.cookieService.set('telefonos', paciente.telefonos as string);
+                  this.cookieService.set('correo', paciente.correo as string);
+                  this.cookieService.set('contrasena', paciente.contrasena as string);
+                  this.funcionarioService.setisLogged(true);
+                  
+                  this.router.navigate(['Paciente/Cita']);
+                })
+            }
+          } else {
+            console.log("No es el usuario");
+            confirm("Su contraseña o usuario no es correcto");
+          }
+        });
+    } else {
+      M.toast({ html: "No se selecciono un tipo de usuario" });
+    }
+
+
+  }
+
+}
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { PacienteComponent } from './paciente.component';
+
+describe('PacienteComponent', () => {
+  let component: PacienteComponent;
+  let fixture: ComponentFixture<PacienteComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ PacienteComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PacienteComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-paciente',
+  templateUrl: './paciente.component.html',
+  styleUrls: ['./paciente.component.css']
+})
+export class PacienteComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body border border-secondary">
+          <form #citaForm="ngForm" (ngSubmit)="addCita(citaForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="citaService.selectedCita._id">
+            <div class="form-group">
+              <input class="form-control border-primary" type="text" name="especialidad" #name="ngModel" [(ngModel)]="citaService.selectedCita.especialidad"
+                placeholder="Especialidad">
+            </div>
+            <div class="form-group">
+              <input class="form-control border-primary" type="datetime-local" name="fechaH" #name="ngModel"
+                [(ngModel)]="citaService.selectedCita.fechaH" placeholder="fecha y hora de cita">
+            </div>
+            <div class="form-group">
+              <input class="form-control border-primary" type="text" name="observacion" #name="ngModel" [(ngModel)]="citaService.selectedCita.observacion"
+                placeholder="Observación">
+            </div>
+            <div class="card-action">
+              <button type="submit" class="btn btn-info btn-block">Registrar cita</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Id cita</th>
+          <th>Especialidad</th>
+          <th>fechaH</th>
+          <th>Observacion</th>
+          <th>Estado</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citaService.citas">
+            <td>{{ cita._id }}</td>
+            <td>{{ cita.especialidad }}</td>
+            <td>{{ cita.fechaH }}</td>
+            <td>{{ cita.observacion }}</td>
+            <td>{{ cita.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { PacienteCitaComponent } from './paciente-cita.component';
+
+describe('PacienteCitaComponent', () => {
+  let component: PacienteCitaComponent;
+  let fixture: ComponentFixture<PacienteCitaComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ PacienteCitaComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PacienteCitaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { PacienteCitaService } from '../../services/paciente-cita.service'
+import { NgForm } from '@angular/forms';
+import { Cita } from '../../models/cita';
+import { CookieService } from 'ngx-cookie-service';
+
+
+declare var M: any;
+
+
+@Component({
+  selector: 'app-paciente-cita',
+  templateUrl: './paciente-cita.component.html',
+  styleUrls: ['./paciente-cita.component.css'],
+  providers: [ PacienteCitaService ]
+})
+export class PacienteCitaComponent implements OnInit {
+
+  constructor(private citaService: PacienteCitaService, private cookieService: CookieService) { }
+
+
+  ngOnInit() {
+    this.getCitas();
+  }
+
+  addCita(form?: NgForm) {
+    console.log(form.value);
+    this.citaService.postCita(form.value,this.cookieService.get('_id'))
+    .subscribe(res => {
+      this.getCitas();
+      this.resetForm(form);
+      M.toast({html: 'Save successfully'});
+    });
+  }
+
+  getCitas() {
+    this.citaService.getCitas(this.cookieService.get('_id'))
+      .subscribe(res => {
+        this.citaService.citas = res as Cita[];
+        console.log(this.citaService.citas);
+      });
+  }
+
+  editCita(cita: Cita) {
+    this.citaService.selectedCita = cita;
+  }
+
+  cancelarCita(cita: Cita) {
+    console.log(cita);
+    if(confirm('Are you sure you want to cancel it?')) {
+      this.citaService.cancelarCita(cita)
+        .subscribe(res => {
+          this.getCitas();
+          M.toast({html: 'Canceled Succesfully'});
+        });
+    }
+  }
+
+  resetForm(form?: NgForm) {
+    if (form) {
+      form.reset();
+      this.citaService.selectedCita = new Cita();
+    }
+  }
+
+}
+<div class="container">
+  <div class="py-5 text-center">
+    <h1 class="display-1">Health-TEC</h1>
+    <p class="lead">Aca el usuario definira los datos que quiere que nuestra empresa tenga acerca de el, asegurese de
+      que estos datos
+      esten correctamente escritos y que sean los correctos.
+    </p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="text-center">
+        <h3 class="mb-3">Registrarse</h3>
+      </div>
+      <hr class="mb-4">
+      <form #registerForm="ngForm" (ngSubmit)="addRegister(registerForm)" class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" #name="ngModel" [(ngModel)]="registerService.selectedRegister.nombre"
+              placeholder="Nombre Completo" value="" required>
+            <div class="invalid-feedback">
+              Por favor ingrese un Nombre.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="cedula">Identificacion</label>
+            <input type="number" class="form-control" id="cedula" name="cedula" #name="ngModel" [(ngModel)]="registerService.selectedRegister.cedula"
+              placeholder="123456789" required>
+            <div class="invalid-feedback">
+              Por favor ingrese una Identificacion.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="correo">Correo<span class="text-muted"></span></label>
+            <input type="email" class="form-control" id="correo" name="correo" #name="ngModel" [(ngModel)]="registerService.selectedRegister.correo"
+              placeholder="ejemplo@ejemplo.com" required>
+            <div class="invalid-feedback">
+              Por favor ingrese un correo valido.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="contrasena">Contraseña<span class="text-muted"></span></label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" #name="ngModel" [(ngModel)]="registerService.selectedRegister.contrasena"
+              placeholder="Contraseña" required>
+            <div class="invalid-feedback">
+              Por favor ingrese una contraseña.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" name="fechaNacimiento"
+              #name="ngModel" [(ngModel)]="registerService.selectedRegister.fechaNacimiento" placeholder="dd/mm/aaaa"
+              required>
+            <div class="invalid-feedback">
+              Por favor ingrese una fecha de nacimiento.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="tipoSangre">Tipo de Sangre<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="tipoSangre" name="tipoSangre" #name="ngModel" [(ngModel)]="registerService.selectedRegister.tipoSangre"
+              placeholder="X" required>
+            <div class="invalid-feedback">
+              Por favor ingrese un tipo de Sangre.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="nacionalidad">Nacionalidad<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" #name="ngModel" [(ngModel)]="registerService.selectedRegister.nacionalidad"
+              placeholder="Nacionalidad" required>
+            <div class="invalid-feedback">
+              Por favor ingrese su nacionalidad.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="residencia">Residencia<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="residencia" name="residencia" #name="ngModel" [(ngModel)]="registerService.selectedRegister.residencia"
+              placeholder="Residencia" required>
+            <div class="invalid-feedback">
+              Por favor ingrese su nacionalidad.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="telefonos">Teléfono(s)<span class="text-muted"></span></label>
+            <textarea type="text" class="form-control" id="telefonos" name="telefonos" #name="ngModel" [(ngModel)]="registerService.selectedRegister.telefonos"
+              placeholder="88888888" required>88888888</textarea>
+            <!--<input type="text" class="form-control" id="telefonos" name="telefonos" placeholder="88888888" required>  -->
+            <div class="invalid-feedback">
+              Por favor ingrese al menos un número de teléfono.
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Registrar</button>
+      </form>
+    </div>
+  </div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { RegisterComponent } from './register.component';
+
+describe('RegisterComponent', () => {
+  let component: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ RegisterComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(RegisterComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { RegisterService } from '../../services/register.service'
+import { NgForm } from '@angular/forms';
+import { Register } from '../../models/register';
+import { Router } from '@angular/router'
+declare var M: any;
+
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css'],
+  providers: [ RegisterService ]
+})
+export class RegisterComponent implements OnInit {
+
+  constructor(private registerService: RegisterService, private router: Router) { }
+
+
+  ngOnInit() {
+    this.getRegisters();
+  }
+
+  addRegister(form?: NgForm) {
+    console.log(form.value);
+    if(form.value._id) {
+      this.registerService.putRegister(form.value)
+        .subscribe(res => {
+          this.resetForm(form);
+          this.getRegisters();
+          M.toast({html: 'Updated Successfully'});
+        });
+    } else {
+      this.registerService.postRegister(form.value)
+      .subscribe(res => {
+        this.getRegisters();
+        this.resetForm(form);
+        
+        M.toast({html: 'Save successfully'});
+        this.router.navigate(['/Login']);
+      });
+    }
+    
+  }
+
+  getRegisters() {
+    this.registerService.getRegisters()
+      .subscribe(res => {
+        this.registerService.registers = res as Register[];
+      });
+  }
+
+  editRegister(register: Register) {
+    this.registerService.selectedRegister = register;
+  }
+
+  deleteRegister(_id: string, form: NgForm) {
+    if(confirm('Are you sure you want to delete it?')) {
+      this.registerService.deleteRegister(_id)
+        .subscribe(res => {
+          this.getRegisters();
+          this.resetForm(form);
+          M.toast({html: 'Deleted Succesfully'});
+        });
+    }
+  }
+
+  resetForm(form?: NgForm) {
+    if (form) {
+      form.reset();
+      this.registerService.selectedRegister = new Register();
+    }
+  }
+
+}
+<nav class="navbar navbar-expand-lg navbar-dark bg-info mb-4">
+  <a class="navbar-brand" href="#">Admin TECHealth</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="CentrosAtencion">Centros de Atencion</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="Funcionarios">Funcionarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="Tratamientos">Tratamientos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="Enfermedades">Enfermedades</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle my-4 h6" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Consultas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="TratamientosAsig">Tratamientos asignados</a>
+          <a class="dropdown-item" routerLink="RangoEnfermedades">Rango de diagnósticos/enfermedades</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { TopNavBarAdminComponent } from './top-nav-bar-admin.component';
+
+describe('TopNavBarAdminComponent', () => {
+  let component: TopNavBarAdminComponent;
+  let fixture: ComponentFixture<TopNavBarAdminComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ TopNavBarAdminComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TopNavBarAdminComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-top-nav-bar-admin',
+  templateUrl: './top-nav-bar-admin.component.html',
+  styleUrls: ['./top-nav-bar-admin.component.css']
+})
+export class TopNavBarAdminComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+  
+<!--
+  <div class="container-fluid">
+      <div class="row">
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+          <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Nombre de Empleado</a>
+          <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+              <a class="nav-link" routerLink="#">Cerrar sesión</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active"routerLink="AtenderPaciente">
+                <span data-feather="check-circle"></span>
+                Atender Paciente
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="InfoPaciente">
+                <span data-feather="info"></span>
+                Información Paciente
+              </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active"routerLink="Citas">
+                  Citas Paciente
+                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active"routerLink="CitaEstado">
+                <span data-feather="copy"></span>
+                Citas por estado
+              </a>
+            </li>
+ 
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info mb-4">
+      <a class="navbar-brand" href="#">Paciente TECHealth</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link my-4 h6" routerLink="AtenderPaciente">Atender Paciente</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link my-4 h6" routerLink="InfoPaciente">Información Paciente</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link my-4 h6" routerLink="Citas">Citas Paciente</a>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle my-4 h6" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Consultas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" routerLink="CitasRangoFecha">Citas por rango de fechas</a>
+                <a class="dropdown-item" routerLink="CitasEstado">Citas por estado</a>
+                <a class="dropdown-item" routerLink="CitasEspecialidad">Citas por especialidad</a>
+              </div>
+          </li>  
+        </ul>
+      </div>
+    </nav>
+
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { TopNavBarDoctorComponent } from './top-nav-bar-doctor.component';
+
+describe('TopNavBarDoctorComponent', () => {
+  let component: TopNavBarDoctorComponent;
+  let fixture: ComponentFixture<TopNavBarDoctorComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ TopNavBarDoctorComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TopNavBarDoctorComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-top-nav-bar-doctor',
+  templateUrl: './top-nav-bar-doctor.component.html',
+  styleUrls: ['./top-nav-bar-doctor.component.css']
+})
+export class TopNavBarDoctorComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+<nav class="navbar navbar-expand-lg navbar-dark bg-info mb-4">
+  <a class="navbar-brand" href="#">Paciente TECHealth</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link my-4 h6" routerLink="Cita">Cita</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle my-4 h6" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Consultas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="CitaRangoFecha">Citas por rango de fechas</a>
+            <a class="dropdown-item" routerLink="CitaEstado">Citas por estado</a>
+            <a class="dropdown-item" routerLink="CitaEspecialidad">Citas por especialidad</a>
+          </div>
+      </li>  
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="Cita">Cita</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { TopNavBarPacienteComponent } from './top-nav-bar-paciente.component';
+
+describe('TopNavBarPacienteComponent', () => {
+  let component: TopNavBarPacienteComponent;
+  let fixture: ComponentFixture<TopNavBarPacienteComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ TopNavBarPacienteComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TopNavBarPacienteComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-top-nav-bar-paciente',
+  templateUrl: './top-nav-bar-paciente.component.html',
+  styleUrls: ['./top-nav-bar-paciente.component.css']
+})
+export class TopNavBarPacienteComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body border border-secondary">
+          <form #tratamientoForm="ngForm" (ngSubmit)="addTratamiento(tratamientoForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento._id">
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="nombre" #name="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento.nombre" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="tipo" #name="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento.tipo" placeholder="Tipo">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="dosis" #name="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento.dosis" placeholder="Dosis">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="number" name="monto" #name="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento.monto" placeholder="Monto">
+              </div>
+              <div class="card-action">
+                <button type="submit" class="btn btn-info btn-block">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Dosis</th>
+          <th>Monto</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tratamiento of tratamientoService.tratamientos">
+            <td>{{ tratamiento.nombre }}</td>
+            <td>{{ tratamiento.tipo }}</td>
+            <td>{{ tratamiento.dosis}}</td>
+            <td>{{ tratamiento.monto }}</td>
+            <td>
+              <a (click)="editTratamiento(tratamiento)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteTratamiento(tratamiento._id, tratamientoForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { TratamientosComponent } from './tratamientos.component';
+
+describe('TratamientosComponent', () => {
+  let component: TratamientosComponent;
+  let fixture: ComponentFixture<TratamientosComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ TratamientosComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TratamientosComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+import { Component, OnInit } from '@angular/core';
+import { TratamientoService } from '../../services/tratamiento.service'
+import { NgForm } from '@angular/forms';
+import { Tratamiento } from '../../models/tratamiento';
+
+declare var M: any;
+
+@Component({
+  selector: 'app-tratamientos',
+  templateUrl: './tratamientos.component.html',
+  styleUrls: ['./tratamientos.component.css']
+})
+export class TratamientosComponent implements OnInit {
+
+  constructor(private tratamientoService: TratamientoService) { }
+
+  ngOnInit() {
+    this.getTratamientos();
+  }
+
+  addTratamiento(form?: NgForm) {
+    console.log(form.value);
+    if(form.value._id) {
+      this.tratamientoService.putTratamiento(form.value)
+        .subscribe(res => {
+          this.resetForm(form);
+          this.getTratamientos();
+          M.toast({html: 'Updated Successfully'});
+        });
+    } else {
+      this.tratamientoService.postTratamiento(form.value)
+      .subscribe(res => {
+        this.getTratamientos();
+        this.resetForm(form);
+        M.toast({html: 'Save successfully'});
+      });
+    }
+    
+  }
+
+  getTratamientos() {
+    this.tratamientoService.getTratamientos()
+      .subscribe(res => {
+        this.tratamientoService.tratamientos = res as Tratamiento[];
+      });
+  }
+
+  editTratamiento(tratamiento: Tratamiento) {
+    this.tratamientoService.selectedTratamiento = tratamiento;
+  }
+
+  deleteTratamiento(_id: string, form: NgForm) {
+    if(confirm('Are you sure you want to delete it?')) {
+      this.tratamientoService.deleteTratamiento(_id)
+        .subscribe(res => {
+          this.getTratamientos();
+          this.resetForm(form);
+          M.toast({html: 'Deleted Succesfully'});
+        });
+    }
+  }
+
+  resetForm(form?: NgForm) {
+    if (form) {
+      form.reset();
+      this.tratamientoService.selectedTratamiento = new Tratamiento();
+    }
+  }
+
+}
+
+export class CentroAtencion {
+    constructor(_id = '', nombre = '', ubicacion = '', capacidad = null, tipo= '') {
+        this._id = _id;
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+        this.capacidad = capacidad;
+        this.tipo = tipo;
+    }
+
+    _id: string;
+    nombre: String;
+    ubicacion: String;
+    capacidad: Number;
+    tipo: String;
+}
+export class Cita {
+    constructor(_id = '', idPaciente = '', especialidad = '', fechaH = null, observacion= '',estado= '') {
+        this._id = _id;
+        this.idPaciente = idPaciente;
+        this.especialidad = especialidad;
+        this.fechaH = fechaH;
+        this.observacion = observacion;
+        this.estado = estado;
+    }
+
+    _id: string;
+    idPaciente: string;
+    especialidad: String;
+    fechaH: Date;
+    observacion: String;
+    estado: String;
+}
+export class DoctorAtenderPaciente {
+    constructor(_id = '', cedulaDoctor = null, cedulaPaciente = null, idCita = '', nombreDiagnostico = '', nivelDiagnostico= '',
+     observaciones= '', nombreTratamiento= '',dosisTratamiento= '', cantidadDias= null, efectosSecundarios= '') {
+        this._id = _id;
+        this.cedulaDoctor = cedulaDoctor;
+        this.cedulaPaciente = cedulaPaciente;
+        this.idCita = idCita;
+        this.nombreDiagnostico = nombreDiagnostico;
+        this.nivelDiagnostico = nivelDiagnostico;
+        this.observaciones = observaciones;
+        this.nombreTratamiento = nombreTratamiento;
+        this.dosisTratamiento = dosisTratamiento;
+        this.cantidadDias = cantidadDias;
+        this.efectosSecundarios = efectosSecundarios;
+    }
+
+    _id: String;
+    cedulaDoctor: String;
+    cedulaPaciente: Number;
+    idCita: String;
+    nombreDiagnostico: String;
+    nivelDiagnostico: String;
+    observaciones: String;
+    nombreTratamiento: String;
+    dosisTratamiento: String;
+    cantidadDias: Number;
+    efectosSecundarios: String;
+
+}
+export class Enfermedad {
+    constructor(_id = '', nombre = '', descripcion = '', sintomas = '', tratamientos= '') {
+        this._id = _id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.sintomas = sintomas;
+        this.tratamientos = tratamientos;
+    }
+
+    _id: string;
+    nombre: String;
+    descripcion: String;
+    sintomas: String;
+    tratamientos: String;
+}
+export class Funcionario {
+    constructor(_id = '', cedula = null, nombre = '', tipo = '', fechaIngreso = null, area= '', password='', usuario='') {
+        this._id = _id;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.fechaIngreso = fechaIngreso;
+        this.area = area;
+        this.password = password;
+        this.usuario = usuario;
+    }
+
+    _id: string;
+    cedula: Number;
+    nombre: String;
+    tipo: String;
+    fechaIngreso: Date;
+    area: String;
+    password: string;
+    usuario: string;
+}
+export class Login {
+}
+export class RangoEnfermedades {
+}
+export class Register {
+    constructor(_id = '', cedula = null, nombre = '', fechaNacimiento = null, tipoSangre = '', nacionalidad = '', residencia = '', telefonos = '', correo = '', contrasena = '') {
+        this._id = _id;
+        this.cedula = cedula;
+        this.fechaNacimiento = fechaNacimiento;
+        this.nombre = nombre;
+        this.tipoSangre  = tipoSangre;
+        this.nacionalidad = nacionalidad;
+        this.residencia = residencia;
+        this.telefonos = telefonos;
+        this.correo = correo;
+        this.contrasena = contrasena;
+    }
+
+    _id: string;
+    cedula: Number;
+    nombre: String;
+    fechaNacimiento: Date;
+    tipoSangre: String;
+    nacionalidad: String;
+    residencia: String;
+    telefonos: String;
+    correo: String;
+    contrasena: String;
+}
+export class Tratamiento {
+    constructor(_id = '', nombre = '', tipo = '', dosis = '', monto= null) {
+        this._id = _id;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.dosis = dosis;
+        this.monto = monto;
+    }
+
+    _id: string;
+    nombre: String;
+    tipo: String;
+    dosis: String;
+    monto: Number;
+}
+
+export class TratamientosAsig {
+    constructor(_id = '', cantidad = null, promedio = null) {
+        this._id = _id;
+        this.cantidad = cantidad;
+        this.promedio = promedio;
+
+    }
+
+    _id: string;
+    cantidad: Number;
+    promedio: Number;
+}
+
+import { TestBed } from '@angular/core/testing';
+
+import { CentroAtencionService } from './centro-atencion.service';
+
+describe('CentroAtencionService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: CentroAtencionService = TestBed.get(CentroAtencionService);
+    expect(service).toBeTruthy();
+  });
+});
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CentroAtencion } from '../models/centro-atencion';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CentroAtencionService {
+
+  selectedcentroAtencion: CentroAtencion;
+  centrosAtencion: CentroAtencion[];
+  
+  readonly URL_API = 'http://localhost:3000/admin/centrosAtencion';
+
+  constructor(private http: HttpClient) {
+    this.selectedcentroAtencion = new CentroAtencion();
+  }
+
+  postcentroAtencion(centroMedico: CentroAtencion) {
+    return this.http.post(this.URL_API, centroMedico);
+  }
+
+  getcentrosAtencion() {
+    return this.http.get(this.URL_API);
+  }
+
+  putcentroAtencion(centroMedico: CentroAtencion) {
+    return this.http.put(this.URL_API + `/${centroMedico._id}`, centroMedico);
+  }
+
+  deletecentroAtencion(_id: string) {
+    return this.http.delete(this.URL_API + `/${_id}`);
+  }
+}
+import { TestBed } from '@angular/core/testing';
+
+import { DoctorAtenderPacienteService } from './doctor-atender-paciente.service';
+
+describe('DoctorAtenderPacienteService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: DoctorAtenderPacienteService = TestBed.get(DoctorAtenderPacienteService);
+    expect(service).toBeTruthy();
+  });
+});
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { DoctorAtenderPaciente } from '../models/doctor-atender-paciente';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DoctorAtenderPacienteService {
+
+  
+  selectedDoctorAtenderPaciente: DoctorAtenderPaciente;
+  doctorAtenderPacientes: DoctorAtenderPaciente[];
+
+  
+  readonly URL_API = 'http://localhost:3000/doctor/atenderPacientes';
+
+  constructor(private http: HttpClient) {
+    this.selectedDoctorAtenderPaciente = new DoctorAtenderPaciente();
+  }
+
+  getDoctorAtenderPacientes(cedulaDoctor: string ){
+    return this.http.get(this.URL_API + `/${cedulaDoctor}`);
+  }
+
+  postDoctorAtenderPaciente(doctorAtenderPaciente: DoctorAtenderPaciente, cedulaDoctor: string ) {
+    return this.http.post(this.URL_API + `/${cedulaDoctor}`, doctorAtenderPaciente);
+  }
+
+  putDoctorAtenderPaciente(doctorAtenderPaciente: DoctorAtenderPaciente) {
+    return this.http.put(this.URL_API + `/${doctorAtenderPaciente._id}`, doctorAtenderPaciente);
+  }
+
+  deleteDoctorAtenderPaciente(_id: string) {
+    return this.http.delete(this.URL_API + `/${_id}`);
+  }
+}
+
+import { TestBed } from '@angular/core/testing';
+
+import { EnfermedadService } from './enfermedad.service';
+
+describe('EnfermedadService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: EnfermedadService = TestBed.get(EnfermedadService);
+    expect(service).toBeTruthy();
+  });
+});
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Enfermedad } from '../models/enfermedad';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EnfermedadService {
+
+  selectedEnfermedad: Enfermedad;
+  enfermedades: Enfermedad[];
+  
+  readonly URL_API = 'http://localhost:3000/admin/enfermedades';
+
+  constructor(private http: HttpClient) {
+    this.selectedEnfermedad = new Enfermedad();
+  }
+
+  postEnfermedad(enfermedad: Enfermedad) {
+    return this.http.post(this.URL_API, enfermedad);
+  }
+
+  getEnfermedades() {
+    return this.http.get(this.URL_API);
+  }
+
+  putEnfermedad(enfermedad: Enfermedad) {
+    return this.http.put(this.URL_API + `/${enfermedad._id}`, enfermedad);
+  }
+
+  deleteEnfermedad(_id: string) {
+    return this.http.delete(this.URL_API + `/${_id}`);
+  }
+}
+import { TestBed } from '@angular/core/testing';
+
+import { FuncionarioService } from './funcionario.service';
+
+describe('FuncionarioService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: FuncionarioService = TestBed.get(FuncionarioService);
+    expect(service).toBeTruthy();
+  });
+});
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Funcionario } from '../models/funcionario';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FuncionarioService {
+  
+  selectedFuncionario: Funcionario;
+  funcionarios: Funcionario[];
+  private isLogged = false;
+  
+  readonly URL_API = 'http://localhost:3000/admin/funcionarios';
+
+  constructor(private http: HttpClient) {
+    this.selectedFuncionario = new Funcionario();
+  }
+
+  setisLogged(value: boolean){
+    this.isLogged = true;
+  }
+
+  getisLogged(){
+    return this.isLogged;
+  }
+
+  getUsuarioPassword(usuario:string , password: string){
+    return this.http.get(this.URL_API+ '/login'+ `/${usuario}`+'&'+`${password}`);
+  }
+
+  getFuncionario(usuario:string ){
+    return this.http.get(this.URL_API+ '/getlogin'+ `/${usuario}`);
+  }
+
+  postFuncionario(funcionario: Funcionario) {
+    return this.http.post(this.URL_API, funcionario);
+  }
+
+  getFuncionarios() {
+    return this.http.get(this.URL_API);
+  }
+
+  putFuncionario(funcionario: Funcionario) {
+    return this.http.put(this.URL_API + `/${funcionario._id}`, funcionario);
+  }
+
+  deleteFuncionario(_id: string) {
+    return this.http.delete(this.URL_API + `/${_id}`);
+  }
+}
+import { TestBed } from '@angular/core/testing';
+
+import { LoginService } from './login.service';
+
+describe('LoginService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: LoginService = TestBed.get(LoginService);
+    expect(service).toBeTruthy();
+  });
+});
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginService {
+
+  constructor() { }
+}
+import { TestBed } from '@angular/core/testing';
+
+import { PacienteCitaService } from './paciente-cita.service';
+
+describe('PacienteCitaService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: PacienteCitaService = TestBed.get(PacienteCitaService);
+    expect(service).toBeTruthy();
+  });
+});
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Cita } from '../models/cita';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PacienteCitaService {
+
+  selectedCita: Cita;
+  citas: Cita[];
+  
+  readonly URL_API = 'http://localhost:3000/paciente/citas';
+
+  constructor(private http: HttpClient) {
+    this.selectedCita = new Cita();
+  }
+
+  postCita(cita: Cita, idPaciente: string) {
+    return this.http.post(this.URL_API + `/${idPaciente}`, cita);
+  }
+
+  getCitas(idPaciente: string) {
+    return this.http.get(this.URL_API +`/${idPaciente}` );
+  }
+
+  cancelarCita(cita: Cita) {
+    return this.http.put(this.URL_API + `/cancelarCita`+ `/${cita._id}`, cita);
+  }
+
+  getCitaEstado(idPaciente: string, estado:string) {
+    return this.http.get(this.URL_API + `/getCitasEstado`+ `/${idPaciente}`+'&'+`${estado}`);
+  }
+
+
+  getCitaEspecialidad(idPaciente: string, especialidad:string) {
+    return this.http.get(this.URL_API + `/getCitasEspecialidad`+ `/${idPaciente}`+'&'+`${especialidad}`);
+  }
+
+  getCitaRango(idPaciente: string, primerFecha:string, segundaFecha:string) {
+    return this.http.get(this.URL_API + `/getCitasRango`+ `/${idPaciente}`+'&'+`${primerFecha}`+'&'+`${segundaFecha}`);
+  }
+  
+
+
+
+}
+import { TestBed } from '@angular/core/testing';
+
+import { RegisterService } from './register.service';
+
+describe('RegisterService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: RegisterService = TestBed.get(RegisterService);
+    expect(service).toBeTruthy();
+  });
+});
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Register } from '../models/register';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RegisterService {
+
+  selectedRegister: Register;
+  registers: Register[];
+  
+  readonly URL_API = 'http://localhost:3000/register/paciente';
+
+  constructor(private http: HttpClient) {
+    this.selectedRegister = new Register();
+  }
+
+  getPacientePassword(correo:string , contrasena: string){
+    return this.http.get(this.URL_API+ '/login'+ `/${correo}`+'&'+`${contrasena}`);
+  }
+
+  getPaciente(correo:string ){
+    return this.http.get(this.URL_API+ '/getlogin'+ `/${correo}`);
+  }
+  postRegister(register: Register) {
+    return this.http.post(this.URL_API, register);
+  }
+
+  getRegisters() {
+    return this.http.get(this.URL_API);
+  }
+
+  getInfoPaciente(cedulaPaciente: string){
+    return this.http.get(this.URL_API + '/getInfoPaciente'+ `/${cedulaPaciente}`);
+  }
+
+  putRegister(register: Register) {
+    return this.http.put(this.URL_API + `/${register._id}`, register);
+  }
+
+  deleteRegister(_id: string) {
+    return this.http.delete(this.URL_API + `/${_id}`);
+  }
+
+
+}
+import { TestBed } from '@angular/core/testing';
+
+import { TratamientoService } from './tratamiento.service';
+
+describe('TratamientoService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: TratamientoService = TestBed.get(TratamientoService);
+    expect(service).toBeTruthy();
+  });
+});
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Tratamiento } from '../models/tratamiento';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TratamientoService {
+
+  selectedTratamiento: Tratamiento;
+  tratamientos: Tratamiento[];
+  
+  readonly URL_API = 'http://localhost:3000/admin/tratamientos';
+
+  constructor(private http: HttpClient) {
+    this.selectedTratamiento = new Tratamiento();
+  }
+
+  postTratamiento(tratamiento: Tratamiento) {
+    return this.http.post(this.URL_API, tratamiento);
+  }
+
+  getTratamientos() {
+    return this.http.get(this.URL_API);
+  }
+
+  putTratamiento(tratamiento: Tratamiento) {
+    return this.http.put(this.URL_API + `/${tratamiento._id}`, tratamiento);
+  }
+
+  deleteTratamiento(_id: string) {
+    return this.http.delete(this.URL_API + `/${_id}`);
+  }
+
+  getTratamientosAsig() {
+    return this.http.get(this.URL_API + `/consultas/TratamientosAsig`);
+  }
+}
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppComponent } from './app.component';
+
+describe('AppComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        AppComponent
+      ],
+    }).compileComponents();
+  }));
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should have as title 'frontend'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('frontend');
+  });
+
+  it('should render title in a h1 tag', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to frontend!');
+  });
+});
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'frontend';
+}
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { Routes, RouterModule } from '@angular/router';
+import { appRoutes } from './app.routing';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
+import { TopNavBarAdminComponent } from './components/top-nav-bar-admin/top-nav-bar-admin.component';
+import { TratamientosComponent } from './components/tratamientos/tratamientos.component';
+import { EnfermedadesComponent } from './components/enfermedades/enfermedades.component';
+import { AdminTratamientosAsigComponent } from './components/admin-tratamientos-asig/admin-tratamientos-asig.component';
+import { AdminRangoEnfermedadesComponent } from './components/admin-rango-enfermedades/admin-rango-enfermedades.component';
+import { CentrosAtencionComponent } from './components/centros-atencion/centros-atencion.component';
+import { PacienteCitaComponent } from './components/paciente-cita/paciente-cita.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './components/login/login.component'
+import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from './auth.guard';
+import { TopNavBarPacienteComponent } from './components/top-nav-bar-paciente/top-nav-bar-paciente.component';
+import { PacienteComponent } from './components/paciente/paciente.component';
+import { RegisterComponent } from './components/register/register.component';
+import { CitaRangoFechaComponent } from './components/cita-rango-fecha/cita-rango-fecha.component';
+import { CitaEstadoComponent } from './components/cita-estado/cita-estado.component';
+import { CitaEspecialidadComponent } from './components/cita-especialidad/cita-especialidad.component';
+import { DoctorAtenderPacienteComponent } from './components/doctor-atender-paciente/doctor-atender-paciente.component';
+import { DoctorComponent } from './components/doctor/doctor.component';
+import { TopNavBarDoctorComponent } from './components/top-nav-bar-doctor/top-nav-bar-doctor.component';
+import { DoctorInfoPacienteComponent } from './components/doctor-info-paciente/doctor-info-paciente.component';
+import { DoctorCitasComponent } from './components/doctor-citas/doctor-citas.component';
+import { DoctorCitasRangoFechaComponent } from './components/doctor-citas-rango-fecha/doctor-citas-rango-fecha.component';
+import { DoctorCitasEstadoComponent } from './components/doctor-citas-estado/doctor-citas-estado.component';
+import { DoctorCitasEspecialidadComponent } from './components/doctor-citas-especialidad/doctor-citas-especialidad.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    FuncionariosComponent,
+    TopNavBarAdminComponent,
+    TratamientosComponent,
+    EnfermedadesComponent,
+    AdminTratamientosAsigComponent,
+    AdminRangoEnfermedadesComponent,
+    CentrosAtencionComponent,
+    PacienteCitaComponent,
+    LoginComponent,
+    AdminComponent,
+    TopNavBarPacienteComponent,
+    PacienteComponent,
+    RegisterComponent,
+    CitaRangoFechaComponent,
+    CitaEstadoComponent,
+    CitaEspecialidadComponent,
+    DoctorAtenderPacienteComponent,
+    DoctorComponent,
+    TopNavBarDoctorComponent,
+    DoctorInfoPacienteComponent,
+    DoctorCitasComponent,
+    DoctorCitasRangoFechaComponent,
+    DoctorCitasEstadoComponent,
+    DoctorCitasEspecialidadComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  providers: [CookieService, AuthGuard],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+import { CentrosAtencionComponent } from './components/centros-atencion/centros-atencion.component';
+import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
+import { TratamientosComponent } from './components/tratamientos/tratamientos.component';
+import { EnfermedadesComponent } from './components/enfermedades/enfermedades.component';
+import { AdminTratamientosAsigComponent } from './components/admin-tratamientos-asig/admin-tratamientos-asig.component';
+import { AdminRangoEnfermedadesComponent } from './components/admin-rango-enfermedades/admin-rango-enfermedades.component';
+import { LoginComponent } from './components/login/login.component';
+import { Routes } from '@angular/router'
+import { AdminComponent } from './components/admin/admin.component';
+import { AuthGuard } from './auth.guard';
+import { PacienteCitaComponent } from './components/paciente-cita/paciente-cita.component';
+import { PacienteComponent } from './components/paciente/paciente.component';
+import { RegisterComponent } from './components/register/register.component';
+import { CitaRangoFechaComponent } from './components/cita-rango-fecha/cita-rango-fecha.component';
+import { CitaEstadoComponent } from './components/cita-estado/cita-estado.component';
+import { CitaEspecialidadComponent } from './components/cita-especialidad/cita-especialidad.component';
+import { DoctorComponent } from './components/doctor/doctor.component';
+import { DoctorAtenderPacienteComponent } from './components/doctor-atender-paciente/doctor-atender-paciente.component';
+import { DoctorInfoPacienteComponent } from './components/doctor-info-paciente/doctor-info-paciente.component';
+import { DoctorCitasComponent } from './components/doctor-citas/doctor-citas.component';
+import { DoctorCitasRangoFechaComponent } from './components/doctor-citas-rango-fecha/doctor-citas-rango-fecha.component';
+import { DoctorCitasEstadoComponent } from './components/doctor-citas-estado/doctor-citas-estado.component';
+import { DoctorCitasEspecialidadComponent } from './components/doctor-citas-especialidad/doctor-citas-especialidad.component';
+
+export const appRoutes: Routes = [
+    { path: "Login", component: LoginComponent},
+    { path: "Register", component: RegisterComponent},
+    { path: "Admin", component: AdminComponent, canActivate: [AuthGuard], 
+    children: [
+        { path: "CentrosAtencion", component: CentrosAtencionComponent},
+        { path: "Funcionarios", component: FuncionariosComponent},
+        { path: "Tratamientos", component: TratamientosComponent},
+        { path: "Enfermedades", component: EnfermedadesComponent},
+        { path: "TratamientosAsig", component: AdminTratamientosAsigComponent},
+        { path: "RangoEnfermedades", component: AdminRangoEnfermedadesComponent}
+    ]},
+    { path: "Paciente", component: PacienteComponent,canActivate: [AuthGuard], 
+    children: [
+        { path: "Cita", component: PacienteCitaComponent},
+        { path: "CitaRangoFecha", component: CitaRangoFechaComponent},
+        { path: "CitaEstado", component: CitaEstadoComponent},
+        { path: "CitaEspecialidad", component: CitaEspecialidadComponent}
+    ]},
+    { path: "Doctor", component: DoctorComponent,canActivate: [AuthGuard], 
+    children: [
+        { path: "AtenderPaciente", component: DoctorAtenderPacienteComponent},
+        { path: "InfoPaciente", component: DoctorInfoPacienteComponent},
+        { path: "Citas", component: DoctorCitasComponent},
+        { path: "CitasRangoFecha", component: DoctorCitasRangoFechaComponent},
+        { path: "CitasEstado", component: DoctorCitasEstadoComponent },
+        { path: "CitasEspecialidad", component: DoctorCitasEspecialidadComponent }
+    ]}
+    
+
+
+    
+];
+import { TestBed, async, inject } from '@angular/core/testing';
+
+import { AuthGuard } from './auth.guard';
+
+describe('AuthGuard', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [AuthGuard]
+    });
+  });
+
+  it('should ...', inject([AuthGuard], (guard: AuthGuard) => {
+    expect(guard).toBeTruthy();
+  }));
+});
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
+import { FuncionarioService } from './services/funcionario.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+
+
+  constructor (private funcionarioService: FuncionarioService){
+
+  }
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    return this.funcionarioService.getisLogged();
+  }
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Frontend</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--Import bootstrap.css
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<body>
+  <app-root></app-root>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <script>
+    feather.replace()
+  </script>
+</body>
+</html>
+
+const centroAtencion = require('../models/centrosAtencion');
+
+const centroMedicoCtrl = {};
+
+centroMedicoCtrl.getcentrosAtencion = async (req, res, next) => {
+    const centroMedicos = await centroAtencion.find();
+    res.json(centroMedicos);
+};
+
+centroMedicoCtrl.createcentroAtencion = async (req, res, next) => {
+    const centroMedico = new centroAtencion({
+        nombre: req.body.nombre,
+        ubicacion: req.body.ubicacion,
+        capacidad: req.body.capacidad,
+        tipo: req.body.tipo
+    });
+    await centroMedico.save();
+    res.json({status: 'centroAtencion created'});
+};
+
+centroMedicoCtrl.getcentroAtencion = async (req, res, next) => {
+    const { id } = req.params;
+    const centroMedico = await centroAtencion.findById(id);
+    res.json(centroMedico);
+};
+
+centroMedicoCtrl.editcentroAtencion = async (req, res, next) => {
+    const { id } = req.params;
+    const centroMedico = {
+        nombre: req.body.nombre,
+        ubicacion: req.body.ubicacion,
+        capacidad: req.body.capacidad,
+        tipo: req.body.tipo
+    };
+    await centroAtencion.findByIdAndUpdate(id, {$set: centroMedico}, {new: true});
+    res.json({status: 'centroAtencion Updated'});
+};
+
+centroMedicoCtrl.deletecentroAtencion = async (req, res, next) => {
+    await centroAtencion.findByIdAndRemove(req.params.id);
+    res.json({status: 'centroAtencion Deleted'});
+};
+
+
+module.exports = centroMedicoCtrl;
+
+
+const Cita = require('../models/citas');
+
+const citaCtrl = {};
+
+citaCtrl.getCitas = async (req, res, next) => {
+    const  IdPaciente = req.params.idPaciente;
+    const citas = await Cita.find({idPaciente:IdPaciente});
+    res.json(citas);
+};
+
+citaCtrl.createCita = async (req, res, next) => {
+    const cita = new Cita({
+        idPaciente: req.params.idPaciente,
+        especialidad: req.body.especialidad,
+        fechaH: req.body.fechaH,
+        observacion: req.body.observacion,
+        estado: "Registrada"
+    });
+    await cita.save();
+    res.json({status: 'Cita created'});
+};
+
+citaCtrl.getCita = async (req, res, next) => {
+    const { id } = req.params.id;
+    const cita = await Cita.findById(id);
+    res.json(cita);
+};
+
+citaCtrl.cancelarCita = async (req, res, next) => {
+    const id  = req.params.id;
+    await Cita.findByIdAndUpdate(id, {$set: {
+        estado: "Cancelada por paciente"
+    }});
+    res.json({status: 'Cita Updated'});
+};
+
+citaCtrl.getCitasEstado = async (req, res, next) => {
+    const  IdPaciente  = req.params.idPaciente;
+    const  Estado  = req.params.estado;
+    const cita = await Cita.find({idPaciente:IdPaciente, estado:Estado});
+    res.json(cita);
+};
+
+citaCtrl.getCitasEspecialidad = async (req, res, next) => {
+    const  IdPaciente  = req.params.idPaciente;
+    const  Especialidad  = req.params.especialidad;
+    const cita = await Cita.find({idPaciente:IdPaciente, especialidad:Especialidad});
+    res.json(cita);
+};
+
+citaCtrl.getCitasRango = async (req, res, next) => {
+    const  IdPaciente  = req.params.idPaciente;
+    const  PrimerFecha  = req.params.primerFecha;
+    const  SegundaFecha  = req.params.segundaFecha;
+    const cita = await Cita.aggregate([{ $match: {idPaciente:IdPaciente,fechaH: { $gt: new Date(PrimerFecha), $lt:  new Date(SegundaFecha)}}}]);
+    console.log(cita);
+    res.json(cita);
+};
+
+
+module.exports = citaCtrl;
+
+const DoctorAtenderPaciente = require('../models/doctorAtenderPacientes');
+const Cita = require('../models/citas');
+
+const doctorAtenderPacienteCtrl = {};
+
+
+
+doctorAtenderPacienteCtrl.createDoctorAtenderPaciente = async (req, res, next) => {
+    const CedulaDoctor = parseInt(req.params.cedulaDoctor);
+    const IdCita = req.body.idCita;
+    const doctorAtenderPaciente = new DoctorAtenderPaciente({
+        cedulaDoctor: CedulaDoctor,
+        cedulaPaciente: req.body.cedulaPaciente,
+        idCita: IdCita,
+        nombreDiagnostico: req.body.nombreDiagnostico,
+        nivelDiagnostico: req.body.nivelDiagnostico,
+        observaciones: req.body.observaciones,
+        nombreTratamiento: req.body.nombreTratamiento,
+        dosisTratamiento: req.body.dosisTratamiento,
+        cantidadDias: req.body.cantidadDias,
+        efectosSecundarios: req.body.efectosSecundarios
+    });
+    await doctorAtenderPaciente.save();
+    await Cita.findByIdAndUpdate(IdCita, {$set: {
+        estado: "Realizada"
+    }});
+
+    res.json({status: 'DoctorAtenderPaciente created'});
+};
+
+doctorAtenderPacienteCtrl.getDoctorAtenderPacientes = async (req, res, next) => {
+    const  CedulaDoctor  = req.params.cedulaDoctor;
+    console.log(CedulaDoctor)
+    const doctorAtenderPaciente = await DoctorAtenderPaciente.find({cedulaDoctor: CedulaDoctor});
+    res.json(doctorAtenderPaciente);
+};
+
+doctorAtenderPacienteCtrl.getDoctorAtenderPaciente = async (req, res, next) => {
+    const { id } = req.params.id;
+    const doctorAtenderPaciente = await DoctorAtenderPaciente.findById(id);
+    res.json(doctorAtenderPaciente);
+};
+
+
+doctorAtenderPacienteCtrl.editDoctorAtenderPaciente = async (req, res, next) => {
+    const { id } = req.params;
+    const doctorAtenderPaciente = {
+        cedulaPaciente: req.body.cedulaPaciente,
+        idCita: req.body.idCita,
+        nombreDiagnostico: req.body.nombreDiagnostico,
+        nivelDiagnostico: req.body.nivelDiagnostico,
+        observaciones: req.body.observaciones,
+        nombreTratamiento: req.body.nombreTratamiento,
+        dosisTratamiento: req.body.dosisTratamiento,
+        cantidadDias: req.body.cantidadDias,
+        efectosSecundarios: req.body.efectosSecundarios
+    };
+    await DoctorAtenderPaciente.findByIdAndUpdate(id, {$set: doctorAtenderPaciente}, {new: true});
+    res.json({status: 'DoctorAtenderPaciente Updated'});
+};
+
+doctorAtenderPacienteCtrl.deleteDoctorAtenderPaciente = async (req, res, next) => {
+    await DoctorAtenderPaciente.findByIdAndRemove(req.params.id);
+    res.json({status: 'DoctorAtenderPaciente Deleted'});
+};
+
+
+module.exports = doctorAtenderPacienteCtrl;
+
+const Enfermedad = require('../models/enfermedades');
+
+const enfermedadCtrl = {};
+
+enfermedadCtrl.getEnfermedades = async (req, res, next) => {
+    const enfermedades = await Enfermedad.find();
+    res.json(enfermedades);
+};
+
+enfermedadCtrl.createEnfermedad = async (req, res, next) => {
+    const enfermedad = new Enfermedad({
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        sintomas: req.body.sintomas,
+        tratamientos: req.body.tratamientos
+    });
+    await enfermedad.save();
+    res.json({status: 'Enfermedad created'});
+};
+
+enfermedadCtrl.getEnfermedad = async (req, res, next) => {
+    const { id } = req.params;
+    const enfermedad = await Enfermedad.findById(id);
+    res.json(enfermedad);
+};
+
+enfermedadCtrl.editEnfermedad = async (req, res, next) => {
+    const { id } = req.params;
+    const enfermedad = {
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        sintomas: req.body.sintomas,
+        tratamientos: req.body.tratamientos
+    };
+    await Enfermedad.findByIdAndUpdate(id, {$set: enfermedad}, {new: true});
+    res.json({status: 'Enfermedad Updated'});
+};
+
+enfermedadCtrl.deleteEnfermedad = async (req, res, next) => {
+    await Enfermedad.findByIdAndRemove(req.params.id);
+    res.json({status: 'Enfermedad Deleted'});
+};
+
+
+module.exports = enfermedadCtrl;
+
+const Funcionario = require('../models/funcionarios');
+
+const funcionarioCtrl = {};
+
+funcionarioCtrl.getFuncionarios = async (req, res, next) => {
+    const funcionarios = await Funcionario.find();
+    res.json(funcionarios);
+};
+
+funcionarioCtrl.createFuncionario = async (req, res, next) => {
+    const funcionario = new Funcionario({
+        cedula: req.body.cedula,
+        nombre: req.body.nombre,
+        tipo: req.body.tipo,
+        fechaIngreso: req.body.fechaIngreso,
+        area: req.body.area,
+    });
+    await funcionario.save();
+    res.json({status: 'Funcionario created'});
+};
+
+funcionarioCtrl.getFuncionario = async (req, res, next) => {
+    const { usuario } = req.params;
+    const funcionario = await Funcionario.findOne({usuario: usuario});
+    res.json(funcionario);
+};
+
+funcionarioCtrl.editFuncionario = async (req, res, next) => {
+    const { id } = req.params;
+    const funcionario = {
+        cedula: req.body.cedula,
+        nombre: req.body.nombre,
+        tipo: req.body.tipo,
+        fechaIngreso: req.body.fechaIngreso,
+        area: req.body.area,
+    };
+    await Funcionario.findByIdAndUpdate(id, {$set: funcionario}, {new: true});
+    res.json({status: 'Funcionario Updated'});
+};
+
+funcionarioCtrl.deleteFuncionario = async (req, res, next) => {
+    await Funcionario.findByIdAndRemove(req.params.id);
+    res.json({status: 'Funcionario Deleted'});
+};
+
+funcionarioCtrl.getUsuarioPassword = async (req , res, next) => {
+    Funcionario
+    .findOne({usuario: req.params.usuario})
+    .exec(function(err, respuesta){
+        console.log(respuesta);
+        if(err){
+            res.send("El usuario no esta registrado");
+        }else{
+            console.log(respuesta)
+            if(respuesta.password == req.params.password){
+                res.json(true);
+            }else{
+                res.json(false);
+            }
+        }
+    });
+};
+
+module.exports = funcionarioCtrl;
+
+const Paciente = require('../models/pacientes');
+
+const pacienteCtrl = {};
+
+pacienteCtrl.getPacientes = async (req, res, next) => {
+    const pacientes = await Paciente.find();
+    res.json(pacientes);
+};
+
+pacienteCtrl.createPaciente = async (req, res, next) => {
+    const paciente = new Paciente({
+        cedula: req.body.cedula,
+        nombre: req.body.nombre,
+        fechaNacimiento: req.body.fechaNacimiento,
+        tipoSangre: req.body.tipoSangre,
+        nacionalidad: req.body.nacionalidad,
+        residencia: req.body.residencia,
+        telefonos: req.body.telefonos,
+        correo: req.body.correo,
+        contrasena: req.body.contrasena
+    }); 
+    await paciente.save();
+    res.json({status: 'Paciente created'});
+};
+
+pacienteCtrl.getPaciente = async (req, res, next) => {
+    const { correo } = req.params;
+    const paciente = await Paciente.findOne({correo: correo});
+    res.json(paciente);
+};
+
+pacienteCtrl.getPacientePassword = async (req , res, next) => {
+    Paciente
+    .findOne({correo: req.params.correo})
+    .exec(function(err, respuesta){
+        console.log(respuesta);
+        if(err){
+            res.send("El usuario no esta registrado");
+        }else{
+            console.log(respuesta)
+            if(respuesta.contrasena == req.params.contrasena){
+                res.json(true);
+            }else{
+                res.json(false);
+            }
+        }
+    });
+};
+
+
+pacienteCtrl.editPaciente = async (req, res, next) => {
+    const { id } = req.params;
+    const paciente = {
+        cedula: req.body.cedula,
+        nombre: req.body.nombre,
+        fechaNacimiento: req.body.fechaNacimiento,
+        tipoSangre: req.body.tipoSangre,
+        nacionalidad: req.body.nacionalidad,
+        residencia: req.body.residencia,
+        telefonos: req.body.telefonos,
+        correo: req.body.correo,
+        contrasena: req.body.contrasena
+    };
+    await Paciente.findByIdAndUpdate(id, {$set: paciente}, {new: true});
+    res.json({status: 'Paciente Updated'});
+};
+
+pacienteCtrl.deletePaciente = async (req, res, next) => {
+    await Paciente.findByIdAndRemove(req.params.id);
+    res.json({status: 'Paciente Deleted'});
+};
+
+pacienteCtrl.getInfoPaciente = async (req, res, next) => {
+    const  CedulaPaciente  = parseInt(req.params.cedulaPaciente);
+    const paciente = await Paciente.find({cedula:CedulaPaciente});
+    res.json(paciente);
+};
+
+
+
+module.exports = pacienteCtrl;
+const Tratamiento = require('../models/tratamientos');
+
+const tratamientoCtrl = {};
+
+tratamientoCtrl.getTratamientos = async (req, res, next) => {
+    const tratamientos = await Tratamiento.find();
+    res.json(tratamientos);
+};
+
+tratamientoCtrl.createTratamiento = async (req, res, next) => {
+    const tratamiento = new Tratamiento({
+        nombre: req.body.nombre,
+        tipo: req.body.tipo,
+        dosis: req.body.dosis,
+        monto: req.body.monto
+    });
+    await tratamiento.save();
+    res.json({status: 'Tratamiento created'});
+};
+
+
+tratamientoCtrl.getTratamiento = async (req, res, next) => {
+    const { id } = req.params;
+    const tratamiento = await Tratamiento.findById(id);
+    res.json(tratamiento);
+};
+
+tratamientoCtrl.editTratamiento = async (req, res, next) => {
+    const { id } = req.params;
+    const tratamiento = {
+        nombre: req.body.nombre,
+        tipo: req.body.tipo,
+        dosis: req.body.dosis,
+        monto: req.body.monto
+    };
+    await Tratamiento.findByIdAndUpdate(id, {$set: tratamiento}, {new: true});
+    res.json({status: 'Tratamiento Updated'});
+};
+
+tratamientoCtrl.deleteTratamiento = async (req, res, next) => {
+    await Tratamiento.findByIdAndRemove(req.params.id);
+    res.json({status: 'Tratamiento Deleted'});
+};
+
+tratamientoCtrl.TratamientosAsig = async (req, res, next) => {
+    var consulta = Tratamiento.aggregate([{$group:{ _id: "$tipo", cantidad:{$sum: 1}, promedio:{$avg:"$monto"}}}])
+    consulta.exec(function(err, Result) {
+        if (err) {return err;}
+        res.json(Result);
+      });
+};
+
+
+
+module.exports = tratamientoCtrl;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const centrosAtencionSchema = Schema({
+  nombre: String,
+  ubicacion: String,
+  capacidad: Number,
+  tipo: String
+});
+
+module.exports = mongoose.model('centrosAtencion', centrosAtencionSchema);
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const citasSchema = Schema({
+  idPaciente: String,
+  especialidad: String,
+  fechaH: Date,
+  observacion: String,
+  estado: String
+});
+
+module.exports = mongoose.model('citas', citasSchema);
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const doctorAtenderPacientes = Schema({
+    cedulaDoctor: Number,
+    cedulaPaciente: Number,
+    idCita: String,
+    nombreDiagnostico: String,
+    nivelDiagnostico: String,
+    observaciones: String,
+    nombreTratamiento: String,
+    dosisTratamiento: String,
+    cantidadDias: Number,
+    efectosSecundarios: String
+});
+
+module.exports = mongoose.model('doctorAtenderPacientes', doctorAtenderPacientes);
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const enfermedadesSchema = Schema({
+  nombre: String,
+  descripcion: String,
+  sintomas: String,
+  tratamientos: String
+});
+
+module.exports = mongoose.model('enfermedades', enfermedadesSchema);
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const funcionarioSchema = Schema({
+  cedula: Number,
+  nombre: String,
+  tipo: String,
+  fechaIngreso: Date,
+  area: String,
+  password: String,
+  usuario: String
+});
+
+module.exports = mongoose.model('Funcionario', funcionarioSchema);
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const pacienteSchema = Schema({
+  cedula: Number,
+  nombre: String,
+  fechaNacimiento: Date,
+  tipoSangre: String,
+  nacionalidad: String,
+  residencia: String,
+  telefonos: String,
+  correo: String,
+  contrasena: String
+});
+
+module.exports = mongoose.model('paciente', pacienteSchema);
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const tratamientosSchema = Schema({
+  nombre: String,
+  tipo: String,
+  dosis: String,
+  monto: Number
+});
+
+module.exports = mongoose.model('tratamientos', tratamientosSchema);
+const express = require('express');
+const router = express.Router();
+
+const centroAtencion = require('../controllers/centroAtencion.controller');
+
+router.get('/', centroAtencion.getcentrosAtencion);
+router.post('/', centroAtencion.createcentroAtencion);
+router.get('/:id', centroAtencion.getcentroAtencion);
+router.put('/:id', centroAtencion.editcentroAtencion);
+router.delete('/:id', centroAtencion.deletecentroAtencion);
+
+module.exports = router;
+
+const express = require('express');
+const router = express.Router();
+
+const cita = require('../controllers/cita.controller');
+
+router.get('/:idPaciente', cita.getCitas);
+router.post('/:idPaciente', cita.createCita);
+router.put('/cancelarCita/:id', cita.cancelarCita);
+router.get('/getCitasEstado/:idPaciente&:estado',cita.getCitasEstado);
+router.get('/getCitasEspecialidad/:idPaciente&:especialidad',cita.getCitasEspecialidad);
+router.get('/getCitasRango/:idPaciente&:primerFecha&:segundaFecha',cita.getCitasRango);
+
+module.exports = router;
+const express = require('express');
+const router = express.Router();
+
+const doctorAtenderPaciente = require('../controllers/doctorAtenderPaciente.controller');
+
+
+
+router.post('/:cedulaDoctor', doctorAtenderPaciente.createDoctorAtenderPaciente);
+router.get('/:cedulaDoctor', doctorAtenderPaciente.getDoctorAtenderPacientes);
+router.put('/:id', doctorAtenderPaciente.editDoctorAtenderPaciente);
+router.delete('/:id', doctorAtenderPaciente.deleteDoctorAtenderPaciente);
+
+module.exports = router;
+const express = require('express');
+const router = express.Router();
+
+const enfermedad = require('../controllers/enfermedad.controller');
+
+router.get('/', enfermedad.getEnfermedades);
+router.post('/', enfermedad.createEnfermedad);
+router.get('/:id', enfermedad.getEnfermedad);
+router.put('/:id', enfermedad.editEnfermedad);
+router.delete('/:id', enfermedad.deleteEnfermedad);
+
+
+module.exports = router;
+
+const express = require('express');
+const router = express.Router();
+
+const funcionario = require('../controllers/funcionario.controller');
+
+router.get('/', funcionario.getFuncionarios);
+router.post('/', funcionario.createFuncionario);
+router.get('/getlogin/:usuario', funcionario.getFuncionario);
+router.put('/:id', funcionario.editFuncionario);
+router.delete('/:id', funcionario.deleteFuncionario);
+router.get('/login/:usuario&:password',funcionario.getUsuarioPassword);
+
+module.exports = router;
+const express = require('express');
+const router = express.Router();
+
+const paciente = require('../controllers/pacientes.controller');
+
+router.get('/', paciente.getPacientes);
+router.post('/', paciente.createPaciente);
+router.get('/getlogin/:correo', paciente.getPaciente);
+router.put('/:id', paciente.editPaciente);
+router.delete('/:id', paciente.deletePaciente);
+router.get('/login/:correo&:contrasena',paciente.getPacientePassword);
+router.get('/getInfoPaciente/:cedulaPaciente',paciente.getInfoPaciente);
+
+module.exports = router;
+const express = require('express');
+const router = express.Router();
+
+const tratamiento = require('../controllers/tratamiento.controller');
+
+router.get('/', tratamiento.getTratamientos);
+router.post('/', tratamiento.createTratamiento);
+router.get('/:id', tratamiento.getTratamiento);
+router.put('/:id', tratamiento.editTratamiento);
+router.delete('/:id', tratamiento.deleteTratamiento);
+router.get('/consultas/TratamientosAsig', tratamiento.TratamientosAsig);
+
+
+module.exports = router;
+
+const mongoose = require('mongoose');
+const URI = 'mongodb://localhost/tec-health-prueba';
+
+mongoose.connect(URI)
+    .then(db => console.log('db is connected'))
+    .catch(err => console.error(err));
+
+module.exports = mongoose;
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+const { mongoose } = require('./database');
+
+// Settings
+app.set('port', process.env.PORT || 3000);
+
+// Middlewares
+app.use(cors({origin: 'http://localhost:4200'}));
+app.use(express.json());
+
+// Routes
+app.use('/admin/funcionarios', require('./routes/funcionario.routes'));
+app.use('/admin/tratamientos', require('./routes/tratamiento.routes'));
+app.use('/admin/enfermedades', require('./routes/enfermedad.routes'));
+app.use('/admin/centrosAtencion', require('./routes/centroAtencion.routes'));
+app.use('/paciente/citas', require('./routes/cita.routes'));
+app.use('/register/paciente', require('./routes/paciente.routes'));
+app.use('/doctor/atenderPacientes', require('./routes/doctorAtenderPaciente.routes'));
+
+// starting the server
+app.listen(app.get('port'), () => {
+    console.log(`server on port ${app.get('port')}`);
+});
+
+
+
+

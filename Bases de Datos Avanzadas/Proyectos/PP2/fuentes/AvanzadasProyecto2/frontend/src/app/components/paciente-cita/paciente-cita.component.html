@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body border border-secondary">
+          <form #citaForm="ngForm" (ngSubmit)="addCita(citaForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="citaService.selectedCita._id">
+            <div class="form-group">
+              <input class="form-control border-primary" type="text" name="especialidad" #name="ngModel" [(ngModel)]="citaService.selectedCita.especialidad"
+                placeholder="Especialidad">
+            </div>
+            <div class="form-group">
+              <input class="form-control border-primary" type="datetime-local" name="fechaH" #name="ngModel"
+                [(ngModel)]="citaService.selectedCita.fechaH" placeholder="fecha y hora de cita">
+            </div>
+            <div class="form-group">
+              <input class="form-control border-primary" type="text" name="observacion" #name="ngModel" [(ngModel)]="citaService.selectedCita.observacion"
+                placeholder="Observación">
+            </div>
+            <div class="card-action">
+              <button type="submit" class="btn btn-info btn-block">Registrar cita</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Id cita</th>
+          <th>Especialidad</th>
+          <th>fechaH</th>
+          <th>Observacion</th>
+          <th>Estado</th>
+          <th>Cancelar</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citaService.citas">
+            <td>{{ cita._id }}</td>
+            <td>{{ cita.especialidad }}</td>
+            <td>{{ cita.fechaH }}</td>
+            <td>{{ cita.observacion }}</td>
+            <td>{{ cita.estado }}</td>
+            <td>
+              <a (click)="cancelarCita(cita)">
+                <i class="material-icons">cancel</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

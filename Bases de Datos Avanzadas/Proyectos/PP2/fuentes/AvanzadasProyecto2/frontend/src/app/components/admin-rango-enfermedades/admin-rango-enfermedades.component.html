@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <th>Cedula paciente</th>
+        <th>Nombre paciente</th>
+        <th>Valor mayor</th>
+        <th>Valor menor</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let adminRangoEnfermedad of adminRangoEnfermedades">
+          <td>{{ adminRangoEnfermedad.cedulaPaciente }}</td>
+          <td>{{ adminRangoEnfermedad.nombrePaciente }}</td>
+          <td>{{ adminRangoEnfermedad.valorMayor }}</td>
+          <td>{{ adminRangoEnfermedad.valorMenor }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

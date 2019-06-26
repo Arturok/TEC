@@ -1,0 +1,171 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Películas por Productora</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a href="/" class="navbar-brand col-sm-3 col-md-2 mr-0">Home</a>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/IngresarPelicula">
+                      <span data-feather="film"></span>
+                      Igresar Película
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/IngresarProductora">
+                      <span data-feather="tablet"></span>
+                      Igresar Compañía
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/PeliculaNombre">
+                      <span data-feather="video"></span>
+                      Película por Nombre
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="/PeliculasFranquicia">
+                        <span data-feather="award"></span>
+                        Películas por Franquicia
+                      </a>
+                    </li>
+                <li class="nav-item">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/PeliculasRango">
+                      <span data-feather="calendar"></span>
+                      Películas por años
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/PeliculasProductora">
+                      <span data-feather="play-circle"></span>
+                      Películas por Productora
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/EstadisticasProductora">
+                      <span data-feather="sliders"></span>
+                      Estadísticas Productora
+                    </a>
+                  </li>
+                </ul>
+          </div>
+        </nav>
+
+        <!-- Pelicula por nombre -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Peliculas de una Compaía Productora</h1>
+          </div>
+          <div class="container">
+              <div class="row">
+                  <!-- Form -->
+                  <div class="col-md-12">
+                      <div class="card">
+                          <div class="card-body">
+                              <form action="/searchPeliculasProductora" method="POST">
+                                  <div class="form-group">
+                                      <label for="productora">Buscar películas por Compañia Productora</label>
+                                      <input type="text" name="productora" placeholder="Nombre de la Compañia Productora" class="form-control">
+                                  </div>
+                                  <button type="submit" class="btn btn-primary btn-block">Buscar</button>
+                              </form>
+                          </div>
+                      </div>                      
+                  </div>
+              </div>             
+          </div>
+          <div class="container">
+                <div class="row">
+                        <!-- Table -->
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Género</th>                          
+                                        <th>Año</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <% for(var i = 0; i < peliculas.length; i++) { %>
+                                  <tr>
+                                    <td> <%= peliculas[i].nombre %> </td>
+                                    <td> <%= peliculas[i].genero %> </td>
+                                    <td> <%= peliculas[i].ano %> </td>
+                                  </tr>
+                                  <% } %>
+                                </tbody>
+                            </table>                      
+                          </div>
+                    </div>   
+          </div>
+        </main>
+
+
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+
+    <!-- scripts para forms 
+    <script src="./scripts/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>-->
+
+ 
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+  </body>
+</html>

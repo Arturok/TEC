@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body border border-secondary">
+          <form #funcionarioForm="ngForm" (ngSubmit)="addFuncionario(funcionarioForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario._id">
+              <div class="form-group">
+                <input class="form-control border-primary" type="number" name="cedula" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.cedula" placeholder="Cedula">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="nombre" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.nombre" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="tipo" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.tipo" placeholder="Tipo">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="date" name="fechaIngreso" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.fechaIngreso" placeholder="Fecha de ingreso">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="area" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.area" placeholder="Area">
+              </div>
+              <div class="card-action">
+                <button type="submit" class="btn btn-info btn-block">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Cedula</th>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>FechaIngreso</th>
+          <th>Area</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let funcionario of funcionarioService.funcionarios">
+            <td>{{ funcionario.cedula }}</td>
+            <td>{{ funcionario.nombre }}</td>
+            <td>{{ funcionario.tipo }}</td>
+            <td>{{ funcionario.fechaIngreso | date }}</td>
+            <td>{{ funcionario.area }}</td>
+            <td>
+              <a (click)="editFuncionario(funcionario)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteFuncionario(funcionario._id, funcionarioForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

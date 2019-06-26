@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body border border-secondary">
+          <form #tratamientoForm="ngForm" (ngSubmit)="addTratamiento(tratamientoForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento._id">
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="nombre" #name="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento.nombre" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="tipo" #name="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento.tipo" placeholder="Tipo">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="text" name="dosis" #name="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento.dosis" placeholder="Dosis">
+              </div>
+              <div class="form-group">
+                <input class="form-control border-primary" type="number" name="monto" #name="ngModel" [(ngModel)]="tratamientoService.selectedTratamiento.monto" placeholder="Monto">
+              </div>
+              <div class="card-action">
+                <button type="submit" class="btn btn-info btn-block">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Dosis</th>
+          <th>Monto</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tratamiento of tratamientoService.tratamientos">
+            <td>{{ tratamiento.nombre }}</td>
+            <td>{{ tratamiento.tipo }}</td>
+            <td>{{ tratamiento.dosis}}</td>
+            <td>{{ tratamiento.monto }}</td>
+            <td>
+              <a (click)="editTratamiento(tratamiento)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteTratamiento(tratamiento._id, tratamientoForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

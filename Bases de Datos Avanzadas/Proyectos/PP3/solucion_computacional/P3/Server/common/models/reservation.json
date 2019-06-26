@@ -1,0 +1,45 @@
+{
+  "name": "reservation",
+  "plural": "reservations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "clientId": {
+      "type": "number",
+      "required": true
+    },
+    "siteId": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "peopleAmount": {
+      "type": "number",
+      "required": true
+    },
+    "checkinDate": {
+      "type": "date",
+      "required": true
+    },
+    "checkoutDate": {
+      "type": "date",
+      "required": true
+    },
+    "particularNeeds": {
+      "type": "string"
+    },
+    "extraServices": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
