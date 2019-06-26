@@ -1,0 +1,27 @@
+[submodule "Análisis Numérico para Ingenieria/Proyectos/Proyecto1"]
+	path = Análisis Numérico para Ingenieria/Proyectos/Proyecto1
+	url = https://gitlab.com/anpi_jas/Proyecto1
+[submodule "Análisis Numérico para Ingenieria/Proyectos/Proyecto2"]
+	path = Análisis Numérico para Ingenieria/Proyectos/Proyecto2
+	url = https://gitlab.com/anpi_jas/Proyecto2
+[submodule "Análisis Numérico para Ingenieria/Proyectos/Proyecto3"]
+	path = Análisis Numérico para Ingenieria/Proyectos/Proyecto3
+	url = https://gitlab.com/anpi_jas/Proyecto3
+[submodule "Análisis Numérico para Ingenieria/Tareas/Tarea3Analisis"]
+	path = Análisis Numérico para Ingenieria/Tareas/Tarea3Analisis
+	url = https://gitlab.com/santigr17/Tarea3Analisis
+[submodule "Análisis Numérico para Ingenieria/Tareas/Tarea4"]
+	path = Análisis Numérico para Ingenieria/Tareas/Tarea4
+	url = https://gitlab.com/anpi_jas/Tarea4
+[submodule "Análisis Numérico para Ingenieria/Tareas/Tarea5"]
+	path = Análisis Numérico para Ingenieria/Tareas/Tarea5
+	url = https://gitlab.com/anpi_jas/Tarea5
+[submodule "Análisis Numérico para Ingenieria/Tareas/Tarea6.2"]
+	path = Análisis Numérico para Ingenieria/Tareas/Tarea6.2
+	url = https://gitlab.com/anpi_jas/Tarea6.2
+[submodule "Bases de Datos Avanzadas/Tareas/-f"]
+	path = Bases de Datos Avanzadas/Tareas/-f
+	url = C:\\Users\\mchin\\Desktop\\TEC\\Bases de Datos Avanzadas\\Tareas\\T05 - LabMongo
+[submodule "Lenguajes, Compiladores e Intérpretes/diabolicMagicSquare"]
+	path = Lenguajes, Compiladores e Intérpretes/diabolicMagicSquare
+	url = https://github.com/CE-3104-1-2016/diabolicMagicSquare
